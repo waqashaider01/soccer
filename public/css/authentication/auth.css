@@ -1,0 +1,84 @@
+.left-side {
+    background-image: url(/images/side-image.jpeg);
+    height: 120vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -50px;
+}
+.left-side .content {
+    width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    text-align: center;
+    font-family: sans-serif;
+    color: #fff;
+    padding: 200px 0px;
+}
+.left-side .content img {
+    width: 160px;
+}
+.left-side .content .text h1 {
+    font-size: 34px;
+    font-weight: 600;
+}
+.left-side .content .text p {
+    font-size: 18px;
+    font-weight: 500;
+}
+/* right-side styles */
+.user-auth-form {
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 20px;
+    font-family: sans-serif;
+    height: 100%;
+    padding-top: 100px;
+}
+.user-auth-form h4 {
+    text-align: center;
+    font-size: 24px;
+    color: #1a73e8;
+    font-weight: 700;
+}
+/* .user-auth-form .form-control {
+    border-radius: 0px !important;
+} */
+.user-auth-form label {
+    font-weight: 600;
+}
+.user-auth-form span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
+}
+.user-auth-form .recover-password {
+    font-weight: 600;
+    font-size: 12px;
+}
+.user-auth-form button {
+    width: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    background-color: #4cb050;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.user-auth-form button:hover {
+    background-color: #2f8132;
+}
+.user-auth-form .link {
+    font-weight: 600;
+    font-size: 12px;
+}
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #e3342f !important;
+}

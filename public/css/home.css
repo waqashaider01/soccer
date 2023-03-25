@@ -1,0 +1,431 @@
+#fullpage section {
+    height: 84vh;
+}
+
+
+/* main-heading styles */
+
+.main-heading {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    text-transform: uppercase;
+}
+
+.main-heading h2 {
+    font-weight: 500 !important;
+    font-size: 2.4em !important;
+}
+
+
+/* hero-section styles */
+
+.hero {
+    height: auto !important;
+    width: 100%;
+    color: #fff;
+    position: relative;
+}
+
+.hero .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.hero .background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.hero .content {
+    margin: 100px 0px !important;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+}
+
+.hero p {
+    font-size: 2.3em;
+}
+
+.hero ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.hero ul li {
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.hero ul li i {
+    margin-right: 10px;
+}
+
+.hero .get-started-btn {
+    color: #fff;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-right: 20px;
+    padding: 8px 14px;
+    background-color: #20b234;
+    font-family: "PT Sans", sans-serif;
+}
+
+.hero .get-started-btn:hover {
+    color: #000;
+}
+
+.watch-video-btn {
+    color: #fff;
+    font-size: 16px;
+    background-color: #8f41ec;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.hero .imac {
+    width: 100%;
+    margin-top: 100px;
+}
+
+
+/* categories-section styles */
+
+.category {
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+    height: 280px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+}
+
+.category:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform: translateY(-6px);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.category .body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    padding: 0px 20px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category .body .content {
+    height: 50%;
+}
+
+.category .body .signup-container {
+    height: 30%;
+    font-family: "PT Sans", sans-serif;
+}
+
+.category .body .content ul {
+    list-style: none;
+    padding: 0px;
+    text-align: left;
+}
+
+.category .body .content ul li {
+    line-height: 1.6;
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "PT Sans", sans-serif;
+}
+
+.category .body .content ul li .text {
+    margin-left: 10px;
+    font-weight: lighter;
+}
+
+.category .body .content ul li i {
+    color: #f9a41a;
+}
+
+.category .body .content h4 {
+    text-align: center;
+    font-size: 2.3em;
+    font-weight: 500;
+}
+
+.category .body .signup-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #4a98e3;
+    width: 180px;
+    height: 50px;
+    padding: 2px;
+}
+
+.category .body .signup-btn button {
+    background-color: #4a98e3;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.category .body .signup-btn:hover {
+    border-color: #bf3637;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category .body .signup-btn:hover button {
+    background-color: #bf3637;
+    transition: all 0.4s;
+    color: #fff;
+}
+
+.category .signup-container p {
+    margin-top: 12px;
+}
+
+
+/* how-it-woks section styles */
+
+.how-it-works {
+    margin-top: 140px !important;
+    background-color: #d5d6d8 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.how-it-works .sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.how-it-works .sec .img {
+    width: 245px;
+    /* width: 312px; */
+    height: 245px;
+}
+
+.how-it-works .sec .img1 {
+    width: 298px;
+    height: 245px;
+}
+
+.how-it-works .sec .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.how-it-works .sec .img1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.sec>.img1>.p1 {
+    width: 100%;
+    height: 100%;
+    border-radius: 0% !important;
+}
+
+.how-it-works .sec2 .img {
+    position: relative;
+}
+
+.how-it-works .sec2 .img .p1 {
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #2a35b4;
+    z-index: 1;
+}
+
+.how-it-works .sec2 .img .p2 {
+    position: absolute;
+    bottom: 0px;
+    left: 100px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #20b234;
+    z-index: 2;
+}
+
+.how-it-works .sec2 .img .p3 {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    z-index: 3;
+}
+
+.how-it-works .sec .body {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.how-it-works .sec .body h5 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.how-it-works .sec .body p {
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 500;
+}
+
+
+/* why-swl section styles */
+
+.simplicity {
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+
+.simplicity .content {
+    padding-right: 40px;
+}
+
+.simplicity h1 {
+    color: #2a35b4;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.simplicity p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.simplicity img {
+    width: 100%;
+}
+
+.simplicity .watch-video-btn {
+    margin-top: 50px;
+}
+
+
+/* convinience section styles */
+
+.convinience {
+    font-family: sans-serif;
+}
+
+.convinience .content {
+    padding-left: 40px;
+}
+
+.convinience h1 {
+    color: red;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.convinience p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.convinience img {
+    width: 100%;
+}
+
+.convinience .watch-video-btn {
+    margin-top: 50px;
+}
+
+
+/* savings section styles */
+
+.savings {
+    font-family: sans-serif;
+}
+
+.savings .content {
+    padding-right: 40px;
+}
+
+.savings h1 {
+    color: #28ab3c;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.savings b {
+    font-size: 18px;
+}
+
+.savings p {
+    font-size: 18px;
+    padding-top: 20px;
+}
+
+.savings img {
+    width: 100%;
+}
+
+.savings .watch-video-btn {
+    margin-top: 50px;
+}
+
+
+/* join-us section styles */
+
+.join-us {
+    height: 450px !important;
+    background-image: url(/images/hero-bottom.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px;
+}
+
+.join-us p {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.join-us p a {
+    color: #bf3637;
+}

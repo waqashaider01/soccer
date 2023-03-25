@@ -1,0 +1,289 @@
+.pricing-section {
+    position: relative;
+}
+.pricing-hero {
+    height: 300px;
+    background-image: url(/images/players/players-hero.png);
+    background-size: cover;
+    background-position: -100px -100px;
+}
+.pricing-section .heading {
+    text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    padding-top: 100px;
+}
+.pricing-section .heading h1 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.pricing-section .heading p {
+    font-size: 16px;
+}
+.pricing {
+    font-family: sans-serif;
+}
+
+.pricing .nav-pills .nav-link {
+    border: 0px;
+    border-radius: 0px;
+    width: 100%;
+    font-weight: 700;
+    background-color: #363533;
+    color: #fff;
+    padding: 10px 0px;
+}
+.pricing .nav-pills .nav-link.active {
+    background-color: #720407;
+}
+.pricing .nav-pills .nav-link:hover {
+    background-color: #720407;
+}
+.pricing .nav-pills .nav-item2,
+.pricing .nav-pills .nav-item3,
+.pricing .nav-pills .nav-item4 {
+    margin: 0px 5px;
+}
+.pricing .nav-pills .nav-item1 {
+    margin-right: 5px;
+}
+.pricing .nav-pills .nav-item5 {
+    margin-left: 5px;
+}
+/* free-trial card */
+.free-trial-card {
+    width: 100%;
+    background-color: #f6f7f9;
+    text-align: center;
+    padding: 20px;
+    font-family: "Oswald";
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    margin-bottom: 30px;
+}
+.free-trial-card h4 {
+    font-weight: 900;
+    font-size: 16px;
+}
+.free-trial-card h1 {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 30px;
+}
+.free-trial-card p {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.free-trial-card .signup-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #4cb050;
+    width: 140px;
+    height: 40px;
+    padding: 2px;
+    margin-top: 14px;
+}
+.free-trial-card .signup-btn button {
+    background-color: #4cb050;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.free-trial-card .signup-btn:hover {
+    border-color: #720407;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.free-trial-card .signup-btn:hover button {
+    background-color: #720407;
+    transition: all 0.4s;
+    color: #fff;
+}
+/* premium-card styles */
+.premium-card {
+    width: 100%;
+    text-align: center;
+    font-family: "Oswald";
+    padding: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.premium-card .ribbon {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+}
+.premium-card .ribbon img {
+    width: 140px;
+}
+.premium-card h4 {
+    font-weight: 900;
+    font-size: 16px;
+}
+.premium-card h1 {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 30px;
+}
+.premium-card h1 span {
+    font-weight: 100;
+    font-size: 16px;
+}
+.premium-card p {
+    font-family: sans-serif;
+    color: #555;
+}
+.premium-card p b {
+    font-weight: 900;
+    color: #000;
+}
+.premium-card .plan {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px 5px;
+    font-family: sans-serif;
+    height: 140px;
+}
+.premium-card .plan .content {
+    height: 60%;
+}
+.premium-card .plan .signup-container {
+    height: 40%;
+}
+.premium-card .plan p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #555;
+}
+.premium-card .plan b {
+    font-size: 12px;
+    font-weight: 700;
+}
+.premium-card .plan .signup-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #4cb050;
+    width: 100px;
+    height: 40px;
+    padding: 2px;
+    margin-top: 10px;
+}
+.premium-card .plan .signup-btn button {
+    background-color: #4cb050;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.premium-card .plan .signup-btn:hover {
+    border-color: #720407;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.premium-card .plan .signup-btn:hover button {
+    background-color: #720407;
+    transition: all 0.4s;
+    color: #fff;
+}
+
+/* pricing-table */
+.features-heading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
+.pricingTable {
+    color: #fff;
+    background: #fff;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    padding: 0 0 15px;
+    margin: 0 40px;
+    position: relative;
+}
+.pricingTable .pricing-content {
+    padding: 0;
+    margin: 0 0 15px;
+    list-style: none;
+}
+.pricingTable .pricing-content li {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    padding: 4px 20px;
+    position: relative;
+}
+/* .pricingTable .pricing-content li:nth-child(even) {
+    background: #d9d9d9;
+} */
+.pricingTable .pricing-content li:before {
+    content: "\f00c";
+    color: #4cb050;
+    font-family: "Font Awesome 5 free";
+    font-size: 17px;
+    font-weight: 900;
+    position: absolute;
+    top: 4px;
+    left: 0px;
+}
+.pricingTable .pricing-content li.disable:before {
+    content: "\f00d";
+    color: red;
+}
+/* payments-logo */
+.payments {
+    text-align: center;
+}
+.payments img {
+    width: 40px;
+    margin-right: 10px;
+}
+.payments .paypal-logo {
+    width: 80px;
+}
+.payments .visa-logo {
+    width: 50px;
+}
+.payments .mastercard-logo {
+    width: 35px;
+}
+.payments .jcb-logo {
+    width: 30px;
+}
+.payments .discover-logo {
+    width: 80px;
+}
+.payments p {
+    font-size: 16px;
+    font-weight: 600;
+}
+.payments p a {
+    color: #000;
+    margin-left: 10px;
+    border-bottom: #000 1px solid;
+}
+.payments p a:hover {
+    color: #000;
+    text-decoration: none;
+}

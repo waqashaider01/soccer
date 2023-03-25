@@ -1,0 +1,67 @@
+.my-network {
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+}
+.my-network #nav-tabContent {
+    border: 1px solid #dee2e6;
+    margin-top: 10px;
+    padding: 20px;
+}
+.my-network .nav-tabs .nav-link {
+    color: #000 !important;
+    border-radius: 0px !important;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.my-network .nav-tabs .nav-link.active {
+    background-color: #f5f5f5 !important;
+}
+.my-network .nav-tabs .nav-link.active i {
+    color: #bf3637;
+}
+/* following-card */
+.following-card {
+    margin-bottom: 10px !important;
+}
+.following-card .img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.following-card .about .name a {
+    color: #bf3637;
+}
+.following-card .about .title {
+    color: #555;
+    font-size: 14px;
+}
+.following-card .request-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+.following-card .request-section .unfollow-btn,
+.following-card .request-section .accept-btn {
+    background-color: #1a73e8;
+    color: #fff;
+    border: 0px;
+    text-transform: capitalize;
+    padding: 6px 14px;
+}
+.following-card .request-section .unfollow-btn:hover,
+.following-card .request-section .accept-btn:hover,
+.following-card .request-section .remove-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.following-card .request-section .remove-btn {
+    background-color: #eee;
+    color: #000;
+    border: 0px;
+    text-transform: capitalize;
+    padding: 6px 14px;
+}

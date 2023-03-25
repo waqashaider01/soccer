@@ -1,0 +1,1 @@
+<i class="fa fa-heart fav" onclick="fav({{ $player->id }})" id="fav{{ $player->id }}"></i>

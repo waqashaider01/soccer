@@ -1,0 +1,234 @@
+.agents-section {
+    background-color: #f5f5f5;
+}
+
+.agents-hero {
+    height: 450px;
+    background-image: url(/images/agents/agents-hero.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.agents {
+    margin-top: -360px;
+    font-family: sans-serif;
+}
+
+.agents .heading {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.agents .heading h1 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.agents .heading p {
+    font-size: 16px;
+}
+
+
+/* agents-filter styling */
+
+.agents .search-box {
+    position: relative;
+}
+
+.agents form {
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.agents .search-box::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    opacity: 0.1;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.agents form label {
+    margin: 0px !important;
+}
+
+.agents form select,
+.agents form input {
+    width: 260px;
+    height: 34px;
+    padding: 5px;
+}
+
+.agents form select:focus,
+.agents form input:focus {
+    outline: none;
+}
+
+.agents form .search-btn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.agents form button {
+    width: 140px;
+    max-height: 34px;
+    margin-top: 22px;
+    border: none;
+    background-color: #1a73e8;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* agents-list styling */
+
+.agents-list {
+    margin-top: 40px;
+}
+
+.agents-card {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.agents-card .ribbon {
+    position: absolute;
+    width: 220px;
+    height: 30px;
+    background-color: #bf3637;
+    transform: rotate(-45deg);
+    top: 20px;
+    left: -86px;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.agents-card .top {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.agents-card .img {
+    height: 120px;
+    width: 100%;
+    position: relative;
+}
+
+.agents-card .img i {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.agents-card .img i:hover {
+    cursor: pointer;
+    color: #bf3637;
+}
+
+.agents-card .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.agents-card .firstname {
+    color: #762340;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.agents-card .lastname {
+    color: #762340;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.agents-card .lastname span {
+    font-size: 16px;
+    color: #4d9a46;
+}
+
+.agents-card .top .content {
+    text-align: center;
+}
+
+.agents-card .top .content img {
+    width: 30px;
+}
+
+.agents-card .top .content b {
+    font-size: 22px;
+}
+
+.agents-card .top .content p {
+    font-size: 16px;
+}
+
+.agents-card .profile-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ddd;
+}
+
+.agents-card .profile-btn a {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #bf3637;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.agents-card .profile-btn a:hover {
+    background-color: #751717;
+}
+
+.agents-card .bottom {
+    background-color: #185abc;
+    padding: 6px 20px;
+    color: #fff;
+}
+
+.agents-card .bottom .content {
+    text-align: center;
+}
+
+.agents-card .bottom .views {
+    border-left: 1px solid #ddd;
+}
+
+.agents-card .bottom b {
+    font-size: 16px;
+}
+
+.agents-card .bottom span {
+    font-size: 16px;
+}

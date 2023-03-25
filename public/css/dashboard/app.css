@@ -1,0 +1,103 @@
+.main {
+    background-color: #f5f5f5 !important;
+}
+
+.content {
+    padding: 10px !important;
+}
+
+.indicator-primary {
+    background: #3b7ddd;
+    border-radius: 50%;
+    box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 5%);
+    color: #fff;
+    display: block;
+    font-size: 0.675rem;
+    height: 20px;
+    padding: 1px;
+    position: absolute;
+    right: -14px;
+    text-align: center;
+    top: -10px;
+    transition: top 0.1s ease-out;
+    width: 20px;
+}
+
+.indicator-danger {
+    background: #dc3545;
+    border-radius: 50%;
+    box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 5%);
+    color: #fff;
+    display: block;
+    font-size: 0.675rem;
+    height: 20px;
+    padding: 1px;
+    position: absolute;
+    right: -14px;
+    text-align: center;
+    top: -10px;
+    transition: top 0.1s ease-out;
+    width: 20px;
+}
+
+
+
+.profile-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.w_color {
+    color: white;
+}
+
+.g_color {
+    color: rgb(0, 144, 72);
+}
+
+
+.colorbtnplay {
+    border: 2px solid red;
+    color: white !important;
+}
+
+
+.messageShoweplay h4 {
+
+
+
+    color: white !important;
+}
+
+.messageShoweplay {
+    color: white !important;
+    background-color: #0B5ED7 !important;
+}
+
+.verifyplayicon {
+    font-size: 40px;
+}
+
+.playalertbox {
+    position: absolute;
+    bottom: 10px;
+    left: 15px
+}
+
+.playalertboxmain {
+    width: 70px;
+    height: 70px;
+    background-color: #69a4e2;
+    border-radius: 50px
+}
+
+.alertboxresponsvive {
+    display: flex;
+}
+
+@media(max-width:768px) {
+    .alertboxresponsvive {
+        display: block;
+    }
+}

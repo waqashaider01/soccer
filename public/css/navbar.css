@@ -1,0 +1,103 @@
+.top-nav {
+    position: sticky;
+    top: 0;
+    text-align: end;
+    background: #1a73e8;
+    color: #fff;
+    padding: 5px 0px;
+    z-index: 99;
+}
+.top-nav .container a {
+    margin-left: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50px;
+}
+.top-nav .container a i:hover {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #185abc;
+    border-radius: 50px;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    transition: 0.32s;
+    background-color: #185abc !important;
+    height: 50px;
+    z-index: 99;
+}
+.sticky-nav .navbar-brand img {
+    width: 120px;
+    /* margin-left: -34px; */
+}
+.fixed-nav .navbar-brand img {
+    width: 60px;
+    margin-left: -20px;
+}
+.fixed-nav {
+    position: fixed;
+    transition: 0.25s;
+    width: 100%;
+    z-index: 99;
+}
+nav a {
+    color: #fff !important;
+}
+.navbar {
+    padding: 0px !important;
+}
+.navbar .navbar-brand {
+    font-size: 24px;
+}
+.navbar .nav-link {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400 !important;
+    margin-right: 3px;
+    height: 100%;
+    padding: 14px !important;
+}
+.navbar .nav-link:hover {
+    background-color: #bf3637 !important;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.navbar .nav-link.active {
+    background-color: #bf3637 !important;
+}
+
+.navbar .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -7px;
+}
+.navbar .container {
+    height: 100%;
+}
+.dropdown-item {
+    color: #000 !important;
+}
+.navbar .navbar-collapse {
+    height: 100%;
+}
+.navbar .navbar-collapse ul {
+    height: 100%;
+}
+
+
+
+.cutom_toggler_image{
+    width: 30px;
+}

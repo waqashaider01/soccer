@@ -1,0 +1,33 @@
+.activities {
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    padding: 20px;
+}
+.dashboard-activities {
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 4px;
+    padding: 20px;
+}
+.activity img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.activity .description,
+.activity .time {
+    color: #555;
+    font-size: 16px;
+}
+.activity .about {
+    display: flex;
+}
+.activity .title {
+    font-weight: 600;
+}
+.activity a {
+    color: #bf3637;
+}

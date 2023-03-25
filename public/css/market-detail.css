@@ -1,0 +1,206 @@
+.market-detail-hero {
+    height: 450px;
+    background-image: url(/images/players/players-hero.png);
+    background-size: cover;
+    background-position: -100px;
+}
+.market-detail {
+    margin-top: -240px;
+    font-family: sans-serif;
+}
+.market-detail .heading {
+    background-color: #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.market-detail .heading h3 {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.market-detail .body {
+    padding: 30px 60px;
+}
+/* market-detail-card styles */
+.market-detail-card {
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    padding: 20px;
+    height: 120px;
+    border-radius: 5px;
+}
+.market-detail-card img {
+    width: 60px;
+}
+/* .market-detail-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+} */
+.market-detail-card .country-flag {
+    inherits: initial;
+    width: 30px;
+    height: auto;
+    border-radius: 0px;
+}
+.market-detail-card i {
+    font-size: 24px;
+}
+.market-detail-card .title {
+    font-size: 18px;
+    font-weight: 700;
+}
+.market-detail-card p {
+    font-size: 16px;
+}
+
+/* academy */
+.academy {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.academy .heading {
+    background-color: #e5fad1;
+    padding: 16px;
+}
+.academy .heading h3 {
+    margin: 0px !important;
+}
+
+/* campus */
+.campus {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.campus .heading {
+    background-color: #e5fad1;
+    padding: 16px;
+}
+.campus .heading h3 {
+    margin: 0px !important;
+}
+
+/* club-seeking-player */
+.club-seeking-player {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.club-seeking-player .heading {
+    background-color: #e5fad1;
+    padding: 16px;
+}
+.club-seeking-player .heading h3 {
+    margin: 0px !important;
+}
+/* details */
+.details {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.details .content {
+    padding: 20px;
+    font-size: 16px;
+    display: flex;
+}
+.details img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.details .content .description {
+    margin-left: 20px;
+    text-align: justify;
+}
+/* club-details */
+.club-details {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+/* player-details styles */
+.player-details {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+/* terms styles */
+.terms {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+/* contact-info */
+.contact-info {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+/* additional-info */
+.additional-info {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.additional-info .description {
+    padding: 20px;
+}
+/* apply-btn styles */
+.apply-btn {
+    background-color: #185abc;
+    color: #fff;
+    border: 0px;
+    padding: 10px 24px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.apply-btn:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #0f356e;
+}
+/* apply-form */
+.market-detail .modal-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    font-family: "Oswald" !important;
+}
+.market-detail .modal-header button i {
+    font-size: 18px;
+    font-weight: 700;
+}
+#apply-form .form-control {
+    border-radius: 0px !important;
+    height: auto !important;
+    padding: 10px;
+}
+#apply-form input[type="file"] {
+    padding: 12px 10px 10px 10px;
+}
+#apply-form .text {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+}
+#apply-form .text .require {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+}
+/* disclaimer */
+.disclaimer {
+    background-color: #e5fad1;
+    padding: 10px;
+    margin: 20px 0px;
+}
+/* #max-age,#min-age{
+    padding: 20px 30px !important;
+} */
+.image-circile-border{
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 14px 13px;
+}

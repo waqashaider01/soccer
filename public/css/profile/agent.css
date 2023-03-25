@@ -1,0 +1,316 @@
+.agents-profile-hero {
+    height: 450px;
+    /* background-image: url(/images/players/players-hero.png); */
+    background-size: cover;
+    background-position: -100px;
+}
+
+.agents-profile-hero .img-cover img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 70%;
+    z-index: -1;
+}
+
+.agents-profile {
+    margin-top: -240px;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    margin-bottom: 20px;
+}
+
+/* agents-filter styling */
+.agents .search-box {
+    position: relative;
+}
+.agents form {
+    width: 100%;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+.agents .search-box::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    opacity: 0.1;
+    background-color: #fff;
+    z-index: 0;
+}
+.agents form select,
+.agents form input {
+    width: 100% ;
+    height: 34px;
+    padding: 5px;
+}
+.agents form select:focus,
+.agents form input:focus {
+    outline: none;
+}
+.agents form .search-btn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.agents form button {
+    width: 100%;
+    border: none;
+    background-color: #1a73e8;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 7px 10px;
+}
+
+/* agents-profile */
+.agents-profile .profile {
+    background-color: #fff;
+    padding: 30px;
+}
+.agents-profile .profile .dp {
+    width: 100%;
+    text-align: center;
+}
+.agents-profile .profile .dp .img {
+    width: 140px;
+    height: 140px;
+    margin: 0px auto;
+}
+.agents-profile .profile .dp .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.agents-profile .profile .data {
+    list-style: none;
+    padding: 0px;
+    font-weight: bold;
+}
+.agents-profile .profile .data .country-flag {
+    width: 30px;
+}
+.agents-profile .profile .data .firstname {
+    color: #762340;
+    font-weight: 700;
+    font-size: 20px;
+}
+.agents-profile .profile .data .lastname {
+    color: #762340;
+    font-size: 24px;
+    font-weight: 700;
+}
+.agents-profile .profile .data .lastname span {
+    font-size: 16px;
+    color: #4d9a46;
+}
+.agents-profile .profile .meta span {
+    font-size: 16px;
+}
+
+.agents-profile .profile .agent-type h4 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 40px;
+}
+.agents-profile .profile .about {
+    font-size: 16px;
+}
+.agents-profile .profile .about .title {
+    text-align: center;
+    font-weight: 600;
+}
+.agents-profile .profile .about .description {
+    border-left: 1px solid #ddd;
+    text-align: justify;
+    padding: 0px 30px;
+}
+.agents-profile .profile .option {
+    height: 34px;
+    background-color: #eee;
+    text-align: center;
+    border: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-top: 10px;
+    width: 140px;
+    display: block;
+}
+/* Countries-of-operation */
+.agents-profile .gray-heading {
+    background-color: #ddd;
+    padding: 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.agents-profile .gray-heading h3 {
+    font-size: 22px;
+}
+.agents-profile .countries-of-operation .content {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0px;
+    text-align: center;
+    padding: 10px;
+}
+.agents-profile .countries-of-operation .content img {
+    width: 30px;
+}
+.agents-profile .countries-of-operation .content span {
+    font-weight: 600;
+    font-size: 16px;
+}
+.agents-profile .players-card {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0px;
+}
+
+.agents-profile .players-card .ribbon {
+    position: absolute;
+    width: 220px;
+    height: 30px;
+    background-color: #bf3637;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: -86px;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+
+.agents-profile .players-card .top {
+    padding: 20px;
+}
+.agents-profile .players-card .img {
+    height: 100px;
+    width: 100%;
+    position: relative;
+}
+.agents-profile .players-card .img i {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.agents-profile .players-card .img i:hover {
+    cursor: pointer;
+    color: #bf3637;
+}
+.agents-profile .players-card .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.agents-profile .players-card .firstname {
+    color: #762340;
+    font-weight: 700;
+    font-size: 20px;
+}
+.agents-profile .players-card .lastname {
+    color: #762340;
+    font-size: 24px;
+    font-weight: 700;
+}
+.agents-profile .players-card .lastname span {
+    font-size: 16px;
+    color: #4d9a46;
+}
+.agents-profile .players-card .top .content {
+    text-align: center;
+}
+.agents-profile .players-card .top .content img {
+    width: 30px;
+}
+.agents-profile .players-card .top .content b {
+    font-size: 16px;
+}
+.agents-profile .players-card .profile-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #ddd;
+}
+.agents-profile .players-card .profile-btn a {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #bf3637;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.agents-profile .players-card .profile-btn a:hover {
+    background-color: #751717;
+}
+/* transfer-history */
+.transfer-history thead {
+    background-color: #185f7c;
+    color: #fff;
+}
+.transfer-history .title {
+    background-color: #185f7c;
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+    text-transform: uppercase;
+}
+.transfer-history .achievements {
+    padding: 0px 80px;
+    font-size: 16px;
+}
+.transfer-history .achievements .flag {
+    width: 30px;
+}
+/* .transfer-history .achievements .row {
+    border-bottom: 1px solid #ddd;
+} */
+.transfer-history .achievements .total {
+    color: #78652c;
+    text-transform: uppercase;
+}
+.transfer-history .achievements .rank {
+    font-size: 26px;
+    color: #aaa;
+}
+.transfer-history .achievements .rank i {
+    color: #f5ae0a;
+}
+.transfer-history .achievements .text {
+    text-transform: uppercase;
+}
+/* Contact-info  */
+.agents-profile .contact-info {
+    padding: 20px 80px;
+    font-size: 16px;
+}
+.agents-profile .contact-info ul {
+    list-style: none;
+    padding: 0px;
+}
+.agents-profile .contact-info ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0px;
+}

@@ -1,0 +1,202 @@
+.profile {
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+}
+.profile #nav-tabContent {
+    border: 1px solid #dee2e6;
+    margin-top: 10px;
+    padding: 20px;
+}
+.profile .nav-tabs .nav-link {
+    color: #000 !important;
+    border-radius: 0px !important;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.profile .nav-tabs .nav-link.active {
+    background-color: #f5f5f5 !important;
+}
+.profile .nav-tabs .nav-link.active i {
+    color: #bf3637;
+}
+.profile .nav-pills .nav-link {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-radius: 0px !important;
+    border: 1px solid #dee2e6;
+    margin-right: 10px;
+    padding: 4px 14px !important;
+    background-color: #f5f7fb;
+    color: #444 !important;
+    text-transform: capitalize;
+}
+.profile .nav-pills .nav-link.active {
+    background-color: #f5f5f5 !important;
+    font-weight: 600;
+}
+/* form styles */
+.profile form label {
+    font-weight: 600;
+}
+.profile form .form-control {
+    border-radius: 0px !important;
+    padding: 10px 5px !important;
+}
+.profile form .form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+.profile form .form-select {
+    border-radius: 0px !important;
+    padding: 10px 5px !important;
+}
+.profile form .form-select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+.profile form input[type="date"],
+.profile form input[type="time"],
+.profile form input[type="month"],
+.profile form input[type="year"] {
+    width: auto;
+}
+.profile .cancel-btn {
+    background-color: #f5f7fb !important;
+    border-radius: 0px !important;
+}
+.profile .save-btn {
+    background-color: #1a73e8 !important;
+    color: #fff;
+    border-radius: 0px !important;
+}
+.profile .add-btn {
+    background-color: #1a73e8 !important;
+    color: #fff;
+    border-radius: 0px !important;
+}
+.profile .add-btn:hover,
+.profile .save-btn:hover {
+    color: #fff;
+}
+.btn-edit {
+    background-color: transparent;
+    color: #3b7ddd;
+    font-size: 18px;
+    border: 0px;
+}
+.btn-delete {
+    background-color: transparent;
+    color: #dc3545;
+    font-size: 18px;
+    border: 0px;
+}
+/* Edit profile section  */
+/* img-upload */
+.profile .cameraImage {
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.profile .cameraImage input[type="file"] {
+    display: none;
+    visibility: hidden;
+}
+.profile .cameraImage label {
+    font-size: 50px;
+}
+.profile .cameraImage img {
+    width: 100%;
+    height: 200px;
+    display: none;
+}
+.profile .cameraImage .fa-times-square {
+    font-size: 30px;
+    color: #bf3637;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
+/* profile-image styles */
+#upload-profile-form .content {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* cover-image styles */
+#upload-cover-form .content {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-input {
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.form-input input {
+    display: none;
+}
+.form-input label {
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+    background: #1a73e8;
+    color: #fff;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: Uppercase;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 10px;
+}
+
+.form-input .preview img {
+    width: 100%;
+    display: none;
+    margin-bottom: 30px;
+}
+.form-input label i {
+    color: #fff;
+}
+/* chosen-select styles */
+.chosen-container {
+    width: 100% !important;
+}
+.chosen-container:focus {
+    box-shadow: 0px !important;
+    border: 0px !important;
+    outline: none !important;
+}
+.chosen-choices {
+    padding: 8px 5px !important;
+    background-image: none !important;
+    border: 1px solid #ced4da !important;
+}
+.chosen-container-active .chosen-choices {
+    box-shadow: none !important;
+}
+
+/* achievemnets section  */
+.slider-selection {
+    background: #1a73e8 !important;
+}
+.slider-handle {
+    background: #dee2e6 !important;
+}

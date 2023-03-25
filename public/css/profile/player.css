@@ -1,0 +1,311 @@
+.players-profile-hero {
+    height: 450px;
+    /* background-image: url(/images/players/players-hero.png); */
+    background-size: cover;
+    background-position: -100px;
+}
+.players-profile-hero .img-cover img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 70%;
+    z-index: -1;
+}
+
+.players-profile {
+    margin-top: -240px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    z-index: inherit;
+}
+
+/* players-profile */
+.players-profile .profile {
+    background-color: #fff;
+    padding: 20px 30px 10px 30px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.players-profile .profile .dp {
+    width: 100%;
+    text-align: center;
+}
+.players-profile .profile .dp .img {
+    width: 240px;
+    height: 240px;
+    margin: 0px auto;
+    position: relative;
+    bottom: 100px;
+}
+.players-profile .profile .dp .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+.players-profile .profile .data {
+    list-style: none;
+    padding: 0px;
+    font-weight: bold;
+}
+.players-profile .data .country-flag {
+    width: 30px;
+}
+.players-profile .data .firstname {
+    color: #762340;
+    font-weight: 700;
+    font-size: 20px;
+}
+.players-profile .data .lastname {
+    color: #762340;
+    font-size: 24px;
+    font-weight: 700;
+}
+.players-profile .data .lastname span {
+    font-size: 16px;
+    color: #4d9a46;
+}
+.players-profile .data .player-title {
+    color: #777;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Oswald";
+}
+.players-profile .data .heading {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Oswald";
+}
+.players-profile .profile .dp .meta {
+    position: absolute;
+    bottom: 30px;
+}
+
+.players-profile .profile .meta span {
+    font-size: 16px;
+}
+
+.players-profile .profile .player-type {
+    color: #a3a26c;
+}
+.players-profile .main-position {
+    text-align: center;
+}
+.players-profile .main-position .title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.players-profile .main-position img {
+    width: 200px;
+}
+.players-profile .alternate-position {
+    text-align: center;
+}
+.players-profile .alternate-position .title {
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.players-profile .profile .about {
+    font-size: 16px;
+}
+.players-profile .profile .option {
+    height: 34px;
+    background-color: #eee;
+    text-align: center;
+    border: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-top: 10px;
+    width: 140px;
+    display: block;
+}
+/* about-section styles */
+.about img {
+    width: 30px;
+}
+.about .place-of-birth .title {
+    font-size: 16px;
+    font-weight: 600;
+}
+.about .citizenship .title {
+    font-size: 16px;
+    font-weight: 600;
+}
+.about .height,
+.about .weight {
+    font-family: "Oswald";
+    background-color: #eee;
+    text-align: center;
+}
+.about .height small,
+.about .weight small {
+    font-weight: 700;
+}
+.about .height .heading,
+.about .weight .heading {
+    font-size: 26px;
+    font-weight: 700;
+}
+.about .height .heading span,
+.about .weight .heading span {
+    font-size: 16px;
+}
+.about .current-market-value .heading {
+    font-size: 16px;
+    font-weight: 600;
+}
+/* player-detail styles */
+.chartBox {
+    height: 300px;
+}
+.chartBox canvas {
+    height: 100% !important;
+}
+/* #pills-technical {
+    display: flex;
+}
+.ratings {
+    flex-grow: 1;
+}
+.ratings span {
+    transform: rotate(-90deg);
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 130px;
+} */
+.chart {
+    flex-grow: 9;
+}
+.player-detail,
+.transfer-history,
+.next-match-schedule,
+.career-match-data,
+.player-achievements,
+.player-media,
+.attributes-rating {
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+.player-detail .heading,
+.transfer-history .heading,
+.player-achievements .heading,
+.next-match-schedule .heading {
+    background-color: #185f7c;
+    padding: 8px;
+    text-align: center;
+}
+.player-detail .heading h3,
+.transfer-history .heading h3,
+.player-achievements .heading h3,
+.next-match-schedule .heading h3 {
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.career-match-data .heading,
+.player-media .heading,
+.attributes-rating .heading {
+    background-color: #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.career-match-data .heading h3,
+.player-media .heading h3,
+.attributes-rating .heading h3 {
+    font-size: 20px;
+    color: #555;
+    text-transform: uppercase;
+}
+.career-match-data .table thead {
+    background-color: #185f7c;
+    color: #fff;
+}
+.career-match-data .table thead img {
+    width: 20px;
+}
+.career-match-data .nav-link,
+.attributes-rating .nav-link {
+    border: 0px;
+    padding: 4px 10px;
+    margin-right: 5px;
+}
+.career-match-data .nav-link.active,
+.attributes-rating .nav-link.active {
+    background-color: #185f7c !important;
+}
+/* .career-match-data .tab-title,
+.attributes-rating .tab-title {
+    background-color: #eee;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+} */
+.player-achievements {
+    font-size: 16px;
+}
+.player-achievements .content {
+    padding: 0px 80px;
+}
+.player-achievements .flag {
+    width: 30px;
+}
+.player-achievements .total {
+    color: #78652c;
+    text-transform: uppercase;
+}
+.player-achievements .rank {
+    font-size: 26px;
+    color: #aaa;
+}
+.player-achievements .rank img {
+    width: 20px;
+}
+.player-achievements .text {
+    text-transform: uppercase;
+}
+.next-match-schedule thead {
+    background-color: #eee;
+}
+.next-match-schedule thead th {
+    font-weight: 600;
+    font-size: 16px;
+}
+.player-media .videos .title,
+.player-media .images .title {
+    background-color: #185f7c;
+    color: #fff;
+    padding: 8px;
+    display: block;
+}
+.player-media iframe {
+    height: 200px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.player-media .images img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.player-media .videos {
+    width: 100%;
+    height: 200px;
+}
