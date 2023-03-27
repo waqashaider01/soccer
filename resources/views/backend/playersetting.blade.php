@@ -1017,11 +1017,11 @@
                                 </div>
                                 <h5 style="margin-left:20px">Add New Card</h5>
                                 <div class="d-flex">
-                                <button type="button" class="btn btn-primary mt-2" style="margin-left: 30px;" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                    <i class="far fa-star"></i>
-                                    Pay Now
-                                </button>
+                                    <button type="button" class="btn btn-primary mt-2" style="margin-left: 30px;"
+                                        data-toggle="modal" data-target="#exampleModal">
+                                        <i class="far fa-star"></i>
+                                        Pay Now
+                                    </button>
                                 </div>
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -1225,19 +1225,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if(isset($invoices))
+                                        @foreach ($invoices as $invoice)
                                         <tr>
                                             <td scope="col" for="vehicle1"><input type="checkbox"class="me-2"
                                                     id="vehicle1" name="vehicle1" value="Bike">#</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td style="width:30%;"> <button class="btn btn-success me-2"
-                                                    style="padding-left:40px;padding-right:40px">Paid</button> <button
+                                            <td>{{ date('d-m-Y', strtotime($invoice->trial_ends_at)) }}</td>
+                                            <td>{{ date('d-m-Y', strtotime($invoice->trial_ends_at)) }}</td>
+                                            <td>{{ $invoice->paid_amount }}</td>
+                                            <td style="width:30%;">
+                                                <div class="card bg-success" style="width: 100px; height: 40px;">
+                                                    <div class="card-body">
+                                                      <h5 class="card-title text-white text-center">Paid</h5>
+                                                    </div>
+                                                  </div>
+                                              <button
                                                     class="btn btn-secondary p-2"
-                                                    style="padding-left:40px !important;padding-right:40px !important;">View
+                                                    style="padding-left:40px !important;padding-right:40px !important;"
+                                                    data-toggle="modal" data-target="#invoiceModal">View
                                                     Invoice</button></td>
                                         </tr>
-                                        <tr>
+                                        @endforeach
+                                        @endif
+                                        {{-- <tr>
                                             <td scope="col" for="vehicle2"><input type="checkbox"class="me-2"
                                                     id="vehicle2" name="vehicle2" value="Bike">1</td>
                                             <td>Jacob</td>
@@ -1248,8 +1258,8 @@
                                                     class="btn btn-secondary p-2"
                                                     style="padding-left:40px !important;padding-right:40px !important;">View
                                                     Invoice</button></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> --}}
+                                        {{-- <tr>
                                             <td scope="col" for="vehicle3"><input type="checkbox"class="me-2"
                                                     id="vehicle2" name="vehicle3" value="Bike">2</td>
                                             <td>Larry the Bird</td>
@@ -1260,11 +1270,48 @@
                                                     class="btn btn-secondary p-2"
                                                     style="padding-left:40px !important;padding-right:40px !important;">View
                                                     Invoice</button></td>
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+
+                        <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Invoice</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+
+                                        <div class="tab-pane fade show" id="bill" role="tabpanel">
+                                            <h3>Invoice</h3>
+                                            <div class="card">
+                                              <div class="card-body">
+                                                @foreach ($invoices as $invoice)
+                                                <p><b>User Name:</b> {{ $invoice->name }}</p>
+                                                <p><b>Card Name:</b> {{ $invoice->payment_method }}</p>
+                                                <p><b>Card no:</b>*****{{ substr($invoice->card_no, -4) }}</p>
+                                                <p><b>Card Expiration date:</b> {{ $invoice->expiration_date }}</p>
+                                                <p><b>First payment amount:</b> ${{ $invoice->paid_amount }}</p>
+                                                <p><b>Plan:</b> {{ $invoice->stripe_plan }} Months</p>
+                                                <p><b>Invoice date:</b> {{ date('d-m-Y', strtotime($invoice->trial_ends_at)) }}</p>
+                                                <p><b>Next due date:</b> {{ date('d-m-Y', strtotime($invoice->ends_at)) }}</p>
+                                                <hr>
+                                                @endforeach
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="tab-pane fade show " id="opt" role="tabpanel">
                             <ul class="nav nav-tabs d-flex justify-content-between _navtabs" id="myTab"
                                 role="tablist">
@@ -1452,44 +1499,53 @@
                             <div class="row justify-content-center">
                                 <div class="col-sm-10 col-md-7">
                                     <div class="row mt-3">
-                                      <form action="{{ url('player/changePassword') }}" class="form-horizontal" method="POST">
-                                        @csrf
-                                        <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
-                                          <label for="current-password" class="col-md-4 control-label">Current Password</label>
-                                          <div class="col-md-8">
-                                            <input id="current-password" type="password" class="form-control" name="current-password" required>
-                                            @if ($errors->has('current-password'))
-                                            <span class="help-block">
-                                              <strong>{{ $errors->first('current-password') }}</strong>
-                                            </span>
-                                            @endif
-                                          </div>
-                                        </div>
-                                        <div class="form-group{{ $errors->has('new-password') ? ' has-error' : '' }}">
-                                          <label for="new-password" class="col-md-4 control-label">New Password</label>
-                                          <div class="col-md-8">
-                                            <input id="new-password" type="password" class="form-control" name="new-password" required>
-                                            @if ($errors->has('new-password'))
-                                            <span class="help-block">
-                                              <strong>{{ $errors->first('new-password') }}</strong>
-                                            </span>
-                                            @endif
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="new-password-confirm" class="col-md-4 control-label">Confirm New Password</label>
-                                          <div class="col-md-8">
-                                            <input id="new-password-confirm" type="password" class="form-control" name="new-password_confirmation" required>
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <div class="col-md-12 text-left">
-                                            <button type="submit" class="btn btn-primary">Change Password</button>
-                                          </div>
-                                        </div>
-                                      </form>
+                                        <form action="{{ url('player/changePassword') }}" class="form-horizontal"
+                                            method="POST">
+                                            @csrf
+                                            <div
+                                                class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
+                                                <label for="current-password" class="col-md-4 control-label">Current
+                                                    Password</label>
+                                                <div class="col-md-8">
+                                                    <input id="current-password" type="password" class="form-control"
+                                                        name="current-password" required>
+                                                    @if ($errors->has('current-password'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('current-password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group{{ $errors->has('new-password') ? ' has-error' : '' }}">
+                                                <label for="new-password" class="col-md-4 control-label">New
+                                                    Password</label>
+                                                <div class="col-md-8">
+                                                    <input id="new-password" type="password" class="form-control"
+                                                        name="new-password" required>
+                                                    @if ($errors->has('new-password'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('new-password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="new-password-confirm" class="col-md-4 control-label">Confirm
+                                                    New Password</label>
+                                                <div class="col-md-8">
+                                                    <input id="new-password-confirm" type="password" class="form-control"
+                                                        name="new-password_confirmation" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12 text-left">
+                                                    <button type="submit" class="btn btn-primary">Change
+                                                        Password</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                  </div>
+                                </div>
 
                             </div>
                         </div>

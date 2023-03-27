@@ -556,7 +556,10 @@ class HomeController extends Controller
         // dd($subscriptions[0]->postal_code);
         $billing_addresses = $subscriptions->pluck('billing_address')->filter();
         $mail_pref = Mail_prefreneces_notification::where('user_id', Auth::id())->first();
-        return view("backend.playersetting", compact('UserPrivacy', 'blockadmin', 'user', 'msgstatus', 'mail_pref', 'subs', 'blockusers', 'userinfo','subscriptions','billing_addresses'));
+        $invoices = Subscription::where('user_id',$AuthId)
+                    ->where('status','active')
+                    ->get();
+        return view("backend.playersetting", compact('UserPrivacy', 'blockadmin', 'user', 'msgstatus', 'mail_pref', 'subs', 'blockusers', 'userinfo','subscriptions','billing_addresses','invoices'));
     }
 
     //===================================================
