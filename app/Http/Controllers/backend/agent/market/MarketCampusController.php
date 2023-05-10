@@ -105,6 +105,7 @@ class MarketCampusController extends Controller
 
     public function update(Request $request)
     {
+        $image='';
         $request->validate([
             'expiry_date'             => ['required'],
             'for_whom'                => ['required'],
@@ -132,27 +133,27 @@ class MarketCampusController extends Controller
         if (file_exists($oldLogo->upload_logo)) {
             unlink($oldLogo->upload_logo);
         }
-
+       
         if ($request->hasFile('upload_logo')) {
             $imgName        = time() . '.' . $request->upload_logo->extension();
             $uploadLocation = "backend/images/agent/logo/";
             $request->upload_logo->move(public_path("backend/images/agent/logo/"), $imgName);
             $image = $uploadLocation . $imgName;
         }
-
+       
         $agent = MarketCampus::where('id', $request['cid'])->update([
             'agent_id'               => Auth::id(),
             'slug'                   => 'camps',
             'expiry_date'            => $request['expiry_date'],
             'for_whom'               => json_encode($request['for_whom']),
-            'upload_logo'            => $uploadLocation . $imgName,
+            'upload_logo'            =>  $image,
             'description'            => $request['description'],
             'city_id'                => $request['city_id'],
             'country_id'             => $request['country_id'],
             'start_date'             => $request['start_date'],
             'start_time'             => $request['start_time'],
             'end_date'               => $request['end_date'],
-            'end_time'        => $request['end_time'],
+            'end_time'               => $request['end_time'],
             'player_gender'          => $request['player_gender'],
             'player_position'        => json_encode($request['player_position']),
             'player_min_age'         => $request['player_min_age'],

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SoccerWorldLink</title>
 
     <link rel="stylesheet" href="https://unpkg.com/@adminkit/core@latest/dist/css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -37,10 +37,10 @@
 </head>
 
 <body>
-    <div class="wrapper"> @include('backend.agent.inc.sidebar')
+    <div class="wrapper">
+         @include('backend.agent.inc.sidebar')
         <div class="main">
             @include('backend.agent.inc.header')
-
             <main class="content">
                 @if ($errors->any())
                 <div class="alert alert-danger">

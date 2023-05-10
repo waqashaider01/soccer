@@ -7,22 +7,16 @@
 @endphp
 <div class="row">
     <div class="col-md-4">
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        <form method="POST" action="/player/personal-info/save">
+        <form method="POST" action="{{url('/player/personal-info/save')}}">
             @csrf
             <div class="mb-3">
                 <label for="firstName" class="form-label">First Name *</label>
-                <input type="text" class="form-control" id="firstName" value="{{ $name[0] ?? '' }}"
+                <input type="text" class="form-control" name="firstname" id="firstName" placeholder="{{ $name[0] ?? '' }}"
                     placeholder="Louis">
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Last Name *</label>
-                <input type="text" class="form-control" id="lastName" value="{{ $name[1] ?? '' }}"
+                <input type="text" class="form-control" name="lastname" id="lastName" placeholder="{{ $name[1] ?? '' }}"
                     placeholder="Anetekhai">
             </div>
             @if ($playerInfo != null)
@@ -38,7 +32,7 @@
                 <div class="mb-3">
                     <label for="dob" class="form-label">Date of Birth *</label>
                     <input type="date" class="form-control" id="dob" name="dob"
-                        value="{{ $playerInfo->dob ?? '' }}">
+                        value="{{ $playerInfo->dob ?? ''}}">
                 </div>
                 <div class="mb-3">
                     <label for="countryOfBirth" class="form-label">Country Of Birth *</label>
@@ -67,9 +61,9 @@
 
                             @foreach ($cities as $city)
                                 @if ($playerInfo->birth_city == $city->id)
-                                    <option value="{{ $city->id }} ?? '' " selected>{{ $city->name ?? '' }}</option>
+                                    <option value="{{ $city->id ?? ''}}" selected>{{ $city->name ?? '' }}</option>
                                 @else
-                                    <option value="{{ $city->id }} ?? '' ">{{ $city->name ?? '' }}</option>
+                                    <option value="{{ $city->id ?? '' }}">{{ $city->name ?? '' }}</option>
                                 @endif
                             @endforeach
                         @endif

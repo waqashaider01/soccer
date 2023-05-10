@@ -67,7 +67,7 @@
                             Soccer connectivity at it's best
                         </p>
                         <div class="mt-5">
-                            <a href="{{ route('register') }}" class="btn get-started-btn">Get Started</a>
+                             <a href="{{ route('register') }}" class="btn get-started-btn">Get Started</a>
                             <button type="button" class="btn watch-video-btn video-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-src="https://www.youtube.com/embed/IP7uGKgJL8U">
                                 <i class="fas fa-play-circle"></i> Watch Video
                             </button>
@@ -104,12 +104,13 @@
                                     </ul>
                                 </div>
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
                         </div>
-                    </div>{{-- category-end --}}
+                    </div>
+                    {{-- category-end --}}
                     <div class="col-md-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/scouts.jpg') }}" alt="players">
@@ -130,7 +131,7 @@
                                 </div>
 
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
@@ -157,7 +158,7 @@
                                 </div>
 
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
@@ -185,7 +186,7 @@
                                 </div>
 
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
@@ -210,12 +211,13 @@
                                 </div>
 
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
                         </div>
-                    </div>{{-- category-end --}}
+                    </div>
+                    {{-- category-end --}}
                     <div class="col-md-4 mt-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
@@ -237,15 +239,19 @@
                                 </div>
 
                                 <div class="signup-container">
-                                    <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                
+                                     <a href="{{ route('register') }}" class="signup-btn"><button>Sign Up</button></a>
+                                
                                     <p>30 days free trial</p>
                                 </div>
                             </div>
                         </div>
-                    </div>{{-- category-end --}}
+                    </div>
+                    {{-- category-end --}}
                 </div>
             </div>
-        </section>{{-- Categories-section end --}}
+        </section>
+        {{-- Categories-section end --}}
         <section class="how-it-works  section">
             <div class="main-heading">
                 <h2>How It Works</h2>
@@ -290,7 +296,8 @@
                     </div>
                 </div>
             </div>
-        </section>{{-- how-it-works end --}}
+        </section>
+        {{-- how-it-works end --}}
         <div class="main-heading">
             <h2>Why SoccerWorldLink?</h2>
         </div>

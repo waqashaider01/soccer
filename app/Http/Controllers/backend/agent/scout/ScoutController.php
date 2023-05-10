@@ -18,18 +18,14 @@ class ScoutController extends Controller
 {
     public function profile()
     {
-        // dd('helo');
         $agent            = ScoutInfo::where("scout_id", Auth::id())->first();
         $achievements     = AgentAchievement::where("agent_id", Auth::id())->get();
         $playersPortfolio = PlayersPortfolio::where("agent_id", Auth::id())->get();
         $transferHistory  = TransferHistory::where("agent_id", Auth::id())->get();
-        // dd($agent);
 
         $countries = Country::all();
         $languages = Language::all();
         $cities    = City::all();
-
-        // dd('helo');
         return view(
             "backend.agent.scout.index",
             compact(

@@ -11,5 +11,6 @@ class Invitation extends Model
     protected $fillable = [
         'user_id',
         'email',
+        'status',
     ];
 }

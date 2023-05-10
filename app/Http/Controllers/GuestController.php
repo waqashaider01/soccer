@@ -62,9 +62,25 @@ class GuestController extends Controller
     //===================================================
     public function block($id)
     {
-        $user = User::find($id);
-        $user->status = "blocked";
-        $user->save();
+        if(Auth::user()->type=='admin')
+        {
+            $user = User::find($id);
+            $user->status = "blocked";
+             $user->save();            
+        }
+        else{
+            $block = BlockedUsers::where('user_id',Auth::id())->where('blocked_id',$id)->first();
+            if(!$block)
+            {
+                $block=new BlockedUsers;
+                $block->user_id=Auth::id();
+                $block->blocked_id = $id;
+                $block->save();
+            }
+            
+            return redirect()->back();
+        }
+
         if ($user) {
             return redirect()->back()->with('success', 'blocked successfully');
         } else {
@@ -76,17 +92,20 @@ class GuestController extends Controller
     //===================================================
     public function unblock($id)
     {
-
-        $user = User::find($id);
-        $user->status = "";
-        $blockuser = BlockedUsers::where("blocked_id", $id)->delete();
-
-        $user->save();
+        if(Auth::user()->type=='admin')
+        {
+            $user = User::find($id);
+            $user->status = " ";
+             $user->save();            
+        }
+        else{
+            $block = BlockedUsers::where('user_id',Auth::id())->where('blocked_id',$id)->delete();
+            return redirect()->back();
+        }
+        
         if ($user) {
             return redirect()->back()->with('success', 'Unblocked successfully');
         } else {
-            dd("testsss");
-
             return redirect()->back()->with('error', 'Something went wrong');
         }
     }

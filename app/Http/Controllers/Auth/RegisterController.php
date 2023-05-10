@@ -103,11 +103,13 @@ class RegisterController extends Controller
                     $message = new \Illuminate\Support\HtmlString($result);
                     session()->flash('success', $message);
 
-                    if (isset($request['date_of_birth']) && ($request['date_of_birth'] != null)) {
+                    if (isset($request['date_of_birth']) && !empty($request['date_of_birth']))
+                    {   
                         $birthdate = Carbon::parse($request['date_of_birth']);
-                        $now = Carbon::today()->format('d-m-y');
+                        $now = Carbon::today()->format('y-m-d');
                         $age = $birthdate->diffInYears($now);
-                        if ($age <= 16) {
+                        if ($age <= 16) 
+                        {
                             $guradian = GuardianApproval::create([
                                 'player_id' => $user->id,
                                 'gurdian_email' => $request['gurdian_email'],

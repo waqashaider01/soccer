@@ -167,15 +167,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="form-group col-6">
-                                            <label for="state">Recurring Amount</label>
-                                            <input type="number" name="rec_amount" id="state" class="form-control"
-                                                placeholder="Amount" required>
-                                        </div>
-
-                                        <div class="form-group col-6">
-                                            <label for="zip">Subscription Plan</label>
+                                    <div class="form-group">
+                                        <label for="zip">Subscription Plan</label>
                                             <select name="sub_plan" id="country" class="form-control" required>
                                                 @if (is_array($durations) || is_object($durations))
                                                     @foreach ($durations as $duration)
@@ -186,7 +179,6 @@
                                                     <option value="{{ $durations }}">{{ $durations }}</option>
                                                 @endif
                                             </select>
-                                        </div>
                                     </div>
 
                                     <div class='form-row row'>

@@ -282,7 +282,7 @@
                             <td class="title">
                                 <img src="{{ asset('images/blog/blog1.jpg') }}" alt="">
                                 <span>To: </span>{{$sent_messages['receiver_name']}}
-                                <p class="mt-2">{{$sent_messages['message_sent_time']}}</p>
+                                <p class="mt-2">{{date('d/M/Y H:i:s', strtotime($sent_messages['message_sent_time']))}}</p>
                             </td>
                             <td>
                                 <p>Subject: {{$sent_messages['message_subject']}}</p>
@@ -290,11 +290,11 @@
                             </td>
                             {{-- <td><i class="far fa-star"></i></td> --}}
                             <td>
-                                {{-- <a href="" class="read-notification" data-bs-toggle="modal"
-                                    data-bs-target="#readModal">Read</a> | --}}
-                                <a href="/delete_sent/{{$sent_messages->id}}" class="delete-notification" >Delete</a>
-                                    {{-- <a href="/delete_sent/{{$sent_messages->id}}" class="delete-notification" data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal">Delete</a> --}}
+                                 <!--<a href="" class="read-notification" data-bs-toggle="modal"-->
+                                 <!--   data-bs-target="#readModal">Read</a>-->
+                                <!--<a href="/delete_sent/{{$sent_messages->id}}" class="delete-notification" >Delete</a>-->
+                                     <a href="/delete_sent/{{$sent_messages->id}}" class="delete-notification" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal">Delete</a>
                             </td>
                         </tr>
                         @endforeach

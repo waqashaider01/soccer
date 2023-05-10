@@ -33,7 +33,7 @@ class PlayerTransferHistoryController extends Controller
         $PlayerTransferHistory->transfer_to_team   = $validated["transferToTeam"];
         $PlayerTransferHistory->transfer_type      = $validated["transferType"];
         $PlayerTransferHistory->save();
-        return Redirect("/dashboard/player/profile/")->with("transfer-history-success", "Transfer History created successfully!");
+        return redirect()->route('player.dashboard')->with("transfer-history-success", "Transfer History created successfully!");
     }
 
 
@@ -60,7 +60,7 @@ class PlayerTransferHistoryController extends Controller
         $PlayerTransferHistory->transfer_to_team   = $validated["transferToTeam"];
         $PlayerTransferHistory->transfer_type      = $validated["transferType"];
         $PlayerTransferHistory->save();
-        return Redirect("/dashboard/player/profile/")->with("transfer-history-success", "Tranfer History created successfully!");
+        return redirect()->route('player.dashboard')->with("transfer-history-success", "Tranfer History created successfully!");
     }
 
     //=============================================================
@@ -68,6 +68,6 @@ class PlayerTransferHistoryController extends Controller
     {
         $PlayerTransferHistory = PlayerTransferHistory::find($id);
         $PlayerTransferHistory->delete();
-        return Redirect("/dashboard/player/profile")->with("transfer-history-success", "Transfer History deleted successfully!");
+        return redirect()->route('player.dashboard')->with("transfer-history-success", "Transfer History deleted successfully!");
     }
 }

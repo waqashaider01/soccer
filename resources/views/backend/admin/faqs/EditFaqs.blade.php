@@ -10,7 +10,7 @@
         <label for="">Enter FAQ question</label><br>
         <input type="text" name="question" id="" value="{{ $faqs->Question }}"><br><br>
         <label for="">Enter FAQ answer</label><br>
-        <textarea type="text" name="answer" id="" value="{{ $faqs->Answer }}" placeholder="Update Answer" cols="100" rows="10"></textarea><br><br>
+        <textarea type="text" name="answer" cols="100" rows="10">{{ $faqs->Answer }}</textarea><br><br>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 

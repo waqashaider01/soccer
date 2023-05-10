@@ -52,14 +52,15 @@
             </button>
         </div>
     </nav>
+
     <div class="tab-content" id="nav-tabContent">
 
         <div class="tab-pane fade show active" id="nav-edit_profile" role="tabpanel">
             @if (session('error'))
-            <div class="alert alert-danger mb-0 py-1 text-center">{{ session('error') }}</div>
+             <div class="alert alert-danger mb-0 py-1 text-center">{{ session('error') }}</div>
             @endif
             @if (session('success'))
-            <div class="alert alert-success mb-0 py-1 text-center">{{ session('success') }}</div>
+             <div class="alert alert-success mb-0 py-1 text-center">{{ session('success') }}</div>
             @endif
             <ul class="nav nav-pills mb-3" id="piwlls-tab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -127,36 +128,38 @@
 
                 <div class="tab-pane fade" id="pills-img_upload" role="tabpanel">
                     @include('backend.player.profile.edit-profile.img-upload')
-                </div>{{-- image-upload end --}}
+                </div>
             </div>
-        </div>{{-- edit_profile end --}}
+        </div>
 
         <div class="tab-pane fade" id="nav-career_match_data" role="tabpanel">
             @include('backend.player.profile.career-match-data.index')
-        </div>{{-- career_match_data end --}}
+        </div>
 
 
         <div class="tab-pane fade" id="nav-transfer_history" role="tabpanel">
             @include('backend.player.profile.transfer-history.index')
-        </div>{{-- transfer_history end --}}
+        </div>
 
 
         <div class="tab-pane fade" id="nav-attributes" role="tabpanel">
             @include('backend.player.profile.attributes.index')
-        </div>{{-- attributes end --}}
+            </div>
+            
+        </div>
 
 
         <div class="tab-pane fade" id="nav-next_match_schedule" role="tabpanel">
             @include('backend.player.profile.next-match-schedule.index')
-        </div>{{-- next_match_schedule end --}}
+        </div>
 
         <div class="tab-pane fade" id="nav-achievements" role="tabpanel">
             @include('backend.player.profile.achievements.index')
-        </div>{{-- achievements end --}}
+        </div>
 
         <div class="tab-pane fade" id="nav-cv" role="tabpanel">
             @include('backend.player.profile.cv.index')
-        </div>{{-- cv end --}}
+        </div>
     </div>
     @endsection
     @push('scripts')

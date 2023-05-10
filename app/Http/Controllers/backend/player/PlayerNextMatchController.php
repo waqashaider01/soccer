@@ -58,7 +58,7 @@ class PlayerNextMatchController extends Controller
         $PlayerAchievement->time=$validated["time"];
         $PlayerAchievement->live_stream_link=$request->liveStream;
         $PlayerAchievement->save();
-        return Redirect("/dashboard/player/profile/")->with("next-match-success","Next Match Schedule created successfully!");
+        return redirect()->route('player.dashboard')->with("next-match-success","Next Match Schedule created successfully!");
     }
 
     /**
@@ -113,7 +113,7 @@ class PlayerNextMatchController extends Controller
         $PlayerAchievement->time=$validated["time"];
         $PlayerAchievement->live_stream_link=$request->liveStream;
         $PlayerAchievement->save();
-        return Redirect("/dashboard/player/profile/")->with("next-match-success","Next Match Schedule updated successfully!");
+        return redirect()->route('player.dashboard')->with("next-match-success","Next Match Schedule updated successfully!");
     }
 
     /**
@@ -126,6 +126,6 @@ class PlayerNextMatchController extends Controller
     {
         $PlayerNextMatchSchedule=PlayerNextMatchSchedule::find($id);
         $PlayerNextMatchSchedule->delete();
-        return Redirect("/dashboard/player/profile/")->with("next-match-success","Next Match Schedule deleted successfully!");
+        return redirect()->route('player.dashboard')->with("next-match-success","Next Match Schedule deleted successfully!");
     }
 }

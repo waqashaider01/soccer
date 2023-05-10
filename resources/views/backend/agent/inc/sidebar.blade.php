@@ -57,35 +57,35 @@
             @endif
 
 
-            <li class="sidebar-item {{ Request::is(Auth::user()->type . '/all-blogs') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('all-blogs', Auth::user()->type) }}">
-                    <i class="fas fa-blogger"></i>
-                    <span class="align-middle">Blogs</span>
-                </a>
-            </li>
+            <!--<li class="sidebar-item {{ Request::is(Auth::user()->type . '/all-blogs') ? 'active' : '' }}">-->
+            <!--    <a class="sidebar-link" href="{{ route('all-blogs', Auth::user()->type) }}">-->
+            <!--        <i class="fas fa-blogger"></i>-->
+            <!--        <span class="align-middle">Blogs</span>-->
+            <!--    </a>-->
+            <!--</li>-->
 
-            <li class="sidebar-item {{ Request::is(Auth::user()->type . '/all-blogs') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/messages">
-                    <i class="fas fa-blogger"></i>
-                    <span class="align-middle">Messages</span>
-                </a>
-            </li>
+            <!--<li class="sidebar-item {{ Request::is(Auth::user()->type . '/all-blogs') ? 'active' : '' }}">-->
+            <!--    <a class="sidebar-link" href="/messages">-->
+            <!--        <i class="fas fa-blogger"></i>-->
+            <!--        <span class="align-middle">Messages</span>-->
+            <!--    </a>-->
+            <!--</li>-->
 
             @if (Auth::user()->type != 'admin')
 
                 <li class="sidebar-item {{ Request::is('agent/messages') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('agent.messages') }}">
+                    <a class="sidebar-link" href="{{ route(Auth::user()->type.'.messages') }}">
                         <i class="fas fa-envelope-open-text"></i>
                         <span class="align-middle">Messages</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ Request::is('agent/my-connections') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('agent.my-connections') }}">
-                        <i class="fas fa-user-friends"></i>
-                        <span class="align-middle">My Connections</span>
-                    </a>
-                </li>
+                <!--<li class="sidebar-item {{ Request::is('agent/my-connections') ? 'active' : '' }}">-->
+                <!--    <a class="sidebar-link" href="{{ route('agent.my-connections') }}">-->
+                <!--        <i class="fas fa-user-friends"></i>-->
+                <!--        <span class="align-middle">My Connections</span>-->
+                <!--    </a>-->
+                <!--</li>-->
 
                 <li class="sidebar-item {{ Request::is('agent/subscriptions') ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route(auth()->user()->type . '.subscriptions') }}">
@@ -95,7 +95,7 @@
                 </li>
 
                 <li class="sidebar-item {{ Request::is('agent/settings') ? 'active' : '' }}">
-                    <a class="sidebar-link" href="/agent/agent/settings">
+                    <a class="sidebar-link" href="{{route('agent.setting')}}">
                         <i class="fas fa-cog"></i>
                         <span class="align-middle">Settings</span>
                     </a>

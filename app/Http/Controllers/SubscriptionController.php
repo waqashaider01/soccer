@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BillingAdress;
+use App\Models\PaymentCardInfo;
+use Illuminate\Support\Facades\Crypt;
 
 class SubscriptionController extends Controller
 {
@@ -69,73 +71,6 @@ class SubscriptionController extends Controller
     }
 
 
-    //===================================================
-    // public function createSubscription(Request $request)
-    // {
-    //     // dd($request->price/$request->duration);
-    //     $user = Auth::user();
-    //     if ($user->type == 'player') {
-    //         $subscription = 'Player Subscription';
-    //     } elseif ($user->type == 'scout') {
-    //         $subscription = 'Scout Subscription';
-    //     } elseif ($user->type == 'club') {
-    //         $subscription = 'Club Subscription';
-    //     } elseif ($user->type == 'coach') {
-    //         $subscription = 'Coach Subscription';
-    //     } elseif ($user->type == 'intermediary') {
-    //         $subscription = 'Intermediary Subscription';
-    //     } elseif ($user->type == 'academy') {
-    //         $subscription = 'Academy Subscription';
-    //     } else {
-    //         $subscription = 'Subscription';
-    //     }
-
-
-    //     $sub = new Subscription;
-    //     $token =$request->paymentMethod;
-    //     $paymentIntent = PaymentIntent::create([
-    //         'amount' => 800,
-    //         'currency' => 'usd',
-    //         'description'=>"test",
-
-    //     ]);
-
-    //     // $stripe = Stripe::setApiKey(config('services.stripe.secret'));
-    //     // $charge=Charge::create([
-    //     //     'amount' => 100,
-    //     //     'currency' => 'usd',
-    //     //     'source' => $token,
-    //     //     'description' => 'ok',
-    //     // ]);
-
-    //     if (is_null($user->stripe_id)) {
-    //         $subscription = $user->createAsStripeCustomer();
-    //     }
-
-    //     $sub->user_id    = $user->id;
-    //     $sub->name       = $request->name;
-    //     $sub->stripe_id  = $user->stripe_id;
-    //     $sub->stripe_status = 1;
-    //     $sub->stripe_plan   = $request->plan;
-    //     $sub->monthly_plan   = $request->price/$request->duration;
-    //     $sub->recurring_amount   = $request->rec_amount;
-    //     $sub->quantity      = 1;
-    //     $sub->trial_ends_At = Carbon::now();
-    //     $sub->ends_at = Carbon::now()->addDay(30);
-    //     $save = $sub->save();
-    //     if ($save) {
-    //         dd('data saved succeassfully');
-    //     } else {
-    //         dd('error occured');
-    //     }
-
-    //     $user->newSubscription($subscription, $request['plan'])->create($request['paymentMethod'], [
-    //         'email' => $user->email,
-    //     ]);
-
-    //     return redirect()->route(Auth::user()->type . '.subscriptions')->with('success', 'Subscription is completed.');
-    // }
-
     public function createSubscription(Request $request)
 
     {
@@ -155,7 +90,7 @@ class SubscriptionController extends Controller
         ));
 
         $data = \Stripe\Charge::create ([
-                "amount" => $request->price * $request->sub_plan,
+                "amount" => ($request->price * $request->sub_plan) * 100,
                 "currency" => "usd",
                 "customer" => $customer->id,
                 "description" => "Payment from Soccer",
@@ -189,27 +124,34 @@ class SubscriptionController extends Controller
                 $subscription = 'Subscription';
             }
 
-        $sub = new Subscription;
+            $sub = new Subscription;
 
             $Paymentdata = $request->Payment_method;
             $formattedData = ucwords(str_replace("_", " ", $Paymentdata));
 
             $sub->user_id    = $user->id;
             $sub->name       = $user->name;
-            $sub->stripe_id  = $user->stripe_id;
+            $sub->stripe_id  = $customer->id;
             $sub->stripe_status = 1;
             $sub->stripe_plan   = $request->sub_plan;
             $sub->one_payment_of = $request->price * $request->duration;
-            $sub->paid_amount = $data->amount;
-            $sub->recurring_amount   = $request->rec_amount;
+            $sub->paid_amount = $request->price * $request->sub_plan;
+            $sub->recurring_amount   = $sub->stripe_plan * $request->price;
             $sub->quantity      = 1;
-            $sub->card_no = $request->card_no;
+            $sub->card_no = Crypt::encryptString($request->card_no);
             $sub->cvc = $request->cvc;
             $sub->expiration_date = $request->exp_month. '/' .$request->exp_year;
             $sub->payment_method = $formattedData;
             $sub->trial_ends_At = Carbon::now();
-            $sub->ends_at = Carbon::now()->addDay(30);
-
+            if($sub->stripe_plan == 1) {
+            $sub->ends_at = Carbon::now()->addMonth();
+            } elseif($sub->stripe_plan == 3){
+                $sub->ends_at = Carbon::now()->addMonths(3);
+            } elseif($sub->stripe_plan == 6){
+                $sub->ends_at = Carbon::now()->addMonths(6);
+            } else {
+                $sub->ends_at = Carbon::now()->addYear();
+            }
             $shipping_address = $data->shipping->address;
             $save = $sub->save();
             $address = new BillingAdress();
@@ -225,7 +167,7 @@ class SubscriptionController extends Controller
 
             if ($save) {
                 Session::flash('success', 'Payment successful!');
-                return response()->json(['success']);
+                return back();
             } else {
                 dd('error occured');
             }
@@ -237,7 +179,6 @@ class SubscriptionController extends Controller
         return redirect()->route(Auth::user()->type . '.subscriptions')->with('success', 'Subscription is completed.');
     }
 
-
     //===================================================
     public function subscriptionDetails()
     {
@@ -248,6 +189,8 @@ class SubscriptionController extends Controller
         } else {
             return view('backend.agent.subscriptions', compact('subscriptions'));
         }
+        
+        dd('test');
     }
 
 
@@ -309,5 +252,21 @@ class SubscriptionController extends Controller
         $sub = Sub::find($id);
         $sub->delete();
         return redirect()->back();
+    }
+
+    public function saveDetails(Request $request)
+
+    {
+        $id = Auth::user()->id;
+        $save = PaymentCardInfo::create([
+            'user_id' => $id,
+            'card_no' => Crypt::encryptString($request->card_no),
+            'cvc' => $request->cvc_no,
+            'expiry_month' => $request->expiry_month,
+            'expiry_year' => $request->year,
+            'card_name' => $request->card_name,
+        ]);
+
+        return back()->with('success','Card details added successfully!');
     }
 }

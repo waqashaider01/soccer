@@ -16,8 +16,13 @@ use App\Models\VerifyAccount;
 use App\Models\IntermediaryInfo;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\UserPrivacy;
+use App\Models\Mail_prefreneces_notification;
+use App\Models\BlockedUsers;
 use App\Models\Favourite;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PlayerAttribute;
+use App\Models\PlayerInfo;
 
 class AgentController extends Controller
 {
@@ -27,7 +32,7 @@ class AgentController extends Controller
         $user_id        =   Auth::user()->id;
         $follower       =   Followers::where('following', $user_id)->count();
         $following      =   Followers::where('follower', $user_id)->count();
-        $views          =   ScoutInfo::where('scout_id', $user_id)->first() ?? '';
+        $views          =   ScoutInfo::where('scout_id', $user_id)->first();
         $id1            =   Auth::id();
         $user           =   User::where('id', $id1)->first();
         $follower       =   Followers::where('following', '=', $id1)->count();
@@ -37,8 +42,25 @@ class AgentController extends Controller
         $verified       =   VerifyAccount::where('user_id', Auth::user()->id)->get();
         $verifiedstyle  =   VerifyAccount::where('user_id', Auth::user()->id)->where('status', 1)->count();
         $agelimit       =   DB::table('guardian_approvals', Auth::user()->id)->where('status', NULL)->count();
-
-        return view("backend.agent.index", compact('favourites', 'user', 'views', 'follower', 'following', 'verified', 'verifiedstyle'));
+        
+        $profileimages = PlayerInfo::where('player_id', $id1)->whereNotNull('profile_img')->count();
+        $attributess   = PlayerAttribute::where('player_id', $id1)->count();
+        $city          = PlayerInfo::where('player_id', $id1)->whereNotNull("birth_city")->count();
+        $country       = PlayerInfo::where('player_id', $id1)->whereNotNull('birth_country')->count();
+        
+        
+        
+        
+        
+        
+        
+        $verification  = VerifyAccount::where("user_id", $id1)->where('status', 1)->count();
+        if (!$views) {
+            $views = [];
+        } 
+        $verified       = VerifyAccount::where('user_id', Auth::user()->id)->get();
+        
+        return view("backend.agent.index", compact('favourites', 'user', 'views', 'follower', 'following', 'verifiedstyle','profileimages','attributess','city','country','verification','verified'));
     }
 
     /***************** My Network ************************************/
@@ -51,6 +73,25 @@ class AgentController extends Controller
     public function notifications()
     {
         return view("backend.agent.notifications");
+    }
+    
+    // *******************************************************************
+    public function agentsetting()
+    {
+        $blockusers = [];
+        $blockUser = BlockedUsers::where('user_id', Auth::user()->id)->pluck('blocked_id')->toArray();
+        // dd($blockUser);
+        $UserPrivacy = UserPrivacy::where('user_id',auth()->user()->id)->first();
+        $mail_pref = Mail_prefreneces_notification::where('user_id', auth::id())->first();
+        
+         foreach ($blockUser as $blocked_id) {
+            $blocks = User::find($blocked_id);
+            if ($blocks) {
+                $blockusers[] = $blocks;
+            }
+        }
+        
+        return view('backend.agentsetting',compact('mail_pref','UserPrivacy','blockusers'));
     }
 
     /***************** marketplace ************************************/

@@ -69,6 +69,7 @@ use App\Http\Controllers\backend\player\ActivityController;
 */
 
 
+// Route::post('privacy-setting/{id}',[HomeController::class,'security'])->name('security');
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -106,9 +107,6 @@ Route::controller(HomeController::class)->group(function () {
 
 
 Route::post("/register", [RegisterController::class, 'register'])->name('register');
-// Route::post("/register", function () {
-//     dd("helllo");
-// })->name('register');
 Route::post("/favData", [FavouriteController::class, 'favData'])->name('favData');
 Route::get("/unfavourite/{id}", [FavouriteController::class, 'RemoveFromFavourite'])->name('unfavourite')->middleware('auth');
 Route::get("/removefollow/{id}", [FavouriteController::class, 'RemoveFromFollower'])->name('removefollower')->middleware('auth');
@@ -135,6 +133,10 @@ Route::middleware('auth')->group(function () {
         Route::get('unblockMsg/{id}', "unblockMsg")->name("unblockMsg");
         Route::get('follow/{id}', "follow")->name("follow");
         Route::get('unfollow/{id}', "unfollow")->name("unfollow");
+        Route::get('newsletter-notification',function()
+        {
+           return redirect()->back()->with('success', 'Thank you for subscribing! You will receive updates and news about our blogs .');
+        })->name('newsletter');
     });
 });
 
@@ -162,8 +164,10 @@ Route::group(
 Route::group(
     ['prefix' => 'agent', 'middleware' => ['type:scout,club,coach,intermediary,academy', 'auth', 'PreventBackHistory']],
     function () {
-
+        Route::post('privacy-setting/{id}',[HomeController::class,'security'])->name('agent-privacy-set');
+        Route::post('password-change', [HomeController::class,'changepas'])->name('agent.password.change');
         Route::controller(AgentController::class)->group(function () {
+            Route::get('agent-setting','agentsetting')->name('agent.setting');
             Route::get('my-network',  'myNetwork')->name('agent.my-network');
             Route::get('notifications',  'notifications')->name('agent.notifications');
             Route::get('market-posts',  'marketPosts')->name('agent.market-posts');
@@ -194,7 +198,7 @@ Route::group(
             Route::post('/achievement/store', 'store')->name('agent.achievement-store');
             Route::get('/achievement/{id}/edit', 'edit')->name('agent.achievement-edit');
             Route::post('/achievement/update', 'update')->name('agent.achievement-update');
-            Route::get('/achievement/{id}/delete', 'delete')->name('agent.achievement-delete');
+            Route::delete('/achievement/{id}/delete', 'destroy')->name('agent.achievement-delete');
         });
 
         // Market Post Campus
@@ -313,12 +317,14 @@ Route::group(['prefix' => 'player', 'middleware' => ['type:player', 'auth', 'Pre
     Route::post('/attributes/save', [PlayerAttributeController::class, "attributesSave"]);
     Route::post('market-apply', [MarketApplyController::class, 'store'])->name('player.market-apply');
     Route::get('/subscriptions', [SubscriptionController::class, 'subscriptionDetails'])->name('player.subscriptions');
+    Route::post('/savecard-details', [SubscriptionController::class, 'saveDetails'])->name('usercard');
 });
 
 
 /*******************  Scout Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/scout', 'middleware' => ['type:scout', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AgentController::class, 'index'])->name('scout.dashboard');
+    Route::get('messages',[AgentController::class, 'messages'])->name('scout.messages');
     Route::get('profile', [ScoutController::class, 'profile'])->name('scout.profile');
     Route::get('/subscriptions', [SubscriptionController::class, 'subscriptionDetails'])
         ->name('scout.subscriptions');
@@ -328,6 +334,7 @@ Route::group(['prefix' => 'agent/scout', 'middleware' => ['type:scout', 'auth', 
 /*******************  Club Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/club', 'middleware' => ['type:club', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AgentController::class, 'index'])->name('club.dashboard');
+    Route::get('messages',[AgentController::class, 'messages'])->name('club.messages');
     Route::get('profile', [ClubController::class, 'profile'])->name('club.profile');
 
     Route::controller(MarketClubController::class)->group(function () {
@@ -348,6 +355,7 @@ Route::group(['prefix' => 'agent/club', 'middleware' => ['type:club', 'auth', 'P
 Route::group(['prefix' => 'agent/coach', 'middleware' => ['type:coach', 'auth', 'PreventBackHistory']], function () {
 
     Route::get('dashboard', [AgentController::class, 'index'])->name('coach.dashboard');
+    Route::get('messages',[AgentController::class, 'messages'])->name('coach.messages');
     Route::get('profile', [CoachController::class, 'profile'])->name('coach.profile');
     Route::get('/subscriptions', [SubscriptionController::class, 'subscriptionDetails'])
         ->name('coach.subscriptions');
@@ -356,13 +364,17 @@ Route::group(['prefix' => 'agent/coach', 'middleware' => ['type:coach', 'auth', 
 /*******************  Intermediary Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/intermediary', 'middleware' => ['type:intermediary', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AgentController::class, 'index'])->name('intermediary.dashboard');
+    Route::get('messages',[AgentController::class, 'messages'])->name('intermediary.messages');
     Route::get('profile', [IntermediaryController::class, 'profile'])->name('intermediary.profile');
+    Route::get('/subscriptions', [SubscriptionController::class, 'subscriptionDetails'])
+        ->name('intermediary.subscriptions');
 });
 
 
 /*******************  Academy Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/academy', 'middleware' => ['type:academy', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AgentController::class, 'index'])->name('academy.dashboard');
+    Route::get('messages',[AgentController::class, 'messages'])->name('academy.messages');
     Route::get('profile', [AcademyController::class, 'profile'])->name('academy.profile');
 
     Route::controller(MarketAcademyController::class)->group(function () {
@@ -397,6 +409,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['type:admin', 'auth', 'Preve
         Route::get('/helpquestion', 'viewhelpquestion');
         Route::post('helpquestion/store/{id?}', 'helpqes');
         Route::delete('helpquestion/delete/{id}', 'helpquestiondelete')->name('HelpDelete');
+        
     });
 
 
@@ -408,6 +421,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['type:admin', 'auth', 'Preve
         Route::get('delete-verification/{id}', 'delete');
     });
     Route::get('adminsetting', [HomeController::class, 'adminset'])->name('adminsetting');
+    Route::post('changeadminPassword', [HomeController::class, 'adminpas'])->name('adminpas');
+    Route::post('adminsecurity/{id}', [HomeController::class, 'adminsecurity']);
 
 
     Route::controller(FaqController::class)->group(function () {
@@ -501,6 +516,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login/github/callback', 'handleGithubCallback');
     Route::get('login/linkedin', 'redirectToLinkedin')->name('login.linkedin');
     Route::get('login/linkedin/callback', 'handleLinkedinCallback');
+    Route::get('/logout', 'logout')->name('logout');
     Route::post('/logout', 'logout')->name('logout');
 });
 
@@ -515,7 +531,7 @@ Route::controller(SubscriptionController::class)->group(function () {
 });
 
 Route::post('mailpreferences', [MailPreferenceController::class, 'index']);
-Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('agelimit');
+// Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('agelimit');
 Route::get('/players-portfolio', [PlayersPortfolioController::class, "fetchDetails"])
     ->name('players-portfolio.fetch');
 Route::get('subscription/create/{plan_id?}/{duration_id?}', [SubscriptionController::class, 'index'])
@@ -530,7 +546,7 @@ Auth::routes([
 ]);
 
 
-Route::post('/preference/{id}', [HomeController::class, 'mail_prefrences_notification']);
+Route::post('/preference/{id}', [HomeController::class, 'mail_prefrences_notification'])->name('mailpreference');
 Route::post('/additionOption/{id}', [HomeController::class, 'additionalPrefrences']);
 Route::get("social-media-share/{id}", [PostShareInSocialMedia::class, 'index']);
 Route::get("shareCount/{id}/{slug}", [SharePostCountController::class, 'shareonsocialmedia'])->name('SharePost');

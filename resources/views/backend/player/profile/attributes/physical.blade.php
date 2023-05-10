@@ -1,62 +1,62 @@
 <div class="mb-3">
     <label for="physical-1" class="form-label">Acceleration</label> <br>
     <input id="physical-1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->acceleration }}" name="acceleration" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->acceleration ?? '' }}" name="acceleration" />&nbsp;&nbsp;
     <b><span id="physicalValue-1"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-2" class="form-label">Agility</label> <br>
     <input id="physical-2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->agility }}" name="agility" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->agility  ?? ''}}" name="agility" />&nbsp;&nbsp;
     <b><span id="physicalValue-2"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-3" class="form-label">Balance</label> <br>
     <input id="physical-3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->balance }}" name="balance" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->balance ?? ''}}" name="balance" />&nbsp;&nbsp;
     <b><span id="physicalValue-3"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-4" class="form-label">Jumping</label> <br>
     <input id="physical-4" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->jumping }}" name="jumping" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->jumping ?? ''}}" name="jumping" />&nbsp;&nbsp;
     <b><span id="physicalValue-4"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-5" class="form-label">Natural Fitness</label> <br>
     <input id="physical-5" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->natural_fitness }}"
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->natural_fitness ?? ''}}"
         name="naturalFitness" />&nbsp;&nbsp;
     <b><span id="physicalValue-5"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-6" class="form-label">Reflexes</label> <br>
     <input id="physical-6" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->reflexes }}" name="reflexes" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->reflexes ?? '' }}" name="reflexes" />&nbsp;&nbsp;
     <b><span id="physicalValue-6"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-7" class="form-label">Speed/Pace</label> <br>
     <input id="physical-7" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->speed }}" name="speed" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->speed ?? ''}}" name="speed" />&nbsp;&nbsp;
     <b><span id="physicalValue-7"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-8" class="form-label">Stamina</label> <br>
     <input id="physical-8" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->stamina }}" name="stamina" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->stamina ??'' }}" name="stamina" />&nbsp;&nbsp;
     <b><span id="physicalValue-8"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-9" class="form-label">Strength</label> <br>
     <input id="physical-9" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->strength }}" name="strength" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->strength ?? '' }}" name="strength" />&nbsp;&nbsp;
     <b><span id="physicalValue-9"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="physical-10" class="form-label">Goalkeeping (Goalkeepers Only)</label> <br>
     <input id="physical-10" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->goalkeeping }}"
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->goalkeeping ?? ''}}"
         name="goalkeeping" />&nbsp;&nbsp;
     <b><span id="physicalValue-10"></span>%</b>
 </div>

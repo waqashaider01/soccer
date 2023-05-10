@@ -7,23 +7,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
         integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(document).ready(function() {
-            $('select').change(function() {
-                $('select option')[0].value = $('select option:selected').val();
-                $('select option')[0].innerHTML = $('select option:selected').val();
-                $("select").val($('select option:selected').val());
+    <!--<script>-->
+    <!--    $(document).ready(function() {-->
+    <!--        $('select').change(function() {-->
+    <!--            $('select option')[0].value = $('select option:selected').val();-->
+    <!--            $('select option')[0].innerHTML = $('select option:selected').val();-->
+    <!--            $("select").val($('select option:selected').val());-->
 
-                console.log($('select option:selected').val());
-            });
-        });
-    </script>
+    <!--            console.log($('select option:selected').val());-->
+    <!--        });-->
+    <!--    });-->
+    <!--</script>-->
 @endpush
 @section('content')
     <div class="messages">
-        @if (Session::has('message'))
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-        @endif
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -52,9 +54,9 @@
 
         <div class="tab-content" id="nav-tabContent">
             <!--
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="tab-pane fade" id="nav-inbox" role="tabpanel">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="tab-pane fade" id="nav-inbox" role="tabpanel">
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
             {{-- inbox end --}}
 
             <div class="tab-pane fade show active" id="nav-starred" role="tabpanel">
@@ -62,7 +64,7 @@
                     Information Visibility
                 </div>
                 <div class="card-body">
-                    <form action="security" method="post">
+                    <form action="{{ url('admin/adminsecurity/'.auth()->user()->id) }}" method="post">
                         @csrf
                         <div class="mb-3 d-flex justify-content-center align-items-center">
                             <div class="col-sm-2">
@@ -70,11 +72,14 @@
                             </div>
                             <div class="col-sm-9 col-md-5 col-10">
                                 <select id="Telephone" name="telephone" class="form-select">
-                                    <option value="Everyone" selected="">Everyone</option>
-                                    <option value="Only me">Only Me</option>
-                                    <option value="Only contact">Only Contact</option>
-                                    <option value="Only share with">Only Share With</option>
+                                    
+                                    <option value="everyone" @if (isset($UserPrivacy->telephone) &&  ($UserPrivacy->telephone == 0)) selected @endif>Everyone</option>
+                                    <option value="only_me" @if (isset($UserPrivacy->telephone) &&  ($UserPrivacy->telephone == 1)) selected @endif>Only Me</option>
+                                    <option value="only_contact" @if (isset($UserPrivacy->telephone) &&  ($UserPrivacy->telephone == 2)) selected @endif>Only Contact</option>
+                                    <option value="only_share_with" @if (isset($UserPrivacy->telephone) &&  ($UserPrivacy->telephone == 3)) selected @endif>Only Share With</option>
+                         
                                 </select>
+
                             </div>
                         </div>
                         <div class="mb-3 d-flex justify-content-center align-items-center">
@@ -83,10 +88,11 @@
                             </div>
                             <div class="col-sm-9 col-md-5 col-10">
                                 <select id="Email" name="email" class="form-select">
-                                    <option value="Everyone" selected="">Everyone</option>
-                                    <option value="Only me">Only Me</option>
-                                    <option value="Only contact">Only Contact</option>
-                                    <option value="Only share with">Only Share With</option>
+                                    <option value="everyone" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 0)) selected @endif>Everyone</option>
+                                    <option value="only_me" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 1)) selected @endif>only me</option>
+                                    <option value="only_contact" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 2)) selected @endif>only contact</option>
+                                    <option value="only_share_with" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 3)) selected @endif>Only Share With</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -96,10 +102,13 @@
                             </div>
                             <div class="col-sm-9 col-md-5 col-10">
                                 <select id="Website" name="website" class="form-select">
-                                    <option value="Everyone" selected="">Everyone</option>
-                                    <option value="Only me">Only Me</option>
-                                    <option value="Only contact">Only Contact</option>
-                                    <option value="Only share with">Only Share With</option>
+                                    <option value="everyone" @if (isset($UserPrivacy->website) &&  ($UserPrivacy->website == 0)) selected @endif>Everyone</option>
+                                    <option value="only_me" @if (isset($UserPrivacy->website) && ($UserPrivacy->website == 1))  selected @endif>Only Me</option>
+                                    <option value="only_contact" @if (isset($UserPrivacy->website) && ($UserPrivacy->website == 2))  selected @endif>Only contact</option>
+                                    <option value="only_share_with" @if (isset($UserPrivacy->website) && ($UserPrivacy->website == 3))  selected @endif>only share with</option>
+
+
+                                 
                                 </select>
                             </div>
 
@@ -110,13 +119,17 @@
                                 <label for="SocialMediaLinks" class="form-label-3">Social Media <br> Links</label>
                             </div>
                             <div class="col-sm-9 col-md-5 col-10">
-                                <select id="SocialMediaLinks" name="social" class="form-select width">
-                                    <option value="Everyone" selected="">Everyone</option>
-                                    <option value="Only me">Only Me</option>
-                                    <option value="Only contact">Only Contacts</option>
-                                    <option value="Only share with">Only Share With</option>
+                                <select id="SocialMediaLinks" name="social_media_links" class="form-select width">
+                                    <option value="everyone" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 0))  selected @endif >Everyone</option>
+                                    <option value="only_me" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 1))  selected @endif >only me</option>
+                                    <option value="only_contact" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 2))  selected @endif >Only Contacts</option>
+                                    <option value="only_share_with" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 3))  selected @endif >Only share with</option>
+
                                 </select>
                             </div>
+
+
+
 
                         </div>
                         <div class="d-flex flex-row mt-4">
@@ -144,8 +157,6 @@
                 </div>
                 </form>
             </div>
-
-            {{-- Blocked users --}}
             <div class="tab-pane fade" id="blocked-users" role="tabpanel">
                 <div class="row">
 
@@ -287,71 +298,59 @@
                             <div class="row justify-content-center">
                                 <div class="col-sm-10 col-md-7">
                                     <div class="row mt-3">
-
-                                        <form action="{{ url('player/changePassword') }}" class="form-horizontal"
+                                        <form action="{{ url('admin/changeadminPassword') }}" class="form-horizontal"
                                             method="POST">
-
                                             @csrf
 
                                             <div
                                                 class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
-                                                <label for="new-password" class="col-md-4 control-label">Current
+                                                <label for="current-password" class="col-md-4 control-label">Current
                                                     Password</label>
-
                                                 <div class="col-md-6">
                                                     <input id="current-password" type="password" class="form-control"
                                                         name="current-password" required>
-
                                                     @if ($errors->has('current-password'))
-                                                        <span class="help-block">
-                                                            <strong>{{ $errors->first('current-password') }}</strong>
-                                                        </span>
+                                                        <span
+                                                            class="help-block"><strong>{{ $errors->first('current-password') }}</strong></span>
                                                     @endif
                                                 </div>
                                             </div>
+
                                             <div class="form-group{{ $errors->has('new-password') ? ' has-error' : '' }}">
                                                 <label for="new-password" class="col-md-4 control-label">New
                                                     Password</label>
-
                                                 <div class="col-md-6">
                                                     <input id="new-password" type="password" class="form-control"
                                                         name="new-password" required>
-
                                                     @if ($errors->has('new-password'))
-                                                        <span class="help-block">
-                                                            <strong>{{ $errors->first('new-password') }}</strong>
-                                                        </span>
+                                                        <span
+                                                            class="help-block"><strong>{{ $errors->first('new-password') }}</strong></span>
                                                     @endif
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="new-password-confirm" class="col-md-4 control-label">Confirm
-                                                    New
-                                                    Password</label>
-
+                                                    New Password</label>
                                                 <div class="col-md-6">
-                                                    <div class="col-md-6">
-                                                        <input id="new-password-confirm" type="password"
-                                                            class="form-control" name="new-password_confirmation"
-                                                            required>
-                                                    </div>
+                                                    <input id="new-password-confirm" type="password" class="form-control"
+                                                        name="new-password_confirmation" required>
                                                 </div>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <div class="col-md-6 col-md-offset-4">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Change Password
-                                                        </button>
-                                                    </div>
+                                            <div class="form-group">
+                                                <div class="col-md-6 mt-4">
+                                                    <button type="submit" class="btn btn-primary">Change
+                                                        Password</button>
                                                 </div>
+                                            </div>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>{{-- compose end --}}
 
@@ -375,8 +374,5 @@
             </script>
 
         </div>
-
-
-
     </div>
 @endsection

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <form method="POST" action="/player/transfer-history/{{ $PlayerTransferHistory->id }}">
+                <form method="POST" action="{{url('player/transfer-history/' .$PlayerTransferHistory->id)}}">
                     @csrf
                     @method("PUT")
                     <div class="mb-3">
@@ -14,23 +14,23 @@
                             value="{{ $PlayerTransferHistory->transfer_date }}">
                     </div>
                     @error('transferDate')
-                        <div class="text-danger mb-3">{{ $message }}</div>
+                        <div class="text-danger mb-3">{{ $message ?? '' }}</div>
                     @enderror
                     <div class="mb-3">
                         <label for="transferFromTeam" class="form-label">Transfer From Team *</label>
                         <input type="text" class="form-control" id="transferFromTeam" name="transferFromTeam"
-                            value="{{ $PlayerTransferHistory->transfer_from_team }}">
+                            value="{{ $PlayerTransferHistory->transfer_from_team ?? '' }}">
                     </div>
                     @error('transferFromTeam')
-                        <div class="text-danger mb-3">{{ $message }}</div>
+                        <div class="text-danger mb-3">{{ $message  ?? ''}}</div>
                     @enderror
                     <div class="mb-3">
                         <label for="transferToTeam" class="form-label">Transfer To Team *</label>
                         <input type="text" class="form-control" id="transferToTeam" name="transferToTeam"
-                            value="{{ $PlayerTransferHistory->transfer_to_team }}">
+                            value="{{ $PlayerTransferHistory->transfer_to_team ?? '' }}">
                     </div>
                     @error('transferToTeam')
-                        <div class="text-danger mb-3">{{ $message }}</div>
+                        <div class="text-danger mb-3">{{ $message ?? '' }}</div>
                     @enderror
                     <div class="mb-3">
                         <label for="transferType" class="form-label">Transfer Type *</label>
@@ -43,10 +43,10 @@
                         </select>
                     </div>
                     @error('transferType')
-                        <div class="text-danger mb-3">{{ $message }}</div>
+                        <div class="text-danger mb-3">{{ $message ?? '' }}</div>
                     @enderror
                     <div class="mb-3 d-flex justify-content-between">
-                        <a href="/player/transfer-history/{{ $PlayerTransferHistory->id }}/edit"
+                        <a href="{{url('player/transfer-history/'.$PlayerTransferHistory->id) }}/edit"
                             class="btn btn-secondary">Cancel</a>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>

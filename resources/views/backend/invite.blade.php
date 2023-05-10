@@ -72,7 +72,6 @@
             </div>
             <div class="text-center mb-4">
                 <h6>Copy your invite link and share it with your Friends.</h6>
-            </div>
 
             <div class="row">
                 <div class="col-md-3 col-sm-4">
@@ -108,7 +107,10 @@
 
                                 <div class="col-10">
                                     <div class="text">
-                                        <h5 class="title">1</h5>
+                                        @php
+                                             $pending = $invite_count-$invitefriend;
+                                        @endphp
+                                        <h5 class="title">{{$pending?$pending : '0'}}</h5>
                                         <p class="description">Pending</p>
                                     </div>
                                 </div>
@@ -128,7 +130,7 @@
 
                                 <div class="col-10">
                                     <div class="text">
-                                        <h5 class="title">1</h5>
+                                        <h5 class="title">{{$invitefriend}}</h5>
                                         <p class="description">Completed</p>
                                     </div>
                                 </div>
@@ -148,7 +150,10 @@
 
                                 <div class="col-10">
                                     <div class="text">
-                                        <h5 class="title">10</h5>
+                                        @php
+                                            $earn=($invitefriend*10)/100;
+                                        @endphp
+                                        <h5 class="title">{{$earn}}</h5>
                                         <p class="description">Earned</p>
                                     </div>
                                 </div>
@@ -170,49 +175,36 @@
                                                     <table class="table table-striped mb-0" style="border-bottom:none;">
                                                         <thead style="background-color: #222e3c;">
                                                             <tr>
+                                                                <th scope="col">ID</th>
                                                                 <th scope="col">Email</th>
                                                                 <th scope="col">Status</th>
-                                                                <th scope="col">Action</th>
-                                                                <th scope="col">Points</th>
 
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>waqashayder01@gmail.com</td>
-                                                                <td>Sent</td>
-                                                                <td>Resend</td>
-                                                                <td>0</td>
 
-                                                            </tr>
-                                                            <tr>
-                                                                <td>waqashayder01@gmail.com</td>
-                                                                <td>Sent</td>
-                                                                <td>Resend</td>
-                                                                <td>0</td>
+                                                            @if(count($all_invitations) > 0)
+                                                                @foreach($all_invitations as $invitation)
+                                                                    <tr>
+                                                                        <td>{{$loop->iteration}}</td>
+                                                                        <td>{{ $invitation->email }}</td>
+                                                                        <td>
+                                                                            @php $is_complete = false; @endphp
+                                                                            @foreach($friends as $friend)
+                                                                                @if($friend->email==$invitation->email)
+                                                                                    <p class="mb-0">complete</p>
+                                                                                    @php $is_complete = true; @endphp
+                                                                                    @break
+                                                                                @endif
+                                                                            @endforeach
+                                                                            @if(!$is_complete)
+                                                                                <p class="mb-0">sent</p>
+                                                                            @endif
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @endif
 
-                                                            </tr>
-                                                            <tr>
-                                                                <td>waqashayder01@gmail.com</td>
-                                                                <td>Sent</td>
-                                                                <td>Resend</td>
-                                                                <td>0</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td>waqashayder01@gmail.com</td>
-                                                                <td>Sent</td>
-                                                                <td>Resend</td>
-                                                                <td>0</td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td>waqashayder01@gmail.com</td>
-                                                                <td>Sent</td>
-                                                                <td>Resend</td>
-                                                                <td>0</td>
-
-                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

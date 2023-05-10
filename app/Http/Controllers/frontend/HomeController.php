@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Mail\Invitation_mail;
 use Hash;
 use App\Models\FAQ;
+use App\Models\Subscription;
+
 use App\Models\Sub;
 use App\Models\Blog;
 use App\Models\City;
@@ -56,7 +58,9 @@ use App\Models\MarketPartnershipRequest;
 use App\Models\Mail_prefreneces_notification;
 use App\Models\SharePost;
 use App\Models\AccVerification;
-use App\Models\Subscription;
+use App\Models\PaymentCardInfo;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -284,21 +288,37 @@ class HomeController extends Controller
 
         if ($type == "scout") {
             $agent = ScoutInfo::join('users', 'users.id', '=', 'scout_infos.scout_id')
-                ->join('countries', 'countries.id', '=', 'scout_infos.birth_country')
-                ->select('scout_infos.*', 'users.name', 'countries.name as country_name')
-                ->where('scout_infos.scout_id', $id)
-                ->first();
-            // dd($agent);
-            $agent->reads++;
-            $agent->save();
+            ->join('countries', 'countries.id', '=', 'scout_infos.birth_country')
+            ->select('scout_infos.*', 'users.name', 'countries.name as country_name')
+            ->where('scout_infos.scout_id', $id)
+            ->first();
+
+            if (!$agent) {
+                // handle the case when $agent is null
+                $read = 1;
+            } else {
+                $agent->reads++;
+                $agent->save();
+                $read = $agent->reads;
+            }
+
         } elseif ($type == "club") {
             $agent = ClubInfo::join('users', 'users.id', '=', 'club_infos.club_id')
                 ->join('countries', 'countries.id', '=', 'club_infos.birth_country')
                 ->select('club_infos.*', 'users.name', 'countries.name as country_name')
                 ->where('club_infos.club_id', $id)
                 ->first();
-            $agent->reads++;
-            $agent->save();
+                
+                try {
+                    if ($agent) {
+                        $agent->reads++;
+                        $agent->save();
+                    } else {
+                        throw new Exception('ClubInfo is null');
+                    }
+                } catch (Exception $e) {
+                    Log::error($e->getMessage());
+}
         } elseif ($type == "coach") {
             $agent = CoachInfo::join('users', 'users.id', '=', 'coach_infos.coach_id')
                 ->join('countries', 'countries.id', '=', 'coach_infos.birth_country')
@@ -309,12 +329,15 @@ class HomeController extends Controller
             $agent->save();
         } elseif ($type == "intermediary") {
             $agent = IntermediaryInfo::join('users', 'users.id', '=', 'intermediary_infos.intermediary_id')
-                ->join('countries', 'countries.id', '=', 'intermediary_infos.birth_country')
-                ->select('intermediary_infos.*', 'users.name', 'countries.name as country_name')
-                ->where('intermediary_infos.intermediary_id', $id)
-                ->first();
-            $agent->reads++;
-            $agent->save();
+            ->join('countries', 'countries.id', '=', 'intermediary_infos.birth_country')
+            ->select('intermediary_infos.*', 'users.name', 'countries.name as country_name')
+            ->where('intermediary_infos.intermediary_id', $id)
+            ->first();
+            if ($agent) {
+                $agent->reads++;
+                $agent->save();
+            }
+
         } elseif ($type == "academy") {
             $agent = AcademyInfo::join('users', 'users.id', '=', 'academy_infos.academy_id')
                 ->join('countries', 'countries.id', '=', 'academy_infos.birth_country')
@@ -508,18 +531,20 @@ class HomeController extends Controller
     {
         $subs = Sub::all();
 
-        $block = BlockedUsers::where('user_id',auth()->user()->id)
-
-        ->pluck('blocked_id')
-        ->toArray();
-        $blocked_users = [];
-        foreach($block as $user){
-            $users = User::find($user);
-            $blocked_users[] = $users;
-        }
+        // $block = BlockedUsers::where('user_id',auth()->user()->id)
+        // ->pluck('blocked_id')
+        // ->toArray();
+        // $blocked_users = [];
+        // foreach($block as $user){
+        //     $users = User::find($user);
+        //     $blocked_users[] = $users;
+        // }
+        
+        $blocked_users = User::where('status','blocked')->get();
         $editsub = [];
+        $UserPrivacy = UserPrivacy::where('user_id',auth()->user()->id)->first();
         // $data = AccVerification::firstOrFail();
-        return view("backend.adminsetting", compact('subs', 'editsub','blocked_users'));
+        return view("backend.adminsetting", compact('subs', 'editsub','blocked_users','UserPrivacy'));
     }
 
 
@@ -527,7 +552,7 @@ class HomeController extends Controller
     public function playerset()
     {
 
-        $UserPrivacy = UserPrivacy::all();
+        $UserPrivacy = UserPrivacy::where('user_id',auth()->user()->id)->first();
         $userinfo = VerifyAccount::where('user_id', Auth::user()->id)->get();
         $blockUser = BlockedUsers::where('user_id', Auth::user()->id)->pluck('blocked_id')->toArray();
 
@@ -535,12 +560,15 @@ class HomeController extends Controller
         $blockusers = [];
         $msgstatus = "";
         $blockadmin = 0;
+        $times =0;
+        $plans_months_check =0;
+        $price=0;
+        $invoice =0;
         $AuthId = Auth::id();
         $id = Auth::id();
         $user = User::find($id);
-            if ($user->status == "blocked") {
+        if ($user->status == "blocked")
                 $blockadmin = 1;
-            }
 
         foreach ($blockUser as $blocked_id) {
             $blocks = User::find($blocked_id);
@@ -553,20 +581,43 @@ class HomeController extends Controller
         $subscriptions = Subscription::where('user_id',Auth::user()->id)
         ->with('billing_address')
         ->get();
-        // dd($subscriptions[0]->postal_code);
         $billing_addresses = $subscriptions->pluck('billing_address')->filter();
         $mail_pref = Mail_prefreneces_notification::where('user_id', Auth::id())->first();
         $invoices = Subscription::where('user_id',$AuthId)
                     ->where('status','active')
                     ->get();
-        return view("backend.playersetting", compact('UserPrivacy', 'blockadmin', 'user', 'msgstatus', 'mail_pref', 'subs', 'blockusers', 'userinfo','subscriptions','billing_addresses','invoices'));
+      
+       if(count($invoices) > 0){
+           $invoice =   $invoices[0]->one_payment_of / $invoices[0]->recurring_amount;
+            $price=$invoices[0]->one_payment_of/$invoice;
+            $plans_months_check =Sub::where('price',$price)->pluck('duration')->first();
+            $times = $plans_months_check / $invoice;
+      }
+ 
+        $card_details = PaymentCardInfo::where('user_id',Auth::user()->id)->get();
+        return view("backend.playersetting", compact('UserPrivacy', 'blockadmin', 'user','times','invoice','msgstatus','mail_pref', 'subs', 'blockusers', 'userinfo','subscriptions','billing_addresses','invoices','card_details'));
     }
 
+    //===================================================
     //===================================================
     public function invite()
     {
         $invite_count = Invitation::where("user_id", Auth::id())->count();
-        return view("backend.invite", compact('invite_count'))->with('success', 'invitation sent successfully');
+        $invite=Invitation::where("user_id",Auth::id())->pluck('email')->toArray();
+        $invitefriend=0;
+        $friends = [];
+        foreach($invite as $item)
+        {
+          $users=User::where('email',$item)->first();
+            if($users)
+             {
+               $invitefriend+=1;
+               $friends[]=$users;
+             }
+        }
+        $all_invitations=[];
+        $all_invitations = Invitation::where('user_id', Auth::user()->id)->get();
+        return view("backend.invite", compact('invite_count','invitefriend','all_invitations','friends'))->with('success', 'invitation sent successfully');
     }
     //==============================================
     public function invited(Request $request, $id)
@@ -574,6 +625,16 @@ class HomeController extends Controller
         if ($request->email == null) {
             return redirect()->back()->with('success', 'email should not be null');
         }
+        
+         $invite=Invitation::all();
+        foreach($invite as $invit)
+        {
+        if($invit->email==$request->email)
+            {
+        return redirect()->back();
+            }
+        }
+        
         $invite_model = Invitation::where('user_id', $id)->first();
         $users = Invitation::where('user_id', $id)->pluck('email')->toArray();
 
@@ -585,6 +646,7 @@ class HomeController extends Controller
                     $user = Invitation::create([
                         'user_id' => $id,
                         "email"   => $request->email,
+                        "status" => 'sent',
                     ]);
                     Mail::to($request->email)->send(new Invitation_mail());
                     return redirect()->back()->with('success', "Invitation sent successfully");
@@ -594,16 +656,16 @@ class HomeController extends Controller
             $user = Invitation::create([
                 'user_id' => $id,
                 "email"   => $request->email,
+                "status" => 'sent',
             ]);
             Mail::to($request->email)->send(new Invitation_mail());
             return redirect()->back()->with('success', 'invitation sent successfully');
         }
     }
 
-    //===================================================
+    // ===================================================
     public function changepas(request $request)
     {
-
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
             // The passwords matches
             return redirect()->back()->with("error", "Your current password does not matches with the password.");
@@ -617,21 +679,97 @@ class HomeController extends Controller
             'current-password'  => 'required',
             'new-password'      => 'required|string|min:8|confirmed',
         ]);
-        $user           = Auth::user();
+        $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
 
         return redirect()->back()->with("success", "Password successfully changed!");
+    }
+    
+    
+    
+    public function adminpas(Request $request)
+
+    {
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            // The passwords do not match
+            return redirect()->back()->with("error", "Your current password does not match with the password.");
+        } else {
+            // The passwords match
+            $validatedData = $request->validate([
+                'current-password'  => 'required',
+                'new-password'      => 'required|string|min:8|confirmed',
+            ]);
+            $user = Auth::user();
+            $user->password = bcrypt($request->get('new-password'));
+            $user->save();
+            return redirect()->back()->with("message", "Password successfully changed!");
+        }
     }
 
 
     //===================================================
     public function security(Request $request, $id)
     {
-        // dd($request->all());
         $UserPrivacy = UserPrivacy::where('user_id',$id)->first();
-        // dd(Auth()->user()->id);
+        if(!$UserPrivacy)
+        {
+            $UserPrivacy=new UserPrivacy;
+            
+        }
         // Telephone
+        if ($request->telephone == "everyone") {
+            $UserPrivacy->telephone = 0;
+        } elseif ($request->telephone == "only_contact") {
+            $UserPrivacy->telephone = 2;
+        } elseif ($request->telephone == "only_share_with") {
+            $UserPrivacy->telephone = 3;
+        } elseif ($request->telephone == "only_me") {
+            $UserPrivacy->telephone = 1;
+        }
+
+        // email
+        if ($request->email == "everyone") {
+            $UserPrivacy->email = 0;
+        } if ($request->email == "only_contact") {
+            $UserPrivacy->email = 2;
+        } if ($request->email == "only_share_with") {
+            $UserPrivacy->email = 3;
+        } elseif ($request->email == "only_me") {
+            $UserPrivacy->email = 1;
+        }
+
+        // website
+        if ($request->website == "everyone") {
+            $UserPrivacy->website = 0;
+        } elseif ($request->website == "only_contact") {
+            $UserPrivacy->website = 2;
+        } elseif ($request->website == "only_share_with") {
+            $UserPrivacy->website = 3;
+        } elseif ($request->website == "only_me") {
+            $UserPrivacy->website = 1;
+        }
+
+        // social
+        if ($request->social_media_links == "everyone") {
+            $UserPrivacy->social_media_links = 0;
+        } elseif ($request->social_media_links == "only_contact") {
+            $UserPrivacy->social_media_links = 2;
+        } elseif ($request->social_media_links == "only_share_with") {
+            $UserPrivacy->social_media_links = 3;
+        } elseif ($request->social_media_links == "only_me") {
+            $UserPrivacy->social_media_links = 1;
+        }
+        $UserPrivacy->user_id =Auth::id();
+        $UserPrivacy->save();
+        return redirect()->back()->with('message', 'Setting Updated!');
+    }
+    
+    
+    public function adminsecurity(Request $request, $id)
+    {
+
+        $UserPrivacy = UserPrivacy::where('user_id',$id)->first();
         if ($request->telephone == "everyone") {
             $UserPrivacy->telephone = 0;
         } elseif ($request->telephone == "only_contact") {
@@ -679,7 +817,7 @@ class HomeController extends Controller
         $UserPrivacy->user_id = $UserPrivacy->user_id;
         // dd($UserPrivacy);
         $UserPrivacy->save();
-        return redirect('player/dashboard');
+        return redirect()->back()->with('message', 'Setting Updated!');
     }
 
     //===================================================

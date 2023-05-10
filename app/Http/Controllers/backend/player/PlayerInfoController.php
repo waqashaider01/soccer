@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\player;
 
 use App\Models\PlayerInfo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,13 @@ class PlayerInfoController extends Controller
 {
     public function personalInfoSave(Request $request)
     {
+     
+        $auth_id = auth()->user()->id;
+        $user =User::find($auth_id);
+        $user->name =$request->firstname ." ".$request->lastname;
+        $user->save();
         $playerInfo = PlayerInfo::where("player_id", Auth::user()->id)->first();
+        
         $playerInfo->gender = $request->gender;
         $playerInfo->dob = $request->dob;
         $playerInfo->birth_country = $request->countryOfBirth;
@@ -21,6 +28,7 @@ class PlayerInfoController extends Controller
         $playerInfo->weight = $request->weight;
         $playerInfo->profile_link = $request->profile;
         $playerInfo->save();
+     
         return redirect()->back()->with("success", "Personal information has been updated successfully!");
     }
     public function basicInfoSave(Request $request)
@@ -76,7 +84,7 @@ class PlayerInfoController extends Controller
         return redirect()->back()->with("success", "Basic information has been updated successfully!");
     }
 
-    public function profileImgSave(Request $request)
+     public function profileImgSave(Request $request)
     {
         $validated = $request->validate([
             'profileImage' => 'required|image|mimes:jpeg,png,jpg,svg|max:8048',
@@ -86,16 +94,24 @@ class PlayerInfoController extends Controller
             unlink($request->oldImage);
         }
         //upload image
-        $imgName = time() . '.' . $request->profileImage->extension();
-        $uploadLocation = "backend/images/players/profile/";
-        $request->profileImage->move(public_path("backend/images/players/profile/"), $imgName);
-
-        // save image
-        $playerInfo = PlayerInfo::where("player_id", Auth::user()->id)->first();
-        // dd($playerInfo);
-        $playerInfo->profile_img = $uploadLocation . $imgName;
-        $playerInfo->save();
-        return redirect()->back()->with("success", "Basic information has been updated successfully!");
+        try {
+            $imgName = time() . '.' . $request->profileImage->extension();
+            $uploadLocation = "backend/images/players/profile/";
+            $request->profileImage->move(public_path("backend/images/players/profile/"), $imgName);
+        
+            // save image
+            $playerInfo = PlayerInfo::where("player_id", Auth::user()->id)->first();
+            $playerInfo->profile_img = $uploadLocation . $imgName;
+            $playerInfo->save();
+        
+            // handle success
+            return redirect()->back()->with('success', 'Image uploaded successfully.');
+        
+        } catch (\Exception $e) {
+            // handle error
+            return redirect()->back()->with('error', 'Failed to upload image.');
+        }
+        
     }
     public function mediaVideosSave(Request $request)
     {
@@ -106,7 +122,7 @@ class PlayerInfoController extends Controller
         $playerInfo->media_video4 = $request->videoLink4;
         $playerInfo->media_video5 = $request->videoLink5;
         $playerInfo->save();
-        return redirect("/dashboard/player/profile")->with("video-links-success", "Video Links has been updated successfully!");
+        return redirect()->back()->with("video-links-success", "Video Links has been updated successfully!");
     }
 
     ///==================================================================================
@@ -151,24 +167,26 @@ class PlayerInfoController extends Controller
         }
 
         //upload image
-        if ($request->image4) {
-            // remove previous image
-            // if ($request->oldImage4) {
-
-            //     unlink($request->oldImage4);
-            // }
-            $imgName4 = time() . '.' . $request->image4->extension();
-            $uploadLocation4 = "backend/images/players/media/";
-            $request->image4->move(public_path("backend/images/players/media/"), $imgName4);
-            $playerInfo->media_img4 = $uploadLocation4 . $imgName4;
+        if ($request->hasFile('image4')) {
+            if ($request->has('oldImage4')) {
+                $oldImage = public_path('backend/images/players/media/',$request->oldImage4);
+                if (file_exists($oldImage)) {
+                    unlink($oldImage);
+                }
+            }
+            $imageName = time() . '.' . $request->image4->extension();
+            $uploadPath = public_path('backend/images/players/media/');
+            $request->image4->move($uploadPath, $imageName);
+            $playerInfo->media_img4 = 'backend/images/players/media/' . $imageName;
         }
+
 
         //upload image
         if ($request->image5) {
             // remove previous image
-            // if ($request->oldImage5) {
-            //     unlink($request->oldImage5);
-            // }
+            if ($request->oldImage5) {
+                unlink($request->oldImage5);
+            }
             $imgName5 = time() . '.' . $request->image5->extension();
             $uploadLocation5 = "backend/images/players/media/";
             $request->image5->move(public_path("backend/images/players/media/"), $imgName5);

@@ -5,12 +5,6 @@
     </a>
 </div>
 
-@if (session('success'))
-    <div class="alert bg-success text-light alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="btn-close text-light" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-@endif
 @if (count($PlayerCareerMatchDatas) > 0)
     <table class="table table-bordered">
         <thead>

@@ -11,7 +11,14 @@ class PlayerAttributeController extends Controller
 {
     public function attributesSave(Request $request)
     {
-        $PlayerAttribute = PlayerAttribute::where("player_id", Auth::user()->id)->first();
+        // dd($request->all());
+        $PlayerAttribute = PlayerAttribute::where("player_id", auth()->user()->id)->first();
+        if(!$PlayerAttribute)
+        {
+            $PlayerAttribute=new PlayerAttribute();
+            $PlayerAttribute->player_id = auth()->user()->id;
+        }
+      
         $PlayerAttribute->ball_control = $request->ballControl;
         $PlayerAttribute->corners = $request->corners;
         $PlayerAttribute->crossing = $request->crossing;

@@ -11,24 +11,42 @@
 @endpush
 @section('content')
     <section>
+           @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session()->get('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+
 
         <div class="row w-100 mb-5">
             <div class="container d-flex flex-column flex-md-row">
                 <div class="col-md-8  mt-5 pr-md-5">
-                    <h2> {{ $blog->title }}</h2>
+                    <h2> {{ $blog->title ?? '' }}</h2>
                     <i class="fa-solid fa-share-nodes"></i>
                     <span class="ms-2" style="font-size:17px">
-                        <span class="share-number"></span><span class="border border-5 rounded rounded-3"
-                        >{{ $shareCount->share }}</span></span> SHARES
+                        <span class="share-number"></span>
+                        <span class="border border-5 rounded rounded-3">
+                            {{ isset($shareCount->share) ? $shareCount->share : 0 }}
+                        </span> 
+                        SHARES
                     </span>
 
-                    <i class="fa-regular fa-clock ms-5"></i><span class="ms-2"
-                        style="font-size:17px">{{ $blog->created_at->diffForHumans() }}</span>
+
+                    <i class="fa-regular fa-clock ms-5"></i>
+                    <span class="ms-2" style="font-size:17px">
+                        {{ $blog->created_at ? $blog->created_at->diffForHumans() : '' }}
+                    </span>
+
                     <div class="row mt-4">
-                        <div class="col-9"style="font-size:17px">
-                            <p class="text-uppercase">{{ $blog->user->name }}</p>
-                            <p class="text-uppercase line_hight">{{ $blog->created_at->format('F d, Y') }}</p>
+                        <div class="col-9" style="font-size:17px">
+                            <p class="text-uppercase">{{ $blog->user ? $blog->user->name : '' }}</p>
+                            <p class="text-uppercase line_height">
+                                {{ $blog->created_at ? $blog->created_at->format('F d, Y') : '' }}
+                            </p>
                         </div>
+
                         <div class="col-3"style="font-size:15px">
                             <span class="share-number"></span>
                             <span> SHARES</span>
@@ -44,9 +62,6 @@
                                 class="share-count">
                                 <i class="fa-brands fa-pinterest text-danger ms-2 border_left"></i>
                             </a>
-
-
-                            {{-- <i class="fa-brands fa-twitter ms-2 border_left"></i> --}}
                         </div>
                     </div>
                     <div class="blog_img_container">
@@ -101,10 +116,10 @@
                 <div class="col-md-4">
                     <h2 class="text-uppercase fw-bold pt-5 color-blue">Newsletter</h1>
                         <p class="color-blue">keep up with over latest news and events.Subscibe to our newsletter.</p>
-                        <form action="/action_page.php">
-                            <!-- <label for="email">Enter your email:</label> -->
-                            <input class="custom_input" type="email" id="email" name="email"
-                                placeholder="waqashayder01@gmail.com">
+                        <form action="{{route('newsletter')}}" method="get">
+                            @csrf
+                            <input class="custom_input" type="email" id="email" name="email" placeholder="{{ auth()->user() ? auth()->user()->email : '' }}">
+
                             <input class="c_btn" type="submit">
                         </form>
                         <h4 class="mt-4 border_bottom">Related Post</h4>

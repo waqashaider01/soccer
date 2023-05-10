@@ -29,7 +29,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card end --}}
+                                </div>
+                                {{-- info-card end --}}
                             </div>
                             <div class="col-md-3">
                                 <div class="card info">
@@ -44,7 +45,7 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Followers</h5>
-                                                    <h3 class="description">{{ $follower }}</h3>
+                                                    <h3 class="description">{{ $follower ?? '0' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +65,7 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Following</h5>
-                                                    <h3 class="description">{{ $follower }}</h3>
+                                                    <h3 class="description">{{ $follower ?? '0' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,7 +85,7 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Favorites</h5>
-                                                    <h3 class="description">{{ $favourtes }}</h3>
+                                                    <h3 class="description">{{ $favourtes ?? '0' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +128,7 @@
                                                 <div class="text">
                                                     <h5 class="title">Date Joined</h5>
                                                     <h3 class="description">
-                                                        {{ $views->contract_start_date ?? 'Not join yet' }}</h3>
+                                                        {{ $views->contract_start_date ?? ' ' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +149,7 @@
                                                 <div class="text">
                                                     <h5 class="title">Expiry Date</h5>
                                                     <h3 class="description">
-                                                        {{ $views->contract_expiry_date ?? 'Not join yet' }}</h3>
+                                                        {{ $views->contract_expiry_date ?? ' ' }}</h3>
                                                 </div>
                                             </div>
                                         </div>

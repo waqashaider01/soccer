@@ -82,7 +82,7 @@
                                     @foreach ($pricing as $pricing)
                                         <div class="col-md-3">
                                             <div class="plan">
-                                                <div class="content">
+                                                <div class="content" style="margin-bottom:13px;">
                                                     <p>{{ $pricing->duration }} month Subscription</p>
                                                     <h4>{{ $pricing->price }}$</h4>
                                                     <b>One Payment of

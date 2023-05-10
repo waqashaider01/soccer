@@ -42,5 +42,6 @@
                         <h2>No FAQs here!</h2>
                     </div>
                 @endif
+            </div>    
       @endsection
     

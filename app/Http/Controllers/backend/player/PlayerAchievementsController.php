@@ -42,7 +42,7 @@ class PlayerAchievementsController extends Controller
         ]);
 
         if ($achievement) {
-            return redirect()->route('player.all-achievements')
+            return redirect()->back()
             ->with('success', 'Achievement created successfully');
         }
     }

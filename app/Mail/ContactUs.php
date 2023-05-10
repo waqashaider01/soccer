@@ -32,6 +32,5 @@ class ContactUs extends Mailable
     {
         return $this->subject('new follower Notification')
             ->view('emails.ContactUs')->with(['maildata'=>$this->mailData]);
-        // return $this->markdown('emails.ContactUs');
     }
 }

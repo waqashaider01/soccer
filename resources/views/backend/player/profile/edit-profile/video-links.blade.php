@@ -8,7 +8,7 @@
         </div>
     @endif
     <div class="col-md-12">
-        <form action="/player/media-videos/save" method="POST">
+        <form action="{{url('player/media-videos/save')}}" method="POST">
             @csrf
             @if ($playerInfo != null)
                 <div class="row">

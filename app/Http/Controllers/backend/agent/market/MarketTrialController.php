@@ -115,10 +115,10 @@ class MarketTrialController extends Controller
     // ********************************update Method ***********************************/
     public function update(Request $request)
     {
+        $image='';
         $request->validate([
             'expiry_date'                => ['required'],
             'for_whom'                   => ['required'],
-            'upload_logo'                => ['required'],
             'description'                => ['required'],
             'city_id'                    => ['required'],
             'country_id'                 => ['required'],
@@ -155,7 +155,7 @@ class MarketTrialController extends Controller
             'slug'                       => 'trials',
             'expiry_date'                => $request['expiry_date'],
             'for_whom'                   => json_encode($request['for_whom']),
-            'upload_logo'                => $uploadLocation . $imgName,
+            'upload_logo'                => $image,
             'description'                => $request['description'],
             'city_id'                    => $request['city_id'],
             'country_id'                 => $request['country_id'],

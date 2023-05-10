@@ -50,9 +50,9 @@
                         // dd($views);
                     @endphp
                     {{-- @dd($views->profile_img); --}}
-                    @isset($views)
+                    {{-- @if(isset($views))
                         <img src="{{ asset('') }}{{ $views->profile_img ?? '' }}" />
-                    @endisset
+                    @endif --}}
                     <h4 class="name w_color mt-3">{{ Auth::user()->name }} ({{ Auth::user()->type }})</h4>
                     <p><a href="{{ url('players/' . Auth::user()->id . '/profile') }}"
                         class="verify-account b_color">View Public Profile</a></p>
@@ -69,12 +69,12 @@
                     <i class="fa-solid fa-house"></i><span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item {{ Request::is(Auth::user()->type . '/activity') ? 'active' : '' }}">
+            {{-- <li class="sidebar-item {{ Request::is(Auth::user()->type . '/activity') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('activity') }}">
                     <i class="fas fa-chart-line"></i>
                     <span class="align-middle">Activity</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="sidebar-item {{ Request::is(Auth::user()->type . '/profile') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('player.profile') }}">

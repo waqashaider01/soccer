@@ -23,11 +23,7 @@ use App\Models\PlayerNextMatchSchedule;
 
 class PlayerFrontendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function imageUpload(Request $request, $id)
     {
         $cover_img = $request->file('cover_img');
@@ -82,35 +78,6 @@ class PlayerFrontendController extends Controller
         return view('frontend.players', compact("Players", "countries"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-
 
     public function show($id, PlayerInfo $playerRead)
     {
@@ -133,14 +100,30 @@ class PlayerFrontendController extends Controller
         $onlycontacts = Followers::where('follower', '=', $id)->where('following', Auth::id())
             ->pluck('following')
             ->toArray() ?? '';
+            
+            // dd($onlycontacts);
 
-        $followstatus = Followers::where('follower', "=", $AuthId)->where('following', "=", $id)->select('id')->get() ?? '';
+        $followstatus = Followers::where('follower', "=", $AuthId)->where('following', "=", $id)->select('id')->get();
 
-        if (is_null($followstatus)) {
-            $followingstatus = 0;
-        } else {
-            $followingstatus = 1;
-        }
+            if ($followstatus->isNotEmpty()) {
+                // user is following player, set followstatus array
+                $followstatus = [$id => ['id' => $id]];
+            } else {
+                // user is not following player, set followstatus to empty array
+                $followstatus = [];
+            }
+
+
+        // dd($followstatus);
+
+            if (empty($followstatus)) {
+                $followingstatus = 0;
+            } else {
+                $followingstatus = 1;
+            }
+
+        
+        // dd($followingstatus);
 
         $msgstatus = BlockedUsers::select('id')->where('user_id', $AuthId)->where('blocked_id', $id)->get() ?? '';
         if (is_null($msgstatus)) {
@@ -149,9 +132,12 @@ class PlayerFrontendController extends Controller
             $msgs = 1;
         }
         // $playerRead = new PlayerInfo;
-        $playerRead = $playerRead->find($id) ?? '';
-        $playerRead->reads++;
-        $playerRead->save();
+        $playerRead = $playerRead->find($id);
+        if ($playerRead instanceof PlayerRead) {
+            $playerRead->reads++;
+            $playerRead->save();
+        }
+
 
         $player = PlayerInfo::where("player_id", $id)->first() ?? '';
         // dd($player);
@@ -169,7 +155,7 @@ class PlayerFrontendController extends Controller
         $countries = Country::all();
         // dd($countries);
         $cities = City::all();
-        // dd($cities);
+        // dd('hello');
         return view(
             'frontend.profile.player',
             compact(

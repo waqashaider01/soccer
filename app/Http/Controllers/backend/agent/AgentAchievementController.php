@@ -42,7 +42,7 @@ class AgentAchievementController extends Controller
         ]);
 
         if ($achievement) {
-            return redirect()->route('agent.all-achievements')
+            return redirect('/agent/'.Auth::user()->type.'/profile')
                 ->with('success', 'Achievement created successfully');
         }
     }
@@ -73,7 +73,7 @@ class AgentAchievementController extends Controller
         ]);
 
         if ($achievement) {
-            return redirect()->route(Auth::user()->type . '.dashboard')
+            return redirect('/agent/'.Auth::user()->type.'/profile')
                 ->with('success', 'Achievement updated successfully');
         }
     }
@@ -82,7 +82,7 @@ class AgentAchievementController extends Controller
     {
         $achievement = AgentAchievement::find($id)->delete();
         if ($achievement) {
-            return redirect()->route(Auth::user()->type . '.dashboard')
+            return redirect()->back()
                 ->with('success', 'Achievement deleted successfully');
         }
     }

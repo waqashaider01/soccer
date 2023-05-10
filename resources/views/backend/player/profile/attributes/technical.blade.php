@@ -52,44 +52,44 @@
 <div class="mb-3">
     <label for="technical-9" class="form-label">Long Shots</label> <br>
     <input id="technical-9" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->long_shots }}" name="longShots" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->long_shots ?? '' }}" name="longShots" />&nbsp;&nbsp;
     <b><span id="technicalValue-9"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-10" class="form-label">Long Throws</label> <br>
     <input id="technical-10" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->long_throws }}" name="longThrows" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->long_throws ?? '' }}" name="longThrows" />&nbsp;&nbsp;
     <b><span id="technicalValue-10"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-11" class="form-label">Marking</label> <br>
     <input id="technical-11" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->marking }}" name="marking" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->marking ?? '' }}" name="marking" />&nbsp;&nbsp;
     <b><span id="technicalValue-11"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-12" class="form-label">Passing</label> <br>
     <input id="technical-12" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->passing }}" name="passing" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->passing  ?? ''}}" name="passing" />&nbsp;&nbsp;
     <b><span id="technicalValue-12"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-13" class="form-label">Penalty Taking</label> <br>
     <input id="technical-13" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->penalty_taking }}"
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->penalty_taking ?? '' }}"
         name="penaltyTaking" />&nbsp;&nbsp;
     <b><span id="technicalValue-13"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-14" class="form-label">Tackling</label> <br>
     <input id="technical-14" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->tackling }}" name="tackling" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->tackling ?? ''}}" name="tackling" />&nbsp;&nbsp;
     <b><span id="technicalValue-14"></span>%</b>
 </div>
 <div class="mb-3">
     <label for="technical-15" class="form-label">Technique</label> <br>
     <input id="technical-15" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100"
-        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->technique }}" name="technique" />&nbsp;&nbsp;
+        data-slider-step="1" data-slider-value="{{ $PlayerAttribute->technique ?? '' }}" name="technique" />&nbsp;&nbsp;
     <b><span id="technicalValue-15"></span>%</b>
 </div>
 <script>

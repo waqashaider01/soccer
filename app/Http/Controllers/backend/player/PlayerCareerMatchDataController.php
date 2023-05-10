@@ -65,7 +65,7 @@ class PlayerCareerMatchDataController extends Controller
         $PlayerCareerMatchData->second_yellow_cards=$validated["secondYellowCards"];
         $PlayerCareerMatchData->red_cards=$validated["redCards"];
         $PlayerCareerMatchData->save();
-        return Redirect("/dashboard/player/profile")->with("success","Career Match Data created successfully!");
+        return redirect()->route('player.dashboard')->with("success","Career Match Data created successfully!");
     }
 
     /**
@@ -130,7 +130,7 @@ class PlayerCareerMatchDataController extends Controller
         $PlayerCareerMatchData->second_yellow_cards=$validated["secondYellowCards"];
         $PlayerCareerMatchData->red_cards=$validated["redCards"];
         $PlayerCareerMatchData->save();
-        return Redirect("/dashboard/player/profile")->with("success","Career Match Data updated successfully!");
+        return redirect()->route('player.dashboard')->with("success","Career Match Data updated successfully!");
     }
 
     /**
@@ -143,6 +143,6 @@ class PlayerCareerMatchDataController extends Controller
     {
         $PlayerCareerMatchData=PlayerCareerMatchData::find($id);
         $PlayerCareerMatchData->delete();
-        return Redirect("/dashboard/player/profile")->with("success","Career Match Data deleted successfully!");
+        return redirect()->route('player.dashboard')->with("success","Career Match Data deleted successfully!");
     }
 }

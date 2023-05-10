@@ -1,4 +1,4 @@
-@extends("backend.player.layouts.app")
+@extends("backend.agent.layouts.app")
 
 @section('content')
 

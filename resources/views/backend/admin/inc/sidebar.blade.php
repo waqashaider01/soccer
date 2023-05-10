@@ -10,7 +10,7 @@
             <div class="col-12">
                 <div class="profile-img d-flex flex-column align-items-center">
                     <img src="{{ asset('images/profile.jpg') }}" class="avatar me-1" alt="Charles Hall"/>
-                    {{-- <img src="{{ asset('assets/messages'$views->profile_img)  " /> --}}
+                    {{-- <img src="{{ asset('assets/messages'$views->profile_img)  " />--}}
                     <h4 class="name w_color mt-3">{{ Auth::user()->name }} ({{ Auth::user()->type }})</h4>
                     {{-- <p><a href="{{ route('verify-account', ['id' => Auth::user()->id]) }}">Verify Your Account</a></p> --}}
                 </div>
@@ -44,20 +44,20 @@
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is(Auth::user()->type . '/privacy') ? 'active' : '' }}">
-                <a class="sidebar-link" href='privacy'>
+                <a class="sidebar-link" href="{{url('admin/privacy')}}">
                     <i class="fa-solid fa-lock"></i>
                     <span class="align-middle">Edit Privacy</span>
                 </a>
             </li>
 
             <li class="sidebar-item {{ Request::is(Auth::user()->type . '/conditions') ? 'active' : '' }}">
-                <a class="sidebar-link" href="conditions">
+                <a class="sidebar-link" href="{{ url('admin/conditions') }}">
                     <i class="fa-solid fa-file-lines"></i>
                     <span class="align-middle">Edit Terms</span>
                 </a>
             </li>
             <li class="sidebar-item {{ Request::is(Auth::user()->type . '/aboutus') ? 'active' : '' }}">
-                <a class="sidebar-link" href="aboutus">
+                <a class="sidebar-link" href="{{ url('admin/aboutus') }}">
                     <i class="fa-solid fa-user-pen"></i>
                     <span class="align-middle">Edit About</span>
                 </a>
@@ -73,12 +73,6 @@
             <li class="sidebar-item {{ Request::is(Auth::user()->type . '/reports') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('admin.verifications') }}">
                     <i class="fa-solid fa-square-check"></i>
-                    <span class="align-middle">Verifications</span>
-                </a>
-            </li>
-            <li class="sidebar-item {{ Request::is(Auth::user()->type . '/reports') ? 'active' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.verifications') }}">
-                    <i class="fa-solid fa-user-check"></i>
                     <span class="align-middle">Verifications</span>
                 </a>
             </li>

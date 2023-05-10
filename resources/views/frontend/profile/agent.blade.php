@@ -58,7 +58,7 @@
                                 <li>Nationality: {{ $agent->nationality }} <img
                                         src="{{ asset('images/flags/' . $agent->nationality . '.png') }}"
                                         class="country-flag"></li>
-                                <li>Profile Link: <a href="{{ $agent->profile_link }}">Click Here</a></li>
+                                <li>Profile Link: <a href="#">Click Here</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
@@ -72,17 +72,20 @@
                                 @php
                                     $k = 0;
                                 @endphp
-                                @foreach ($followstatus as $item)
-                                    {{-- <p>{{$item['id']}}</p> --}}
+                                @if (is_array($followstatus) || is_object($followstatus))
+                                    @foreach ($followstatus as $item)
+                                        {{-- <p>{{$item['id']}}</p> --}}
+                                        @if (isset($item['id']))
+                                            <a href="{{ route('unfollow', $id) }}" type="button" class="btn option">Unfollow</a>
+                                            @php
+                                                $k = 1;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <p>Error: follow status is not an array or an object.</p>
+                                @endif
 
-                                    @if (isset($item['id']))
-                                        <a href="{{ route('unfollow', $id) }}" type="button"
-                                            class="btn option">Unfollow</a>
-                                        @php
-                                            $k = 1;
-                                        @endphp
-                                    @endif
-                                @endforeach
 
                                 @if ($k == 0)
                                     <a href="{{ route('follow', $id) }}" type="button" class="btn option">follow</a>
@@ -111,9 +114,6 @@
                                     @if (Auth::user()->type == 'admin')
                                         <a href="{{ route('block', $id) }}" type="button" class="btn option">Block</a>
                                     @endif
-                                    @if (Auth::user()->type !== 'admin')
-                                        <a href="{{ route('blockMsg', $id) }}" type="button" class="btn option">Block</a>
-                                    @endif
                                 @endisset
                             </div>
                         </div>
@@ -141,11 +141,12 @@
                     <div class="content">
                         <div class="row">
                             <div class="col-md-12">
-                                @foreach (json_decode($agent->countries_of_operation) as $operation)
-                                    <span>{{ $operation }} <img
-                                            src="{{ asset('images/flags/' . $operation . '.png') }}"
-                                            alt="{{ $operation }}">,</span>
-                                @endforeach
+                                @if (is_object($agent) && property_exists($agent, 'countries_of_operation') && is_array(json_decode($agent->countries_of_operation)))
+                                    @foreach (json_decode($agent->countries_of_operation) as $operation)
+                                        <span>{{ $operation }} <img src="{{ asset('images/flags/' . $operation . '.png') }}" alt="{{ $operation }}">,</span>
+                                    @endforeach
+                                @endif
+
                             </div>
                         </div>
                     </div>

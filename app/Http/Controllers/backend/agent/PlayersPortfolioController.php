@@ -45,7 +45,7 @@ class PlayersPortfolioController extends Controller
             ]);
 
             if ($playersPortfolio) {
-                return redirect()->route(Auth::user()->type . '.dashboard')
+                return redirect()->route(Auth::user()->type . '.profile')
                 ->with('success', 'Player Portfolio added successfully');
             } else {
                 return redirect()->back()->with('error', 'Something went wrong, please try again');
@@ -55,23 +55,19 @@ class PlayersPortfolioController extends Controller
         }
     }
 
+
     public function edit($id)
     {
-
         return view('backend.agent.players-portfolio.edit');
     }
 
-    public function update(Request $request)
-    {
-
-    }
 
     public function destroy($id)
     {
         $playersPortfolio = PlayersPortfolio::find($id)->delete();
 
         if ($playersPortfolio) {
-            return redirect()->route(Auth::user()->type . '.dashboard')
+            return redirect()->route(Auth::user()->type . '.profile')
                 ->with('success', 'Player Portfolio deleted successfully');
         } else {
             return redirect()->back()->with('error', 'Something went wrong, please try again');

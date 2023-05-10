@@ -39,7 +39,7 @@
                 </a>
             </td>
             <td>
-                <form method="GET" action="{{ route('agent.achievement-delete', $achievement->id) }}">
+                <form  action="{{ route('agent.achievement-delete', $achievement->id) }}" method="post">
                     @csrf
                     @method("DELETE")
                     <button type="submit" onclick="return confirm('Are you sure you want to delete?')"

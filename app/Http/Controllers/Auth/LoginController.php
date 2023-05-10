@@ -41,19 +41,22 @@ class LoginController extends Controller
                 return route('admin.dashboard');
                 break;
             case 'player':
+                // dd("hello");
                 if ($approveStatus == 'approved' && $status == 'active') {
-                    return route('player.dashboard');
+                    // dd("approved");
+                    return redirect()->route('player.dashboard');
                 } elseif ($approveStatus == 'disapproved' || $status == 'blocked') {
                     Auth::logout();
                     session()->flash('error', 'Your account is blocked, please contact admin');
                     return route('login');
                 } elseif ($approveStatus == 'waiting' || $status == 'waiting') {
-
+                    // dd("waiting");
                     session()->flash('error', 'Please Upload Your Documents!!!');
-                    return route('backend.underage');
+                    return url('backend.underage');
                 } else {
                     return route('player.dashboard');
                 }
+                break;
             case 'scout':
                 switch ($status) {
                     case 'active':
@@ -80,8 +83,7 @@ class LoginController extends Controller
                         return route('login');
                         break;
                     default:
-                        return route('club.dashboard');
-                        break;
+                        return route('club.dashboard');;
                 }
                 break;
             case 'coach':
@@ -96,7 +98,6 @@ class LoginController extends Controller
                         break;
                     default:
                         return route('coach.dashboard');
-                        break;
                 }
                 break;
             case 'intermediary':
@@ -111,7 +112,6 @@ class LoginController extends Controller
                         break;
                     default:
                         return route('intermediary.dashboard');
-                        break;
                 }
                 break;
             case 'academy':
@@ -126,12 +126,10 @@ class LoginController extends Controller
                         break;
                     default:
                         return route('academy.dashboard');
-                        break;
                 }
                 break;
             default:
                 return route('login');
-                break;
         }
     }
 

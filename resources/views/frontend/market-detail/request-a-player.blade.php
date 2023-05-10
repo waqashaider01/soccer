@@ -22,7 +22,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Posted By</h4>
-                                            <p>{{ $agent->user->name }}</p>
+                                            <p>{{ $agent->user->name ?? '' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -35,7 +35,9 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Category</h4>
-                                            <p>{{ ucfirst(str_replace('-', ' ', $agent->slug)) }}</p>
+                                            @if(isset($agent) && !empty($agent->slug))
+                                                <p>{{ ucfirst(str_replace('-', ' ', $agent->slug )) }}</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +50,9 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">For Whom</h4>
-                                            <p>{{ implode(', ', json_decode($agent->for_whom)) }}</p>
+                                            @if(isset($agent) && !empty($agent->for_whom))
+                                               <p>{{ implode(', ', json_decode($agent->for_whom )) }}</p>
+                                             @endif
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +68,11 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Expiry Date</h4>
-                                            <p>{{ date('F j, Y', strtotime($agent->expiry_date)) }}</p>
+                                            @if(isset($agent) && !empty($agent->expiry_date))
+                                                <p>{{ date('F j, Y', strtotime($agent->expiry_date)) }}</p>
+                                            @else
+                                                <p>00/00/0000</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +114,7 @@
                     <div class="content">
                         <img src="{{ asset('images/market-detail/city.png') }}" alt="city">
                         <div class="description">
-                            {{ $agent->description }}
+                            {{ $agent->description ?? 'null' }}
                         </div>
                     </div>
                 </div>{{-- details end --}}
@@ -127,7 +135,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">League Division</h4>
-                                            <p>{{ $agent->league_division }}</p>
+                                            <p>{{ $agent->league_division ?? '0' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -140,13 +148,22 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Country</h4>
-                                            @foreach ($countries as $country)
-                                                @if ($country->id == $agent->country_id)
-                                                    <img src="{{ asset('images/flags/' . $country->name . '.png') }}"
-                                                        class="country-flag" alt="{{ $country->name }}">
-                                                    {{ $country->name }}
-                                                @endif
-                                            @endforeach
+                                           @if(isset($countries) && is_array($countries))
+                                                @foreach ($countries as $country)
+                                                    @if (isset($agent) && $country->id == $agent->country_id)
+                                                        @php
+                                                            $flagPath = 'images/flags/' . $country->name . '.png';
+                                                        @endphp
+                                                        @if(file_exists(public_path($flagPath)))
+                                                            <img src="{{ asset($flagPath) }}" class="country-flag" alt="{{ $country->name }}">
+                                                        @else
+                                                            <span class="text-danger">Flag not found</span>
+                                                        @endif
+                                                        {{ $country->name }}
+                                                    @endif
+                                                @endforeach
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +188,11 @@
                                         <div class="col-md-9">
                                             <h4 class="title">Main Position</h4>
                                             <p style="margin-top: -8px">
-                                                {{ implode(', ', json_decode(str_replace('-', ' ', $agent->player_position))) }}
+                                                 @if(isset($agent) && !empty($agent->player_position))
+                                                    {{ implode(', ', json_decode(str_replace('-', ' ', $agent->player_position))) }}
+                                                 @else
+                                                     null
+                                                 @endif
                                             </p>
                                         </div>
                                     </div>
@@ -185,7 +206,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Gender</h4>
-                                            <p>{{ ucfirst($agent->player_gender) }}</p>
+                                            <p>{{ ucfirst($agent->player_gender ?? 'N/A') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +219,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Minimum Age</h4>
-                                            <p>{{ $agent->player_min_age }}</p>
+                                            <p>{{ $agent->player_min_age ?? '0'}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +235,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Maximum Age</h4>
-                                            <p>{{ $agent->player_max_age }}</p>
+                                            <p>{{ $agent->player_max_age ?? '0' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +249,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">EU Passport Required?</h4>
-                                            <p>{{ $agent->eu_passport_required }}</p>
+                                            <p>{{ $agent->eu_passport_required ?? 'N/A' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +272,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Transfer Fees</h4>
-                                            <p>$ {{ $agent->transfer_fee }}</p>
+                                            <p>$ {{ $agent->transfer_fee  ?? '0'}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -264,7 +285,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Monthly Salary </h4>
-                                            <p>$ {{ $agent->monthly_salary }}</p>
+                                            <p>$ {{ $agent->monthly_salary ?? '0' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -277,7 +298,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Training Compensation Fee</h4>
-                                            <p>{{ ucfirst($agent->training_compensation_fee) }}</p>
+                                            <p>{{ ucfirst($agent->training_compensation_fee ??  '0') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -294,7 +315,7 @@
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Trial Conditions</h4>
-                                            <p>{{ $agent->trial_conditions }}</p>
+                                            <p>{{ $agent->trial_conditions ?? 'N/A'  }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +325,7 @@
 
                 </div>{{-- terms end --}}
 
-                @if (!($agent->profile_type == 'hidden'))
+                @if (isset($agent) && !empty($agent->profile_type) && !($agent->profile_type == 'hidden'))
                     <div class="contact-info">
                         <div class="heading">
                             <h3>Contact Information</h3>
@@ -320,14 +341,22 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Location</h4>
-                                                @foreach ($countries as $country)
-                                                    @if ($country->id == $agent->country_id)
-                                                        <img src="{{ asset('images/flags/' . $country->name . '.png') }}"
-                                                            class="country-flag" alt="{{ $country->name }}">
-                                                        {{ $country->name }}
-                                                        </p>
-                                                    @endif
-                                                @endforeach
+                                                @if(isset($agent) && isset($countries) && is_array($countries))
+                                                    @foreach ($countries as $country)
+                                                        @if ($country->id == $agent->country_id)
+                                                            @php
+                                                                $flagPath = 'images/flags/' . $country->name . '.png';
+                                                            @endphp
+                                                            @if(file_exists(public_path($flagPath)))
+                                                                <img src="{{ asset($flagPath) }}" class="country-flag" alt="{{ $country->name }}">
+                                                            @else
+                                                                <span class="text-danger">Flag not found</span>
+                                                            @endif
+                                                            {{ $country->name }}
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +370,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Telephone</h4>
-                                                <p>{{ $agent->telephone }}</p>
+                                                <p>{{ $agent->telephone ?? 'N/A' }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +383,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Email</h4>
-                                                <p>{{ $agent->email }}</p>
+                                                <p>{{ $agent->email ?? 'N/A' }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -371,7 +400,11 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Website</h4>
-                                                <p><a href="{{ $agent->website }}">{{ $agent->website }}</a>
+                                                 @if(isset($agent) && !empty($agent->website))
+                                                      <p><a href="{{ $agent->website }}">{{ $agent->website }}</a>
+                                                  @else
+                                                      <p>N/A</p>
+                                                   @endif
                                                 </p>
                                             </div>
                                         </div>
@@ -386,9 +419,11 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Social Media Links</h4>
-                                                <p><a
-                                                        href="{{ $agent->social_media_link }}">{{ $agent->social_media_link }}</a>
-                                                </p>
+                                                 @if(isset($agent) && !empty($agent->social_media_link))
+                                                 <p><a href="{{ $agent->social_media_link }}">{{ $agent->social_media_link }}</a> </p>
+                                                 @else
+                                                   <p>N/A</p>
+                                                  @endif
                                             </div>
                                         </div>
                                     </div>
@@ -403,7 +438,7 @@
                         <h3>Additional Info</h3>
                     </div>
                     <div class="description">
-                        <p>{{ $agent->additional_information }}</p>
+                        <p>{{ $agent->additional_information ?? 'N/A' }}</p>
                     </div>
                 </div>{{-- additional-info end --}}
 
@@ -435,7 +470,7 @@
                                 <form id="apply-form" method="POST" action="{{ route('player.market-apply') }}">
                                     @csrf
 
-                                    <input type="hidden" name="agent_id" value="{{ $agent->user->id }}">
+                                    <input type="hidden" name="agent_id" value="{{ $agent->user->id ?? '0' }}">
 
                                     <div class="row mb-3">
                                         <div class="col-md-3 text-end">
@@ -445,7 +480,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" value="{{ $agent->user->name }}"
+                                            <input type="text" class="form-control" value="{{ $agent->user->name ?? '0' }}"
                                                 id="name" readonly>
                                         </div>
                                     </div>
@@ -456,7 +491,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" value="{{ $agent->id }}"
+                                            <input type="text" class="form-control" value="{{ $agent->id ?? '0' }}"
                                                 id="market_id" name="market_id" readonly>
                                         </div>
                                     </div>
@@ -467,7 +502,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" value="{{ $agent->slug }}"
+                                            <input type="text" class="form-control" value="{{ $agent->slug ?? 'N/A' }}"
                                                 id="market_type" name="market_type" readonly>
                                         </div>
                                     </div>

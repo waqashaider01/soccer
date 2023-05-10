@@ -1,18 +1,13 @@
-<form method="POST" action="/player/profile-img/save" id="upload-profile-form" enctype="multipart/form-data">
+<form method="POST" action="{{url('player/profile-img/save')}}" id="upload-profile-form" enctype="multipart/form-data">
     @csrf
-    @if ($playerInfo != null)
-
-
+    @if (isset($playerInfo))
         <input type="hidden" class="form-control" id="oldImage" name="oldImage" value="{{ $playerInfo->profile_img }}">
         <div class="content">
             <div class="form-input">
-                @if ($playerInfo->profile_img)
+                @if (isset($playerInfo->profile_img) && !empty($playerInfo->profile_img))
                     <img id="uploadedImg" src="{{ asset($playerInfo->profile_img) }}" width="100%" class="mb-4">
                 @endif
 
-                <div class="preview">
-                    <img id="profileImg-preview" src="{{ $playerInfo->profile_img }}">
-                </div>
                 <label for="profileImg"><i class="fas fa-cloud-upload-alt"></i> Upload Profile</label>
                 <input type="file" id="profileImg" accept="image/*" onchange="showPreview(event);"
                     name="profileImage">

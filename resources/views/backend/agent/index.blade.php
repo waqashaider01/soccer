@@ -1,10 +1,10 @@
-@extends('backend.player.layouts.app')
+@extends('backend.agent.layouts.app')
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/dashboard/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard/activity.css') }}">
 @endpush
 @section('content')
-    <div class="container-fluid p-0">
+<div class="container-fluid p-0">
         <div class="row">
 
             <div class="col-12">
@@ -24,14 +24,14 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Profile Views</h5>
-                                                    @if ($views != null)
-                                                        <h3 class="description">{{ $views->reads ?? '' }}</h3>
+                                                    @if (isset($views))
+                                                        <h3 class="description">{{ $views->reads ?? '0' }}</h3>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card end --}}
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card info">
@@ -46,12 +46,12 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Followers</h5>
-                                                    <h3 class="description">{{ $follower }}</h3>
+                                                    <h3 class="description">{{ $follower ?? '0' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card end --}}
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card info">
@@ -66,12 +66,12 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Following</h5>
-                                                    <h3 class="description">{{ $follower }}</h3>
+                                                    <h3 class="description">{{ $follower ?? '0'}}</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card end --}}
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card info">
@@ -86,12 +86,12 @@
                                             <div class="col-7">
                                                 <div class="text">
                                                     <h5 class="title">Favorites</h5>
-                                                    <h3 class="description">{{ $favourites }}</h3>
+                                                    <h3 class="description">{{ $favourites ?? '0' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card end --}}
+                                </div>
                             </div>
 
                             <div class="col-md-3">
@@ -107,14 +107,12 @@
                                             <div class="col-8">
                                                 <div class="text">
                                                     <h5 class="title">Account Type</h5>
-                                                    @if($views)
-                                                    <h3 class="description">{{ $views->status }}</h3>
-                                                    @endif
+                                                     <h3 class="description">{{ $views->status ?? 'unactive' }}</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card2 end --}}
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card info2">
@@ -129,14 +127,16 @@
                                             <div class="col-8">
                                                 <div class="text">
                                                     <h5 class="title">Date Joined</h5>
-                                                    @if($views)
-                                                    <h3 class="description">{{ $views->contract_start_date }}</h3>
-                                                    @endif
+                                                  @if(isset($views->contract_start_date))
+                                                        <h3 class="description">{{ $views->contract_start_date }}</h3>
+                                                  @else
+                                                    <h3 class="description">not join</h3>
+                                                  @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card2 end --}}
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card info2">
@@ -151,14 +151,17 @@
                                             <div class="col-8">
                                                 <div class="text">
                                                     <h5 class="title">Expiry Date</h5>
-                                                    @if($views)
-                                                    <h3 class="description">{{ $views->contract_expiry_date }}</h3>
+                                                    @if(isset($views->contract_expiry_date))
+                                                     <h3 class="description">{{ $views->contract_expiry_date }}</h3>
+                                                     @else
+                                                       <h3 class="description">not joined</h3>
+                                                     
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>{{-- info-card2 end --}}
+                                </div>
                             </div>
 
                         </div>
@@ -185,7 +188,7 @@
                         <p>you will both get reward</p>
                         <p>points when they subscribe</p>
                     </div>
-                    <a class="btn">Invite a Friend</a>
+                    <a class="btn" href="{{ route('invite') }}">Invite a Friend</a>
                 </div>
             </div>
             <div class="col-md-3 child">
@@ -196,10 +199,7 @@
                     <div class="card-body d-flex">
                         <div class="align-self-center w-100">
                             <div
-                                style="
-                                                                                                                                                                                                                                                                                                                                                                position: relative;
-                                                                                                                                                                                                                                                                                                                                                                display: flex;
-                                                                                                                                                                                                                                                                                                                                                                justify-content: center;
+                                style=" position: relative;  display: flex;  justify-content: center;
                                                                                                                                                                                                                                                                                                                                                                 align-items: center;
                                                                                                                                                                                                                                                                                                                                                                 flex-direction: column;
                                                                                                                                                                                                                                                                                                                                                                 ">
@@ -256,78 +256,77 @@
             </div>
         </div>
 
-        {{-- activities --}}
-        <div class="dashboard-activities card">
-            <div class="row activity">
-                <div class="col-md-10">
-                    <div class="about">
-                        <div class="img">
-                            <img src="{{ asset('images/profile.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3 class="title">Muhammad Salman</h3>
-                            <p class="description">
-                                Added Career History at U23
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <p class="time">
-                        5 days ago
-                    </p>
-                </div>
-            </div>
-            <hr>
-            <div class="row activity">
-                <div class="col-md-10">
-                    <div class="about">
-                        <div class="img">
-                            <img src="{{ asset('images/profile2.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3 class="title">Muhammad Salman</h3>
-                            <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Atque,
-                                voluptatum?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <p class="time">
-                        2 weeks ago
-                    </p>
-                </div>
-            </div>
-            <hr>
-            <div class="row activity">
-                <div class="col-md-10">
-                    <div class="about">
-                        <div class="img">
-                            <img src="{{ asset('images/profile3.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <h3 class="title">Muhammad Salman</h3>
-                            <p class="description">
-                                <a href="">Louis Anetekhai</a> and <a href="">Muhammad Salman</a> followed
-                                <a href="">Khattak</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <p class="time">
-                        1 day ago
-                    </p>
-                </div>
-            </div>
-        </div>
-
+        <!--{{-- activities --}}-->
+        <!--<div class="dashboard-activities card">-->
+        <!--    <div class="row activity">-->
+        <!--        <div class="col-md-10">-->
+        <!--            <div class="about">-->
+        <!--                <div class="img">-->
+        <!--                    <img src="{{ asset('images/profile.jpg') }}" alt="">-->
+        <!--                </div>-->
+        <!--                <div class="content">-->
+        <!--                    <h3 class="title">Muhammad Salman</h3>-->
+        <!--                    <p class="description">-->
+        <!--                        Added Career History at U23-->
+        <!--                    </p>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-md-2">-->
+        <!--            <p class="time">-->
+        <!--                5 days ago-->
+        <!--            </p>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--    <hr>-->
+        <!--    <div class="row activity">-->
+        <!--        <div class="col-md-10">-->
+        <!--            <div class="about">-->
+        <!--                <div class="img">-->
+        <!--                    <img src="{{ asset('images/profile2.jpg') }}" alt="">-->
+        <!--                </div>-->
+        <!--                <div class="content">-->
+        <!--                    <h3 class="title">Muhammad Salman</h3>-->
+        <!--                    <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.-->
+        <!--                        Atque,-->
+        <!--                        voluptatum?-->
+        <!--                    </p>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-md-2">-->
+        <!--            <p class="time">-->
+        <!--                2 weeks ago-->
+        <!--            </p>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--    <hr>-->
+        <!--    <div class="row activity">-->
+        <!--        <div class="col-md-10">-->
+        <!--            <div class="about">-->
+        <!--                <div class="img">-->
+        <!--                    <img src="{{ asset('images/profile3.jpg') }}" alt="">-->
+        <!--                </div>-->
+        <!--                <div class="content">-->
+        <!--                    <h3 class="title">Muhammad Salman</h3>-->
+        <!--                    <p class="description">-->
+        <!--                        <a href="">Louis Anetekhai</a> and <a href="">Muhammad Salman</a> followed-->
+        <!--                        <a href="">Khattak</a>-->
+        <!--                    </p>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="col-md-2">-->
+        <!--            <p class="time">-->
+        <!--                1 day ago-->
+        <!--            </p>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
     </div>
-@endsection
-
-@push('scripts')
+    @endsection
+    
+    @push('scripts')
     <script>
         var progress = 30;
 
