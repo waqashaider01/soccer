@@ -105,7 +105,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/mailpref',  'mailpref')->name('mailpref');
 });
 
-
+                                            
 Route::post("/register", [RegisterController::class, 'register'])->name('register');
 Route::post("/favData", [FavouriteController::class, 'favData'])->name('favData');
 Route::get("/unfavourite/{id}", [FavouriteController::class, 'RemoveFromFavourite'])->name('unfavourite')->middleware('auth');

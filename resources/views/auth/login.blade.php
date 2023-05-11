@@ -19,6 +19,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <!-- cdn font awsom icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- cdn font awsom icons  end  -->
+
     <style>
         #eyeIcon {
             position: absolute;
@@ -33,7 +38,7 @@
 <body class="antialiased">
     <section class="user-auth">
         <div class="row no-gutters">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="left-side">
                     <div class="content">
                         {{-- <img src="{{ asset('images/logo.png') }}" alt="user auth background">
@@ -44,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <form class="user-auth-form" method="POST" action="{{ route('login') }}">
                     @csrf
                     <h4>Login</h4>
@@ -117,14 +122,14 @@
                         <div class="col-md-6 ">
                             <!--<a href="{{ route('login.google') }}" class="btn btn-danger btn-block">Login with-->
                             <!--    Google</a>-->
-                            <a href="#" class="btn btn-danger btn-block">Login with
+                            <a href="#" class="btn btn-danger btn-block"> <i class="fa-brands fa-google mx-2"></i>Login with
                                 Google</a>
                         </div><br>
-                        <div class="col-md-6 ">
+                        <div class="col-md-6   mt-3 mt-md-0">
 
                             <!--<a href="{{ route('login.facebook') }}" class="btn btn-primary btn-block">Login with-->
                             <!--    Facebook</a>-->
-                            <a href="#" class="btn btn-primary btn-block">Login with
+                            <a href="#" class="btn btn-primary btn-block">  <i class="fa-brands fa-facebook-f mx-2"></i>Login with
                                 Facebook</a>
                         </div><br>
                     </div>
@@ -132,13 +137,13 @@
                         <div class="col-md-6">
                             <!--<a href="{{ route('login.github') }}" class="btn btn-dark btn-block">Login with-->
                             <!--    Github</a><br>-->
-                            <a href="#" class="btn btn-dark btn-block">Login with
+                            <a href="#" class="btn btn-dark btn-block">  <i class="fa-brands fa-github mx-2"></i>Login with
                                 Github</a><br>
                         </div>
                         <div class="col-md-6 ">
                             <!--<a href="{{ route('login.linkedin') }}" class="btn btn-dark btn-block">Login with-->
                             <!--    Linkedin</a>-->
-                            <a href="#" class="btn btn-dark btn-block">Login with
+                            <a href="#" class="btn btn-dark btn-block"> <i class="fa-brands fa-linkedin-in mx-2"></i>Login with
                                 Linkedin</a>
                         </div>
                     </div>

@@ -19,6 +19,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <!-- cdn font awsom icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- cdn font awsom icons  end  -->
+
     <style>
         #eyeIcon1 {
             position: absolute;
@@ -42,7 +48,7 @@
 
     <section class="user-auth">
         <div class="row no-gutters">
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="left-side">
                     <div class="content">
                         {{-- <img src="{{ asset('images/logo.png') }}" alt="user auth background">
@@ -53,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <form class="user-auth-form" method="POST" action="{{ route('register') }}">
                     @csrf
                     <h4>Sign Up</h4>
@@ -102,8 +108,11 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3 guardian_details">
+                    <div class="row mb-3 guardian_details  border border-2 py-2">
                         <div class="col-md-6">
+                           
+              
+              
                             <label for="date_of_birth" class="form-label">Date Of Birth</label>
                             <input type="date" class="form-control @error('date_of_birth') is-invalid @enderror"
                                 id="date_of_birth" name="date_of_birth" value="{{ old('date_of_birth') }}">
@@ -138,7 +147,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-6">
+                        <div class="col-sm-6">
                             <label for="email" class="form-label">Email Address</label>
                             <input type="email" class="form-control @error('email') is-invalid @enderror"
                                 id="email" name="email" value="{{ old('email') }}" required
@@ -149,7 +158,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="col-6 guradian_email_address">
+                        <div class="col-sm-6 guradian_email_address">
                             <label for="gurdian_email" class="form-label">Guardian Email Address</label>
                             <input type="gurdian_emai"
                                 class="form-control @error('gurdian_email') is-invalid @enderror" id="gurdian_emai"
@@ -220,14 +229,15 @@
                         <div class="col-md-6 ">
                             <!--<a href="{{ route('login.google') }}" class="btn btn-danger btn-block">Login with-->
                             <!--    Google</a>-->
-                            <a href="#" class="btn btn-danger btn-block">Login with
+                            <a href="#" class="btn btn-danger btn-block"><i class="fa-brands fa-google mx-2"></i> Login with
                                 Google</a>
                         </div><br>
-                        <div class="col-md-6 ">
+                        <div class="col-md-6 mt-3 mt-md-0 ">
 
                             <!--<a href="{{ route('login.facebook') }}" class="btn btn-primary btn-block">Login with-->
                             <!--    Facebook</a>-->
-                            <a href="#" class="btn btn-primary btn-block">Login with
+                            
+                            <a href="#" class="btn btn-primary   btn-block"> <i class="fa-brands fa-facebook-f mx-2"></i> Login with
                                 Facebook</a>
                         </div><br>
                     </div>
@@ -235,13 +245,13 @@
                         <div class="col-md-6">
                             <!--<a href="{{ route('login.github') }}" class="btn btn-dark btn-block">Login with-->
                             <!--    Github</a><br>-->
-                            <a href="#" class="btn btn-dark btn-block">Login with
+                            <a href="#" class="btn btn-dark btn-block"> <i class="fa-brands fa-github mx-2"></i> Login with
                                 Github</a><br>
                         </div>
                         <div class="col-md-6 ">
                             <!--<a href="{{ route('login.linkedin') }}" class="btn btn-dark btn-block">Login with-->
                             <!--    Linkedin</a>-->
-                            <a href="#" class="btn btn-dark btn-block">Login with
+                            <a href="#" class="btn btn-dark btn-block"><i class="fa-brands fa-linkedin-in mx-2"></i>  Login with
                                 Linkedin</a>
                         </div>
                     </div>
