@@ -44,7 +44,7 @@
 @section('content')
 @include('cookie-consent::index')
     <div id="fullpage">
-        <section class="hero section">
+        <section class="container-fluid hero section">
             <div class="background">
                 <img src="{{ asset('images/home-hero.jpg') }}" alt="Home Background">
             </div>
@@ -79,13 +79,13 @@
                 </div>
             </div>
         </section>
-        <section class="categories section">
+        <section class="container-fluid categories section">
             <div class="container">
                 <div class="main-heading">
                     <h2>Categories</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/players.jpg') }}" alt="players">
                             <div class="body">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     {{-- category-end --}}
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4 mt-4 mt-md-0">
                         <div class="category">
                             <img src="{{ asset('images/categories/scouts.jpg') }}" alt="players">
                             <div class="body">
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                     </div>{{-- category-end --}}
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4  mt-4 mt-lg-0">
                         <div class="category">
                             <img src="{{ asset('images/categories/intermediaries.jpg') }}" alt="players">
                             <div class="body">
@@ -166,7 +166,7 @@
                     </div>{{-- category-end --}}
 
 
-                    <div class="col-md-4 mt-4">
+                    <div class="col-md-6 col-lg-4 mt-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/coach.png') }}" alt="coaches">
                             <div class="body">
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                     </div>{{-- category-end --}}
-                    <div class="col-md-4 mt-4">
+                    <div class="col-md-6 col-lg-4 mt-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/academies.jpg') }}" alt="academies">
                             <div class="body">
@@ -218,7 +218,7 @@
                         </div>
                     </div>
                     {{-- category-end --}}
-                    <div class="col-md-4 mt-4">
+                    <div class="col-md-6 col-lg-4 mt-4">
                         <div class="category">
                             <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
                             <div class="body">
@@ -252,13 +252,13 @@
             </div>
         </section>
         {{-- Categories-section end --}}
-        <section class="how-it-works  section">
+        <section class="container-fluid how-it-works  section">
             <div class="main-heading">
                 <h2>How It Works</h2>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4">
                         <div class="sec">
                             <div class="img">
                                 <img src="{{ asset('images/how-it-works/cv.jpg') }}" alt="">
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4 mt-4 mt-lg-0">
                         <div class="sec">
                             <div class="img1" style="width">
                                 <img src="{{ asset('images/how-it-works/network.png') }}" alt="" class="p1" style="width:322px;">
@@ -281,7 +281,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4 mt-4 mt-md-0">
                         <div class="sec">
                             <div class="img">
                                 <img src="{{ asset('images/how-it-works/opp.jpg') }}" alt="">
@@ -298,13 +298,15 @@
             </div>
         </section>
         {{-- how-it-works end --}}
+        <div class=" ">
         <div class="main-heading">
             <h2>Why SoccerWorldLink?</h2>
         </div>
         <section class="simplicity section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 offset-1">
+                    <!-- offset-1 -->
+                    <div class="col-md-6 ">
                         <div class="content">
                             <h1>Simplicity</h1>
                             <p>
@@ -316,19 +318,19 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-3 mt-md-0">
                         <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
                     </div>
                 </div>
             </div>
         </section>{{-- why-swl end --}}
-        <section class="convinience section">
+        <section class="convinience section my-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-1">
+                <div class="row flex-column-reverse  flex-md-row">
+                    <div class="col-md-6  mt-3 mt-md-0">
                         <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6 ">
                         <div class="content">
                             <h1>Convenience</h1>
                             <p>
@@ -345,10 +347,10 @@
                 </div>
             </div>
         </section>{{-- convinience end --}}
-        <section class="savings section"style="margin-bottom:-40px !important;">
+        <section class="savings section my-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 offset-1">
+                    <div class="col-md-6">
                         <div class="content">
                             <h1>Big Savings</h1>
                             <b>Save Time and Money </b>
@@ -363,7 +365,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-3 mt-md-0">
                         <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
                     </div>
                 </div>
@@ -385,6 +387,8 @@
                 </div>
             </div>
         </section>
+
+        </div>
         {{-- <section class="join-us section mt-5">
         <div class="box box1">
             <img src="{{asset('images/categories/players.jpg')}}" alt="">

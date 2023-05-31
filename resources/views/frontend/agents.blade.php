@@ -20,9 +20,8 @@
                 <div class="search-box">
                     <form action="{{ route('agents') }}" method="GET">
                         <div class="row">
-                            <div class="col-md-10">
-                                <div class="row">
-                                    <div class="col-md-3">
+                            
+                                    <div class="col-md-4 col-lg-2">
                                         <label for="type">Category</label><br>
                                         <select name="type" id="type">
                                             <option value="" disabled selected>Select One</option>
@@ -33,9 +32,8 @@
                                             <option value="academy">Academy</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                   
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="nationality">Nationality</label><br>
                                                 <select name="nationality" id="nationality">
                                                     <option value="" disabled selected>Select One</option>
@@ -47,7 +45,7 @@
                                                     @endif
                                                 </select>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="country">Countries of operation</label><br>
                                                 <select name="country" id="country">
                                                     <option value="" disabled selected>Select One</option>
@@ -56,20 +54,17 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-md-4 offset-1">
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="name">Name</label><br>
                                                 <input type="text" id="name" name="name">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
+                              
+                            <div class="col-md-4 col-lg-2 mt-3 mt-md-0">
                                 <div class="search-btn">
                                     <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-4 col-lg-2 mt-3 mt-md-0">
                                 <div class="search-btn">
                                     <a type="submit" class="btn btn-danger" href="{{ route('agents') }}">Reset</a>
                                 </div>

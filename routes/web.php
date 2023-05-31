@@ -321,6 +321,8 @@ Route::group(['prefix' => 'player', 'middleware' => ['type:player', 'auth', 'Pre
 });
 
 
+
+
 /*******************  Scout Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/scout', 'middleware' => ['type:scout', 'auth', 'PreventBackHistory']], function () {
     Route::get('dashboard', [AgentController::class, 'index'])->name('scout.dashboard');
@@ -360,6 +362,7 @@ Route::group(['prefix' => 'agent/coach', 'middleware' => ['type:coach', 'auth', 
     Route::get('/subscriptions', [SubscriptionController::class, 'subscriptionDetails'])
         ->name('coach.subscriptions');
 });
+
 
 /*******************  Intermediary Dashboard Backend ***************************************/
 Route::group(['prefix' => 'agent/intermediary', 'middleware' => ['type:intermediary', 'auth', 'PreventBackHistory']], function () {

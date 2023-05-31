@@ -255,6 +255,7 @@
                                 Linkedin</a>
                         </div>
                     </div>
+                    
                 </form>
 
                 {{-- <form class="user-auth-form" method="POST" action="{{ route('register') }}">

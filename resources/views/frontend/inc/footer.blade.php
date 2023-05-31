@@ -45,11 +45,13 @@
                             @csrf
                             <div class="input-group">
                                 <div class="news-field">
-                                    <input class="form-control form-control-sm bg-light" placeholder="Email"
+                                    <input class="form-control form-control-sm bg-light emailcurv" placeholder="Email"
                                         name="newsletterEmail" type="email">
                                 </div>
-                                <div class="input-group-append news-button">
-                                    <a href="{{ url('subscribe') }}" style="text-decoration:none"><button class="btn" type="submit"><strong>SUBSCRIBE</strong></button></a>
+
+                                <!-- input-group-append -->
+                                <div class=" news-button clipbutton">
+                                    <a href="{{ url('subscribe') }}" style="text-decoration:none"><button class="btn  btn-block" type="submit"><strong>SUBSCRIBE</strong></button></a>
                                 </div>
                             </div>
                         </form>

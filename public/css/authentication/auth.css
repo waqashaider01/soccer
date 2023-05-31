@@ -83,3 +83,62 @@
     font-size: 80%;
     color: #e3342f !important;
 }
+
+
+
+/* button Style with icons  */
+
+
+.buttonicons, .buttonicons {
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  padding-top: 0.6rem;
+  padding-right: 1rem;
+  padding-bottom: 0.6rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  background-color: #008cba;
+  border-color: #0079a1;
+  color: white;
+  -webkit-transition: background-color 300ms ease-out;
+  -moz-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+  -webkit-appearance: none;
+  border: none;
+  font-weight: normal !important; }
+  .buttonicons:hover, .buttonicons:focus, .buttonicons:hover, .buttonicons:focus {
+    background-color: #0079a1; 
+    color: white;
+    outline: 0;  
+  }
+/* The CSS for Icons Label */
+.btn-labeled{
+  padding-top:0;
+  padding-bottom:1px
+  }
+  .btn-label{
+    position:relative;
+    left:-15px;
+    display:inline-block;
+    padding-top: 0.58rem;
+    padding-right: 0.8rem;
+    padding-bottom: 0.62rem;
+    padding-left: 0.8rem;
+    background:rgba(0,0,0,0.15);
+    border-radius:3px 0 0 3px
+    }
+    .btn-label.btn-label-right{
+      right:-15px;
+      left:auto;
+      border-radius:0 3px 3px 0
+    }
+  .buttonicons.radius, .buttonicons.radius {
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }

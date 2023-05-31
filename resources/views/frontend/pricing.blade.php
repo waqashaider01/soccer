@@ -17,33 +17,33 @@
             <span>Start your free trial today</span>
         </div>
     </section>
-    <div class="container-md pricing mt-3">
+    <div class="container-md pricing mt-3 ">
         <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item nav-item1" role="presentation" id="p1">
+            <li class="nav-item nav-item1   mt-3 mt-sm-0" role="presentation" id="p1">
                 <button class="nav-link active" id="pills-players-tab" data-bs-toggle="pill" data-bs-target="#pills-players"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Players
                 </button>
             </li>
-            <li class="nav-item nav-item2" role="presentation" id="p2">
+            <li class="nav-item nav-item2  mt-3 mt-sm-0" role="presentation" id="p2">
                 <button class="nav-link " id="pills-players-tab" data-bs-toggle="pill" data-bs-target="#pills-players"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Scouts
                 </button>
             </li>
-            <li class="nav-item nav-item3" role="presentation" id="p3">
+            <li class="nav-item nav-item3  mt-3 mt-sm-0" role="presentation" id="p3">
                 <button class="nav-link" id="pills-players-tab" data-bs-toggle="pill" data-bs-target="#pills-players"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Intermediaries
                 </button>
             </li>
-            <li class="nav-item nav-item4" role="presentation" id="p4">
+            <li class="nav-item nav-item4 mt-3 mt-sm-0" role="presentation" id="p4">
                 <button class="nav-link " id="pills-players-tab" data-bs-toggle="pill" data-bs-target="#pills-players"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Coaches
                 </button>
             </li>
-            <li class="nav-item nav-item5" role="presentation" id="p5">
+            <li class="nav-item nav-item5 mt-3 mt-sm-0" role="presentation" id="p5">
                 <button class="nav-link " id="pills-players-tab" data-bs-toggle="pill" data-bs-target="#pills-players"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Academies and Clubs
@@ -80,7 +80,7 @@
                                 <p><b>100$ when billed annually</b></p>
                                 <div class="row no-gutters">
                                     @foreach ($pricing as $pricing)
-                                        <div class="col-md-3">
+                                        <div class="col-md-6 col-lg-3 mt-3 mt-lg-0">
                                             <div class="plan">
                                                 <div class="content" style="margin-bottom:13px;">
                                                     <p>{{ $pricing->duration }} month Subscription</p>
@@ -110,8 +110,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6" id="fh1">
-                    <h5 class="features-heading">Features</h5>
+                <div class="col-md-6" id="fh1"> 
+                    <h5 class="features-heading ps-5 ps-sm-0 text-left text-sm-center">Features</h5>
                     <div class="pricingTable">
                         <ul class="pricing-content">
                             <li>&nbsp;Comprehensive Online Profile</li>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <div class="col-md-6" id="fh2">
-                    <h5 class="features-heading" id="fhh">Features</h5>
+                    <h5 class="features-heading ps-5 ps-sm-0 text-left text-sm-center" id="fhh">Features</h5>
                     <div class="pricingTable">
                         <ul class="pricing-content">
                             <li>&nbsp;Comprehensive Online Profile</li>
@@ -154,7 +154,7 @@
                         <img class="mastercard-logo" src="{{ asset('images/payments/mastercard.png') }}" alt="">
                         <img class="jcb-logo" src="{{ asset('images/payments/jcb.png') }}" alt="">
                         <img class="discover-logo" src="{{ asset('images/payments/discover.png') }}" alt="">
-                        <p>We accept PayPal and all major credit cards.</p>
+                        <p class="pt-2 pt-sm-0">We accept PayPal and all major credit cards.</p>
                         <p><i class="fas fa-lock"></i><a href="">SSL Encrypted Payment</a></p>
                     </div>
                 </div>

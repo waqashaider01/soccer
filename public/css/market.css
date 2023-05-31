@@ -5,6 +5,20 @@
     height: 450px;
     background-image: url(/images/market/market-hero.jpg);
 }
+
+
+@media(max-width:768px)
+{
+    .market-hero {
+    height:  150vh !important;
+   
+}
+.market {
+    margin-top: -600px !important;
+    
+}
+
+}
 .market {
     margin-top: -360px;
     font-family: sans-serif;
@@ -37,6 +51,7 @@
     content: "";
     position: absolute;
     top: 0px;
+    
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -49,9 +64,9 @@
 }
 .market form select,
 .market form input {
-    width: 340px;
+  
     height: 34px;
-    padding: 5px;
+   
 }
 .market form select:focus,
 .market form input:focus {

@@ -1,7 +1,7 @@
-#fullpage section {
+/* #fullpage section {
     height: 84vh;
 }
-
+ */
 
 /* main-heading styles */
 
@@ -136,12 +136,12 @@
     justify-content: center;
 }
 
-.category .body .content {
+/* .category .body .content {
     height: 50%;
-}
+} */
 
 .category .body .signup-container {
-    height: 30%;
+    /* height: 30%; */
     font-family: "PT Sans", sans-serif;
 }
 
@@ -235,10 +235,10 @@
     height: 245px;
 }
 
-.how-it-works .sec .img1 {
+/* .how-it-works .sec .img1 {
     width: 298px;
     height: 245px;
-}
+} */
 
 .how-it-works .sec .img img {
     width: 100%;
@@ -352,9 +352,9 @@
     font-family: sans-serif;
 }
 
-.convinience .content {
+/* .convinience .content {
     padding-left: 40px;
-}
+} */
 
 .convinience h1 {
     color: red;
@@ -420,6 +420,20 @@
     padding: 80px;
 }
 
+@media(max-width:990px)
+{
+    .join-us{
+        height: auto !important;
+          padding: 50px;
+    }
+}
+@media(max-width:400px)
+{
+    .join-us{
+        height: auto !important;
+          padding: 20px;
+    }
+}
 .join-us p {
     font-size: 36px;
     font-weight: 700;

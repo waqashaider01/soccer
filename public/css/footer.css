@@ -71,6 +71,19 @@ footer form {
 footer .news-letter .title {
     display: flex;
 }
+
+@media(max-width:500px)
+{
+    footer .news-letter .title {
+    display: block;
+}
+footer .news-letter .title p {
+    padding: 0px !important;
+}
+footer .footer{
+    padding: 10px;
+}
+}
 footer .news-letter .title p {
     font-weight: lighter;
     font-size: 16px;
@@ -161,4 +174,15 @@ footer .copyrights {
     font-size: 16px;
     padding: 14px;
     font-family: "PT Sans", sans-serif;
+}
+
+.emailcurv{
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 90% 100%, 0 100%);
+
+}
+.clipbutton{
+    position: relative;
+    right: 50px;
+-webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+
 }

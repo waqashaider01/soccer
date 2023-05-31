@@ -9,6 +9,21 @@
     background-position: -100px;
 }
 
+@media(max-width:768px)
+{
+    .players-hero {
+    height:  150vh !important;
+   
+}
+.players {
+    margin-top: -600px !important;
+    
+}
+
+
+
+
+}
 .players {
     margin-top: -360px;
     font-family: sans-serif;
@@ -114,7 +129,8 @@
 }
 
 .players-card .top {
-    padding: 20px;
+    padding: 10px;
+    /* padding: 20px ; */
 }
 
 .players-card .img {

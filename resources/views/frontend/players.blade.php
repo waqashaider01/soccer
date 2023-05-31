@@ -5,13 +5,11 @@
         body {
             font-family: "Oswald", sans-serif;
         }
-
         .page-link {
             border-radius: 10px !important;
             border: 0px;
             font-weight: 700;
         }
-
         .page-item {
             border-radius: 9px
         }
@@ -32,10 +30,9 @@
             <div class="container">
                 <div class="search-box">
                     <form action="{{ route('players') }}" method="GET">
-                        <div class="row">
-                            <div class="col-md-10">
+                       
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4 col-lg-2">
                                         <label for="position">Main Position</label><br>
                                         <select name="position" id="position">
                                             <option value="" disabled selected>Select One</option>
@@ -56,9 +53,8 @@
                                             <option value="goalkeeper">Goalkeeper</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                    
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="country">Country</label><br>
                                                 {{-- <img src="/images/flags/{{$country->img}}" alt=""> --}}
                                                 <select name="country" id="country">
@@ -75,7 +71,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="status">Status</label><br>
                                                 <select name="status" id="status">
                                                     <option value="" disabled selected>Select One</option>
@@ -84,25 +80,22 @@
                                                     <option value="free-agent">Free Agent</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-md-4 col-lg-2">
                                                 <label for="name">Name</label><br>
                                                 <input type="text" id="name" name="name">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
+                                         <div class="col-md-4 col-lg-2 mt-3 mt-md-0">
                                 <div class="search-btn">
                                     <button type="submit" class="btn btn-primary">Search</button>
                                 </div>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-4 col-lg-2 mt-3 mt-md-0">
                                 <div class="search-btn">
                                     <a type="submit" class="btn btn-danger" href="{{ route('players') }}">Reset</a>
                                 </div>
                             </div>
-                        </div>
+                                </div>
+                           
                     </form>
                 </div>
                 <!--search-box end-->
@@ -135,7 +128,7 @@
                                             {{-- <input type="hidden" value="{{ $player->id }}" name="fav_id" id="fav_id"> --}}
                                         </div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-8">
                                         <div class="row">
                                             <div class="col-12">
                                                 <h3 class="firstname">{{ $name[0] }}</h3>
@@ -160,7 +153,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="content">
+                                                <div class="content ">
                                                     <b>Country</b>
                                                     <p><img src="{{ asset('images/flags/' . $player->country->name . '.png') }}"
                                                             alt="{{ $player->country->name }}">
@@ -170,7 +163,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="profile-btn">
                                             <a href="/players/{{ $player->id }}/profile">View Profile</a>
                                         </div>
