@@ -57,13 +57,13 @@
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row text-muted">
-                        <div class="col-6 text-start">
+                        <div class="col-sm-6 text-center text-sm-start">
                             <p class="mb-0">
                                 <a class="text-muted" href="/" target="_blank"><strong>SoccerWorldLink</strong></a>
                                 &copy;
                             </p>
                         </div>
-                        <div class="col-6 text-end">
+                        <div class="col-sm-6 text-center text-sm-end">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>

@@ -97,12 +97,13 @@
                 <div class="card-body">
                     <form action="{{ route('agent-privacy-set' ,['id'=> auth()->user()->id]) }}" method="post">
                         @csrf
-                        <div class="mb-3 d-flex justify-content-center align-items-center">
-                            <div class="col-sm-2">
+                        <div class="row mb-3 d-flex justify-content-center align-items-center">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 ">
                                 <label for="Telephone" class="form-label">Telephone</label>
                             </div>
                             
-                            <div class="col-sm-9 col-md-5 col-10">
+                            <div class="col-md-4 ">
                                 <select id="Telephone" name="telephone" class="form-select">
                                     
                                     <option value="everyone" @if (isset($UserPrivacy->telephone) &&  ($UserPrivacy->telephone == 0)) selected @endif>Everyone</option>
@@ -113,12 +114,14 @@
                                 </select>
 
                             </div>
-                        </div>
-                        <div class="mb-3 d-flex justify-content-center align-items-center">
-                            <div class="col-sm-2">
+                               <div class="col-md-3"></div>
+                           </div>
+                        <div class="row mb-3 d-flex justify-content-center align-items-center">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
                                 <label for="Email" class="form-label me-3">Email</label>
                             </div>
-                            <div class="col-sm-9 col-md-5 col-10">
+                            <div class="col-md-4">
                                 <select id="Email" name="email" class="form-select">
                                     <option value="everyone" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 0)) selected @endif>Everyone</option>
                                     <option value="only_me" @if (isset($UserPrivacy->email) &&  ($UserPrivacy->email == 1)) selected @endif>only me</option>
@@ -127,12 +130,14 @@
                                     
                                 </select>
                             </div>
+                            <div class="col-md-3"></div>
                         </div>
-                        <div class="mb-3 d-flex justify-content-center align-items-center">
-                            <div class="col-sm-2">
+                        <div class="row mb-3 d-flex justify-content-center align-items-center">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
                                 <label for="Website" class="form-label me-3">Website</label>
                             </div>
-                            <div class="col-sm-9 col-md-5 col-10">
+                            <div class="col-md-4">
                                 <select id="Website" name="website" class="form-select">
                                     <option value="everyone" @if (isset($UserPrivacy->website) &&  ($UserPrivacy->website == 0)) selected @endif>Everyone</option>
                                     <option value="only_me" @if (isset($UserPrivacy->website) && ($UserPrivacy->website == 1))  selected @endif>Only Me</option>
@@ -143,14 +148,15 @@
                                  
                                 </select>
                             </div>
+                            <div class="col-md-3"></div>
 
                         </div>
-                        <div class="mb-3 d-flex justify-content-center align-items-center">
-
-                            <div class="col-sm-2">
-                                <label for="SocialMediaLinks" class="form-label-3">Social Media <br> Links</label>
+                        <div class="row mb-3 d-flex justify-content-center align-items-center">
+<d iv class="col-md-3"></d>
+                            <div class="col-md-2">
+                                <label for="SocialMediaLinks" class="form-label-3">Social Media  Links</label>
                             </div>
-                            <div class="col-sm-9 col-md-5 col-10">
+                            <div class="col-md-4 ">
                                 <select id="SocialMediaLinks" name="social_media_links" class="form-select width">
                                     <option value="everyone" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 0))  selected @endif >Everyone</option>
                                     <option value="only_me" @if (isset($UserPrivacy->social_media_links) && ($UserPrivacy->social_media_links == 1))  selected @endif >only me</option>
@@ -159,6 +165,7 @@
 
                                 </select>
                             </div>
+                            <div class="col-md-3"></div>
 
 
 

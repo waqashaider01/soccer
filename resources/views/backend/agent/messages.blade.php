@@ -79,10 +79,10 @@
                 </button>
             </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content " id="nav-tabContent">
 
-            <div class="tab-pane fade" id="nav-inbox" role="tabpanel">
-                <table class="inbox-table">
+            <div class="tab-pane fade table-responsive " id="nav-inbox" role="tabpanel">
+                <table class="inbox-table   ">
                     <thead>
                         <tr>
                             <th><input type="checkbox" name="read-total" id="read-total"></th>
@@ -159,7 +159,7 @@
                     <div class="card-header text-danger">
                         Messages Starred
                     </div>
-                    <div class="card-body">
+                    <div class="card-body table-responsive ">
                         <table class="starred-table">
                             <tbody>
                                 <tr>
@@ -211,7 +211,7 @@
 
             </div>{{-- starred end --}}
 
-            <div class="tab-pane fade" id="nav-sent" role="tabpanel">
+            <div class="tab-pane fade table-responsive " id="nav-sent" role="tabpanel">
                 <table class="sent-table">
                     <thead>
                         <tr>
@@ -284,7 +284,7 @@
                 </table>
             </div>{{-- sent end --}}
 
-            <div class="tab-pane fade" id="nav-compose" role="tabpanel">
+            <div class="tab-pane fade " id="nav-compose" role="tabpanel">
                 <div class="row">
                     <div class="col-md-4">
                         <form>

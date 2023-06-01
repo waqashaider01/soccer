@@ -20,7 +20,7 @@
     <section class="blogs">
         <div class="container mt-4 mb-4">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     @if (count($blogs) > 0)
                         <div class="row">
                             @foreach ($blogs as $blog)
@@ -63,7 +63,7 @@
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-lg-4">
                     <div class="row">
                         <div class="col-md-11 offset-md-1">
                             <div class="strike">

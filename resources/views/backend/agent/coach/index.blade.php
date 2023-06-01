@@ -48,40 +48,40 @@
 
         <div class="tab-pane fade show active" id="nav-edit_profile" role="tabpanel">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
+                <li class="nav-item mt-3 mt-lg-0" role="presentation">
                     <button class="nav-link active" id="pills-personal_info-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-personal_info" type="button" aria-selected="true">
                         personal information
                     </button>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item  mt-3 mt-lg-0" role="presentation">
                     <button class="nav-link" id="pills-basic_info-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-basic_info" type="button" aria-selected="false">
                         basic information
                     </button>
                 </li>
 
-                <li class="nav-item" role="presentation">
+                <li class="nav-item  mt-3 mt-lg-0" role="presentation">
                     <button class="nav-link" id="pills-contact_info-tab" data-bs-toggle="pill" data-bs-target="#pills-contact_info"
                         type="button" aria-selected="false">
                         contact information
                     </button>
                 </li>
 
-                <li class="nav-item" role="presentation">
+                <li class="nav-item  mt-3 mt-lg-0" role="presentation">
                     <button class="nav-link" id="pills-profile_img-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-profile_img" type="button" aria-selected="false">
                         profile image
                     </button>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item  mt-3 mt-lg-0" role="presentation">
                     <button class="nav-link" id="pills-cover_img-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-cover_img" type="button" aria-selected="false">
                         cover image
                     </button>
                 </li>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
+            <div class="tab-content  mt-3 mt-lg-0" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-personal_info" role="tabpanel">
                     @include('backend.agent.coach.edit-profile.personal-info')
                 </div>{{-- personal-info end --}}

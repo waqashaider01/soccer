@@ -10,14 +10,14 @@
                     <i class="fa fa-home" style="padding-top: 7px; padding-right:5px;font-size:20px"></i>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" >
                 <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                     <div class="position-relative">
                         <i class="align-middle" data-feather="bell"></i>
                         <span class="indicator">4</span>
-                    </div>
+                    </div>  
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown" style="background-color:#F5F5F5">
                     <div class="dropdown-menu-header">
                         4 New Notifications
                     </div>
@@ -168,19 +168,21 @@
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <img src="{{ asset('images/profile.jpg') }}" class="avatar me-1" alt="Charles Hall" />
                     <span class="text-dark">{{ Auth::user()->name }}</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
+                </a>    
+                <div class="dropdown-menu dropdown-menu-end" style="background-color:#f5f5f5">
+                    <a class="dropdown-item px-2" href="pages-profile.html"><i class="align-middle me-1"
                             data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
+                              <div class="dropdown-divider"></div>
+                    <a class="dropdown-item px-2" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
                         Analytics</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html"><i class="align-middle me-1"
+                    <a class="dropdown-item px-2" href="index.html"><i class="align-middle me-1"
                             data-feather="settings"></i> Settings & Privacy</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i>
+                              <div class="dropdown-divider"></div>
+                    <a class="dropdown-item px-2" href="#"><i class="align-middle me-1" data-feather="help-circle"></i>
                         Help Center</a>
                     {{-- <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="dropdown-item px-2" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>

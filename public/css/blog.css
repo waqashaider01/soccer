@@ -43,6 +43,26 @@ body {
     height: 432px;
 }
 
+@media(max-width:992px)
+{
+    .blog-card {
+    font-family: sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    height: 500px;
+}
+
+}
+@media(max-width:768px)
+{
+    .blog-card {
+    font-family: sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    height: auto;
+}
+
+}
 .blog-card:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.3s all;

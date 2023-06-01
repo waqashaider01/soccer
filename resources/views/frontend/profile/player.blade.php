@@ -165,6 +165,17 @@
             display: none;
             visibility: hidden;
         }
+   @media(max-width:992px)
+   {
+       .player-media .videos {
+    width: 100%;
+    height: auto !important;
+}
+   }
+
+   .flage-size-player{
+width:40px
+   }
     </style>
 
     <x-embed-styles />
@@ -181,7 +192,7 @@
 
          <section class="players-profile-section">
             <section class="players-profile-hero">
-                <div class="row">
+                <div class="row p-0 m-0">
                     <div class="col-12">
                         <div class="top">
                             @if(isset($player) && $player!=null && property_exists($player,'id'))
@@ -207,20 +218,20 @@
             <div class="players-profile">
                 <div class="profile">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6 col-lg-3">
                             
                             <div class="dp">
                                 <div class="img">
                                     <img src="{{$player && $player!=null ? asset($player->profile_img) : 'https://www.shutterstock.com/image-photo/romanian-royal-flag-time-king-ferdinand-2207251177'}}" alt="">
 
                                 </div>
-                                <div class="row meta mx-4">
-                                    <div class="col-md-4">
+                                <div class="d-flex meta " >
+                                    <div class="mx-2">
                                         <span>Views</span><br>
                                         <span>{{ isset($player['reads']) && !empty($player['reads']) ? $player['reads'] : 'N/A' }}</span>
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="mx-2">
                                         <span>Followers</span><br>
                                         @php
                                             $count1 = null;
@@ -231,7 +242,7 @@
                                         <span>{{ $count1 !== null ? $count1 : '0' }}</span>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="mx-2">
                                         <span>Following</span><br>
                                         <span>{{ $count1 !== null ? $count1 : '0' }}</span>
                                     </div>
@@ -240,7 +251,7 @@
                         </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-6 col-lg-2">
                             <ul class="data">
 
                                 <li class="firstname">{{ isset($name[0]) ? $name[0] : '' }}</li>
@@ -282,7 +293,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-6 col-lg-3">
                             <ul class="data">
                                 <li>
                                     <div class="row">
@@ -304,7 +315,7 @@
                                                     @endforeach
                                                 @endif
                                                 @if(isset($player) && isset($player->country))
-                                                    <img src="{{ asset('images/flags/' . $player->country->name . '.png') }}" alt="" width="25%">
+                                                    <img src="{{ asset('images/flags/' . $player->country->name . '.png') }}"  alt="" class="flage-size-player">
                                                 @endif
 
 
@@ -341,7 +352,7 @@
                                                     @foreach ($countries as $country)
                                                         {{ ($player->citizenship_country == $country->id) ? $country->name : '' }}
                                                         @if ($player->citizenship_country == $country->id)
-                                                            <img src="{{ asset('images/flags/' . $country->name . '.png') }}" alt="{{ $country->name }}" width="25%">
+                                                            <img src="{{ asset('images/flags/' . $country->name . '.png') }}" alt="{{ $country->name }}"class="flage-size-player">
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -368,7 +379,7 @@
                             </ul>
                         </div>
                        
-                        <div class="col-md-2">
+                        <div class="col-md-6 col-lg-2">
                             <div class="player-type text-center">
                                 <span class="title "><strong>Main Position:</strong> <br>
                                     <p id="main-tag">
@@ -492,7 +503,7 @@
                     </div>
 
 
-         <div class="row" style="margin-top:-47px">
+         <div class="row" style=" ">
                         <div class="col-md-7"></div>
                         <div class="col-md-4">
                             <div class="row">
@@ -527,32 +538,32 @@
 
                     <hr>
                     <div class="about px-3">
-                        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-                            <span class="heading"><a class="btn btn-outline-dark" href="#player-detail">
+                        <div class="d-lg-flex justify-content-between" style=" padding: 10px 0;">
+                            <span class="heading "><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-detail">
                                     Player Details
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark" href="#attributes-rating">
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#attributes-rating">
                                     Attributes Rating
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark" href="#transfer-history">
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#transfer-history">
                                     Transfer History
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark" href="#career-match-data">
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#career-match-data">
                                     Career Match Data
                                 </a></span>
-
-                            <span class="heading"><a class="btn btn-outline-dark" href="#player-achievements">
+ 
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-achievements">
                                     Player Achievements
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark" href="#next-match-schedule">
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#next-match-schedule">
                                     Next Match Schedule
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark" href="#player-media">
+                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-media">
                                     Player Media
                                 </a></span>
                         </div>
@@ -811,7 +822,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content table-responsive" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-league">
                             <div class="row">
                                 <div class="col-md-12">
@@ -973,7 +984,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-international-cups">
+                        <div class="tab-pane fade table-responsive" id="pills-international-cups">
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table">
@@ -1050,7 +1061,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-national-team">
+                        <div class="tab-pane fade table-responsive" id="pills-national-team">
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table">
@@ -1179,7 +1190,7 @@
                 
                 
                 
-                <div class="next-match-schedule" id="next-match-schedule">
+                <div class="next-match-schedule table-responsive" id="next-match-schedule">
                     <div class="heading">
                         <h3 style="margin-bottom:0px">Next Match Schedule</h3>
                     </div>
@@ -1230,30 +1241,30 @@
                                 <span class="title">
                                     Videos:
                                 </span>
-                                <div class="px-5 py-3">
+                                <div class="px -5 py-3">
                                     <div class="row">
                                         @if (!empty($player->media_video1))
-                                            <div class="col-md-2 offset-1">
+                                            <div class="col-md-2 offset-md-1 mt-3 mt-md-0">
                                                 <x-embed url="{{ $player->media_video1 }}" />
                                             </div>
                                         @endif
                                         @if (!empty($player->media_video2))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <x-embed url="{{ $player->media_video2 }}" />
                                             </div>
                                         @endif
                                         @if (!empty($player->media_video3))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <x-embed url="{{ $player->media_video3 }}" />
                                             </div>
                                         @endif
                                         @if (!empty($player->media_video4))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <x-embed url="{{ $player->media_video4 }}" />
                                             </div>
                                         @endif
                                         @if (!empty($player->media_video5))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <x-embed url="{{ $player->media_video5 }}" />    
                                             </div>
                                         @endif
@@ -1271,27 +1282,27 @@
                                 <div class="px-5 py-3">
                                     <div class="row">
                                         @if(isset($player->media_img1))
-                                            <div class="col-md-2 offset-1">
+                                            <div class="col-md-2 offset-md-1 mt-3 mt-md-0">
                                                 <img id="image1" src="{{ asset($player->media_img1) }}" class="img-thumbnail">
                                             </div>
                                         @endif
                                         @if(isset($player->media_img2))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <img id="image2" src="{{ asset($player->media_img2) }}" class="img-thumbnail">
                                             </div>
                                         @endif
                                         @if(isset($player->media_img3))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <img id="image3" src="{{ asset($player->media_img3) }}" class="img-thumbnail">
                                             </div>
                                         @endif
                                         @if(isset($player->media_img4))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <img id="image4" src="{{ asset($player->media_img4) }}" class="img-thumbnail">
                                             </div>
                                         @endif
                                         @if(isset($player->media_img5))
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 mt-3 mt-md-0">
                                                 <img id="image5" src="{{ asset($player->media_img5) }}" class="img-thumbnail">
                                             </div>
                                         @endif

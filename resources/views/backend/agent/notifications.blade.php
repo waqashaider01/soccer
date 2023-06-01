@@ -72,12 +72,12 @@
                     <option value="">Newest First</option>
                     <option value="">Oldest First</option>
                 </select>
-            </div>
+            </div>  
         </nav>
-        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content table-responsive" id="nav-tabContent">
 
             <div class="tab-pane fade show active" id="nav-unread" role="tabpanel">
-                <table class="table unread-table">
+                <table class="table unread-table  overflow-auto">
                     <thead>
                         <tr>
                             <th><input type="checkbox" name="read-total" id="read-total"></th>
