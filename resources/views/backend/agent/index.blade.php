@@ -257,72 +257,75 @@
         </div>
 
         <!--{{-- activities --}}-->
-        <!--<div class="dashboard-activities card">-->
-        <!--    <div class="row activity">-->
-        <!--        <div class="col-md-10">-->
-        <!--            <div class="about">-->
-        <!--                <div class="img">-->
-        <!--                    <img src="{{ asset('images/profile.jpg') }}" alt="">-->
-        <!--                </div>-->
-        <!--                <div class="content">-->
-        <!--                    <h3 class="title">Muhammad Salman</h3>-->
-        <!--                    <p class="description">-->
-        <!--                        Added Career History at U23-->
-        <!--                    </p>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-md-2">-->
-        <!--            <p class="time">-->
-        <!--                5 days ago-->
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--    <hr>-->
-        <!--    <div class="row activity">-->
-        <!--        <div class="col-md-10">-->
-        <!--            <div class="about">-->
-        <!--                <div class="img">-->
-        <!--                    <img src="{{ asset('images/profile2.jpg') }}" alt="">-->
-        <!--                </div>-->
-        <!--                <div class="content">-->
-        <!--                    <h3 class="title">Muhammad Salman</h3>-->
-        <!--                    <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.-->
-        <!--                        Atque,-->
-        <!--                        voluptatum?-->
-        <!--                    </p>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-md-2">-->
-        <!--            <p class="time">-->
-        <!--                2 weeks ago-->
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--    <hr>-->
-        <!--    <div class="row activity">-->
-        <!--        <div class="col-md-10">-->
-        <!--            <div class="about">-->
-        <!--                <div class="img">-->
-        <!--                    <img src="{{ asset('images/profile3.jpg') }}" alt="">-->
-        <!--                </div>-->
-        <!--                <div class="content">-->
-        <!--                    <h3 class="title">Muhammad Salman</h3>-->
-        <!--                    <p class="description">-->
-        <!--                        <a href="">Louis Anetekhai</a> and <a href="">Muhammad Salman</a> followed-->
-        <!--                        <a href="">Khattak</a>-->
-        <!--                    </p>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--        <div class="col-md-2">-->
-        <!--            <p class="time">-->
-        <!--                1 day ago-->
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!--</div>-->
+        <div class="dashboard-activities card">
+
+        <h3 class="font-weight-bolder font-font-weight-bold">Recent Activities</h3>
+        <hr>
+           <div class="row activity">
+               <div class="col-md-10">
+                   <div class="about">
+                       <div class="img">
+                           <img src="{{ asset('images/profile.jpg') }}" alt="">
+                       </div>
+                       <div class="content">
+                           <h3 class="title">Muhammad Salman</h3>
+                           <p class="description">
+                               Added Career History at U23
+                           </p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-2">
+                   <p class="time">
+                       5 days ago
+                   </p>
+               </div>
+           </div>
+           <hr>
+           <div class="row activity">
+               <div class="col-md-10">
+                   <div class="about">
+                       <div class="img">
+                           <img src="{{ asset('images/profile2.jpg') }}" alt="">
+                       </div>
+                       <div class="content">
+                           <h3 class="title">Muhammad Salman</h3>
+                           <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                               Atque,
+                               voluptatum?
+                           </p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-2">
+                   <p class="time">
+                       2 weeks ago
+                   </p>
+               </div>
+           </div>
+           <hr>
+           <div class="row activity">
+               <div class="col-md-10">
+                   <div class="about">
+                       <div class="img">
+                           <img src="{{ asset('images/profile3.jpg') }}" alt="">
+                       </div>
+                       <div class="content">
+                           <h3 class="title">Muhammad Salman</h3>
+                           <p class="description">
+                               <a href="">Louis Anetekhai</a> and <a href="">Muhammad Salman</a> followed
+                               <a href="">Khattak</a>
+                           </p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-2">
+                   <p class="time">
+                       1 day ago
+                   </p>
+               </div>
+           </div>
+        </div>
     </div>
     @endsection
     

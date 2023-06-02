@@ -14,12 +14,13 @@
 </style>
 <div class="container-fluid py-5">
     <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-md-2"></div>
+        <div class="col-lg-8">
             <div class="row ">
-                <div class="text-center " style="font-size: 22px !important;">
-                    {!!$preee1!!}
+                <div class="text-center " style="font-size: 20px !important;">
+                    {!!$preee1!!}   
                 </div>
-                {{-- <p class="pt-4 text-center fs-4"style="font-size: 22px"> <strong> "Our goal, therefore, is to provide that opportunity by
+                {{-- <p class="  text-center "style="font-size: 22px"> <strong> "Our goal, therefore, is to provide that opportunity by
                         serving as a global link between Players, Scouts,
                         Intermediaries, Coaches, Academies and Clubs."</strong></p> --}}
                 <div class="col py-5 "style="font-size: 15px">
@@ -64,6 +65,9 @@
             </div>
 
         </div>
+
+        <div class="col-md-2"></div>
+
         <div>
             <img src="\images\ground.PNG" class=" img-fluid" alt=""style="width:100%">
         </div>

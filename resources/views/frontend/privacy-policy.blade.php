@@ -19,7 +19,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <section class="common__information" style="line-height: 15px !important;">
+                <section class="common__information">
+
+
+
+                
+                    
+                
                     <p class="cus">
                         {{-- {!!$privacy!!} --}}
                     </p>
@@ -30,6 +36,8 @@
 
                     Last updated:{!! htmlspecialchars_decode($date) !!}.
                     </p>
+
+
                 </section>
 
             </div>

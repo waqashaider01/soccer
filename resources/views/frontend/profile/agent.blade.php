@@ -159,16 +159,35 @@
                         <div class="players-card">
                             <div class="row top">
                                 @foreach ($playersPortfolio as $portfolio)
-                                    <div class="card col-3" style="width: 18rem;">
-                                        <img class="card-img-top" src="{{ asset($portfolio->profile_img) }}"
+                                    <div class="card col-3 py-2">
+                                        <img class="card-img-top w-50 align-self-center" src="{{ asset($portfolio->profile_img) }}"
                                             alt="{{ $portfolio->player->name }}">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $portfolio->player->name }}</h5>
+
+                                            <p class="card-title" style="color:#185F7C;font-weight:800">{{ $portfolio->player->name }}</p>
+
+                                          <h6 class="card-title font-weight-bolder">Right midle feilder Dumy data</h6>
+
+
+
+                                            
                                             <a href="{{ route('player-profile-detail', $portfolio->player_id) }}"
                                                 class="btn btn-danger">View Profile</a>
                                         </div>
                                     </div>
                                 @endforeach
+
+<div class="row my-2">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+        <button type="button" class="btn btn-danger btn-lg">Show More</button>
+    </div>
+    <div class="col-md-4"></div>
+
+
+</div>
+                                
                             </div>
                         </div>{{-- players-card end --}}
                     @else

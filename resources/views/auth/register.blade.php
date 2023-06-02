@@ -418,18 +418,15 @@
         let password1 = document.getElementById('password');
         let eye1 = document.getElementById('eyeIcon1');
         eye1.onclick = () => {
-
             if (password1.type === "password") {
                 password1.type = "text";
             } else {
                 password1.type = "password";
             }
         }
-
         let password2 = document.getElementById('confirmPassword');
         let eye2 = document.getElementById('eyeIcon2');
         eye2.onclick = () => {
-
             if (password2.type === "password") {
                 password2.type = "text";
             } else {

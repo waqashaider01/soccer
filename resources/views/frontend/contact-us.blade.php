@@ -47,8 +47,8 @@
                         contact us through
                         this form or send us an email</p>
                     <h3 class="py-2">CONTACT DETAILS</h3>
-                    <i class="fa-solid fa-envelope" style="color: #3490dc"></i>
-                    <a href="" class="ps-2" style="color: red">support@soccerworldlink.com</a>
+                    <i class="fa-solid fa-envelope" style="color: #3490dc;font-size:22px;position:relative;top:3px"></i>
+                    <a href="" class="ps-2" style="color: #f44336 ">support@soccerworldlink.com</a>
                 </div>
             </div>
 
