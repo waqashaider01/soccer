@@ -14,11 +14,13 @@
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/posted-by.png') }}" alt="city">
+                                           <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+                                             <img src="{{ asset('images/market-detail/posted-by.png') }}" alt="city" style="width:55px">
+                                           </div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Posted By</h4>
@@ -27,12 +29,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/category.png') }}" alt="city">
-                                        </div>
+                                            <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+                                             <img src="{{ asset('images/market-detail/category.png') }}" alt="city" style="width:55px">
+                                        
+</div>
+                                            </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Category</h4>
                                             <p>{{ ucfirst(str_replace('-', ' ', $agent->slug)) }}</p>
@@ -40,11 +45,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/for-whom.png') }}" alt="city">
+                                                    <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+                                            <img src="{{ asset('images/market-detail/for-whom.png') }}" alt="city" style="width:50px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">For Whom</h4>
@@ -56,11 +63,14 @@
                         </div>
 
                         <div class="row mt-4">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/expiry-date.png') }}" alt="city">
+                                            <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/expiry-date.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Expiry Date</h4>
@@ -69,11 +79,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/views.png') }}" alt="city">
+                                            <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/views.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Views</h4>
@@ -82,11 +95,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/applications.png') }}" alt="city">
+                                            <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+ 
+                                            <img src="{{ asset('images/market-detail/applications.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Applications</h4>
@@ -104,7 +120,9 @@
                         <h3>Details</h3>
                     </div>
                     <div class="content">
+                                           
                         <img src="{{ asset('images/market-detail/city.png') }}" alt="city">
+ 
                         <div class="description">
                             {{ $agent->description }}
                         </div>
@@ -117,11 +135,14 @@
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/country.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+ 
+                                            <img src="{{ asset('images/market-detail/country.png') }}" alt="city" style="width:50px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Country</h4>
@@ -146,12 +167,15 @@
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+ 
                                             <img src="{{ asset('images/market-detail/main-position.png') }}"
-                                                alt="city">
+                                                alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Main Position</h4>
@@ -161,11 +185,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/gender.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/gender.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Gender</h4>
@@ -174,11 +201,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/age.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/age.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Players Age</h4>
@@ -197,11 +227,14 @@
                     </div>
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Transfer Fees</h4>
@@ -210,11 +243,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city">
+
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Monthly Salary </h4>
@@ -223,11 +260,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                            <img src="{{ asset('images/market-detail/charges.png') }}" alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Training Compensation Fee</h4>
@@ -239,12 +279,16 @@
                         </div>
 
                         <div class="row mt-4">
-                            <div class="col-md-4">
+                            <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                 <div class="market-detail-card">
                                     <div class="row">
                                         <div class="col-md-3">
+
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
                                             <img src="{{ asset('images/market-detail/trial-conditions.png') }}"
-                                                alt="city">
+                                                alt="city" style="width:55px">
+</div>
                                         </div>
                                         <div class="col-md-9">
                                             <h4 class="title">Trial Conditions</h4>
@@ -265,12 +309,15 @@
                         </div>
                         <div class="body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                     <div class="market-detail-card">
                                         <div class="row">
                                             <div class="col-md-3">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
                                                 <img src="{{ asset('images/market-detail/club-location.png') }}"
-                                                    alt="city">
+                                                    alt="city" style="width:50px">
+</div>
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Location</h4>
@@ -286,12 +333,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                     <div class="market-detail-card">
                                         <div class="row">
                                             <div class="col-md-3">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
                                                 <img src="{{ asset('images/market-detail/telephone.png') }}"
-                                                    alt="city">
+                                                    alt="city" style="width:55px">
+</div>
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Telephone</h4>
@@ -300,11 +350,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                     <div class="market-detail-card">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="{{ asset('images/market-detail/email.png') }}" alt="city">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
+                                                <img src="{{ asset('images/market-detail/email.png') }}" alt="city" style="width:50px">
+</div>
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Email</h4>
@@ -316,12 +369,15 @@
                             </div>
 
                             <div class="row mt-4">
-                                <div class="col-md-4">
+                                <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                     <div class="market-detail-card">
                                         <div class="row">
                                             <div class="col-md-3">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
                                                 <img src="{{ asset('images/market-detail/website.png') }}"
-                                                    alt="city">
+                                                    alt="city" style="width:55px">
+</div>
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Website</h4>
@@ -331,12 +387,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class=" mt-2  mt-lg-0 col-lg-4 col-sm-6">
                                     <div class="market-detail-card">
                                         <div class="row">
                                             <div class="col-md-3">
+                                             <div style="border-radius:100px;border:1px solid black; width:70px;height:70px"class="p-2">
+
                                                 <img src="{{ asset('images/market-detail/social-media-links.png') }}"
-                                                    alt="city">
+                                                    alt="city" style="width:55px">
+</div>
                                             </div>
                                             <div class="col-md-9">
                                                 <h4 class="title">Social Media Links</h4>

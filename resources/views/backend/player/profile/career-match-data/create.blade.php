@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+                 <h3 class="text-center">Add Career Match </h3>
                 <form method="POST" action="/player/career-match-data">
                     @csrf
                     <div class="mb-3">

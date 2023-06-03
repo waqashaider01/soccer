@@ -779,24 +779,22 @@
                 @endforeach
 
                 <!--agent-card-->
-                {{-- <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <nav aria-label="navigation">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item disabled">
-                                    <a class="page-link previous"><i class="fas fa-chevron-left"></i> Previous</a>
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled text-white mx-2">
+                                    <a class="page-link previous text-white"><i class="fas fa-chevron-left text-white"></i><span class="text-white mx-2">Previous</span></a>
                                 </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next" href="#">Next <i class="fas fa-chevron-right"></i></a>
+                                
+                                <li class="page-item mx-2">
+                                    <a class="page-link next" href="#"> <span class="mx-3">Next</span> <i class="fas fa-chevron-right"></i></a>
                                 </li>
                             </ul>
                         </nav>
                         <!--pagination end-->
                     </div>
-                </div> --}}
+                </div>  
             </div>
             <!--market-list end-->
         </div>

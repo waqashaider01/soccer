@@ -74,6 +74,8 @@
                 <h6>Copy your invite link and share it with your Friends.</h6>
 
             <div class="row">
+                
+
                 <div class="col-md-3 col-sm-4">
                     <div class="card info">
                         <div class="card-body">
@@ -95,7 +97,7 @@
                     </div>{{-- info-card end --}}
                 </div>
 
-                <div class="col-md-3 col-sm-4">
+                <div class="col-md-2 col-sm-4">
                     <div class="card info">
                         <div class="card-body">
                             <div class="row gx-3">
@@ -118,7 +120,7 @@
                         </div>
                     </div>{{-- info-card end --}}
                 </div>
-                <div class="col-md-3 col-sm-4">
+                <div class="col-md-2 col-sm-4">
                     <div class="card info">
                         <div class="card-body">
                             <div class="row gx-3">
@@ -138,7 +140,7 @@
                         </div>
                     </div>{{-- info-card end --}}
                 </div>
-                <div class="col-md-3 col-sm-4">
+                <div class="col-md-2 col-sm-4">
                     <div class="card info">
                         <div class="card-body">
                             <div class="row gx-3">
@@ -161,6 +163,29 @@
                         </div>
                     </div>{{-- info-card end --}}
                 </div>
+
+                <div class="col-md-2 col-sm-4">
+                    <div class="card info">
+                        <div class="card-body">
+                            <div class="row gx-3">
+                                <!-- <div class="col-2 mt-3">
+                                    <div class="icon favorites-icon">
+                                        <i class="fa-solid fa-dollar-sign" style="color:green;"></i>
+                                    </div>
+                                </div> -->
+
+                                <div class="col-12">
+                                    <div class="text">
+                                        
+                                        <h5 class="title">0</h5>
+                                        <p class="description">Point</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>{{-- info-card end --}}
+                </div>
+                <div class="col-md-1"></div>
                 <section class="intro">
                     <div class="bg-image h-100" style="background-color: #f5f7fa;">
                         <div class="mask d-flex align-items-center h-100">

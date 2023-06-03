@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <form method="POST" action="/player/transfer-history">
+                    <h3 class="text-center">Transfer History</h3>
                     @csrf
                     <div class="mb-3">
                         <label for="transferDate" class="form-label">Transfer Date *</label>

@@ -5,7 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+
                 <form method="POST" action="/player/career-match-data/{{ $PlayerCareerMatchData->id }}">
+                    <h3 class="text-center">Edit Career Match </h3>
                     @csrf
                     @method("PUT")
                     <div class="mb-3">

@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <form method="POST" action="{{url('player/transfer-history/' .$PlayerTransferHistory->id)}}">
+                         <h3 class="text-center"> Edit Transfer History</h3>
                     @csrf
                     @method("PUT")
                     <div class="mb-3">

@@ -319,7 +319,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mt-3 mt-md-0">
-                        <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
+                        <img src="{{ asset('images/categories/clubs1.png') }}" class="w-100" alt="players">
                     </div>
                 </div>
             </div>
@@ -328,7 +328,7 @@
             <div class="container">
                 <div class="row flex-column-reverse  flex-md-row">
                     <div class="col-md-6  mt-3 mt-md-0">
-                        <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
+                        <img src="{{ asset('images/categories/clubs2.png') }}" alt="players">
                     </div>
                     <div class="col-md-6 ">
                         <div class="content">
@@ -366,7 +366,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mt-3 mt-md-0">
-                        <img src="{{ asset('images/categories/clubs.jpg') }}" alt="players">
+                        <img src="{{ asset('images/categories/clubs3.png') }}" alt="players">
                     </div>
                 </div>
             </div>

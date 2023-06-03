@@ -17,11 +17,43 @@
                     <h5 class="modal-title" id="readModalLabel">Notification</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vero eum qui doloremque tempore odio
-                        aperiam veritatis nesciunt harum sapiente.</p>
-                    <small><b>5 hours, 50 minutes ago</b></small>
+                 <div class="modal-body">
+
+
+                <div class="notification-profile-main  pb-2">
+                   <div class="d-flex">
+                      <div>
+                        <div styl
+e="border-radius:100px;border:1px solid black; width:50px;height:50px" class="p-2">
+                            <img src="{{ asset('images/market-detail/posted-by.png') }}" alt="city" style="width:40px">
+                        </div>
+              
+      </div>
+                    <div class="mx-2">
+                        <p class="p-0 mt-0 mb-0"><strong>Reborta Array</strong> to me</p>
+               
+         <p>tus 5 juan 25 at 6:30 PM</p>
+
+                    </div>
+
+                   </div>
+                   <div>
+              
+
+                    <button type="button" class="btn  btn-lg" style="background-color:#c3c6d1; border-radius:3px padding-left:20px;padding-right:20px">      <i class="fa-solid fa-reply text-success"></i></button>
+                   </div>
+
                 </div>
+
+                <div class="notification-line">
+
+                </div>
+                <p>Hi Team!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vero eum qui doloremque tempore odio
+                    aperiam veritatis nesciunt harum sapiente.</p>
+                <p>Thank You</p>
+                <small><b>5 hours, 50 minutes ago</b></small>
+            </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-primary">Mark as Read</button>

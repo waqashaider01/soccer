@@ -895,8 +895,11 @@ width:40px
                                             </tr>
                                         @endif
 
+
+                                        <th>Total:0</th>
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
@@ -978,7 +981,7 @@ width:40px
                                                 </tr>
                                             @endif
 
-
+   <th>Total:0</th>
                                         </tbody>
                                     </table>
                                 </div>
@@ -1056,6 +1059,7 @@ width:40px
                                                 </tr>
                                             @endif
 
+                                               <th>Total:0</th>
                                         </tbody>
                                     </table>
                                 </div>
@@ -1134,6 +1138,7 @@ width:40px
                                                 </tr>
                                             @endif
 
+                                               <th>Total:0</th>
                                         </tbody>
                                     </table>
                                 </div>
@@ -1306,8 +1311,7 @@ width:40px
                                                 <img id="image5" src="{{ asset($player->media_img5) }}" class="img-thumbnail">
                                             </div>
                                         @endif
-                                    </div>
-
+                                    </div> 
                                 </div>
                             </div>
                         </div>

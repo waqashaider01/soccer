@@ -44,51 +44,70 @@
     <div class="dropdown-menu dropdown-menu-end">
 
         <a class="dropdown-item" href="{{ route('change-language', '1') }}">
-            English
+        <img style="width: 40px; height:25px;" src="{{ asset('images/flags/United States.png') }}" alt="">
+                
+       <span class="mx-2">English</span>
+       
             @if (session('googtrans') == '1')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/United States.png') }}" alt="">
             
         </a>
+        <div style="width:100%;height:1px;border:1px dashed #D5D6D8"></div>
 
-        <a class="dropdown-item" href="{{ route('change-language', '2') }}">Spanish
+        <a class="dropdown-item" href="{{ route('change-language', '2') }}">
+            <img style="width: 40px; height:25px;" src="{{ asset('images/flags/Spain.png') }}" alt="">
+
+        <span class="mx-2">Spanish</span>
             @if (session('googtrans') == '2')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/Spain.png') }}" alt="">
             
         </a>
+        <div style="width:100%;height:1px;border:1px dashed #D5D6D8"></div>
 
-        <a class="dropdown-item" href="{{ route('change-language', '3') }}">Portuguese
+        <a class="dropdown-item" href="{{ route('change-language', '3') }}">
+            <img style="width: 40px; height:25px;" src="{{ asset('images/flags/Portugal.png') }}" alt="">
+
+        <span class="mx-2">
+            Portuguese
+        </span>
             @if (session('googtrans') == '3')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/Portugal.png') }}" alt="">
             
         </a>
+        <div style="width:100%;height:1px;border:1px dashed #D5D6D8"></div>
 
-        <a class="dropdown-item" href="{{ route('change-language', '4') }}">German
+        <a class="dropdown-item" href="{{ route('change-language', '4') }}">
+            <img style="width: 40px; height:25px;" src="{{ asset('images/flags/Germany.png') }}" alt="">
+
+        <span class="mx-2 border">German</span>
             @if (session('googtrans') == '4')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/Germany.png') }}" alt="">
             
         </a>
+        <div style="width:100%;height:1px;border:1px dashed #D5D6D8"></div>
 
-        <a class="dropdown-item" href="{{ route('change-language', '5') }}">French
+        <a class="dropdown-item" href="{{ route('change-language', '5') }}">
+            <img style="width: 40px; height:25px;" src="{{ asset('images/flags/France.png') }}" alt="">
+
+        <span class="mx-2">French</span>
             @if (session('googtrans') == '5')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/France.png') }}" alt="">
             
         </a>
+        <div style="width:100%;height:1px;border:1px dashed #D5D6D8"></div>
 
-        <a class="dropdown-item" href="{{ route('change-language', '6') }}">Italian
+        <a class="dropdown-item" href="{{ route('change-language', '6') }}">
+            <img style="width: 40px; height:25px;" src="{{ asset('images/flags/Italy.png') }}" alt="">
+
+        <span class="mx-2">Italian</span>
             @if (session('googtrans') == '6')
                 <i class="fas fa-check"></i>
             @endif
-            <img style="width: 50px; height:30px;" src="{{ asset('images/flags/Italy.png') }}" alt="">
             
         </a>
     </div>

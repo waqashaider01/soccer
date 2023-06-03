@@ -21,11 +21,6 @@
             <div class="col-lg-8 mx-auto">
                 <section class="common__information">
 
-
-
-                
-                    
-                
                     <p class="cus">
                         {{-- {!!$privacy!!} --}}
                     </p>
@@ -36,10 +31,7 @@
 
                     Last updated:{!! htmlspecialchars_decode($date) !!}.
                     </p>
-
-
                 </section>
-
             </div>
         </div>
     </div>
