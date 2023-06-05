@@ -1,6 +1,6 @@
 .players-profile-hero {
-    height: 450px;
-    /* background-image: url(/images/players/players-hero.png); */
+    height: 320px;
+    background-image: url(/images/players/player-banner.jpg) !important;
     background-size: cover;
     background-position: -100px;
 }
@@ -10,13 +10,13 @@
     object-fit: cover;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     opacity: 70%;
     z-index: -1;
 }
 
 .players-profile {
-    margin-top: -240px;
+    /* margin-top: -240px; */
     font-family: sans-serif;
     margin-bottom: 20px;
     z-index: inherit;
@@ -24,9 +24,9 @@
 
 /* players-profile */
 .players-profile .profile {
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 20px 30px 10px 30px;
-    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    /* box-shadow: 0 0 10px rgb(0 0 0 / 20%); */
 }
 .players-profile .profile .dp {
     width: 100%;
@@ -37,7 +37,7 @@
     height: 240px;
     margin: 0px auto;
     position: relative;
-    bottom: 100px;
+    bottom: 150px;
 }
 .players-profile .profile .dp .img img {
     width: 100%;
@@ -75,14 +75,24 @@
     font-weight: 600;
     font-family: "Oswald";
 }
-.players-profile .data .heading {
-    font-size: 18px;
+.player-title{
+       color: #777;
+    font-size: 20px;
     font-weight: 600;
     font-family: "Oswald";
 }
+.players-profile .data .heading {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Oswald";
+}
+.player-spans{
+    font-size: 12px;
+}
 .players-profile .profile .dp .meta {
     position: absolute;
-    bottom: 30px;
+    bottom: 80px;
+    left:30px
 }
 
 .players-profile .profile .meta span {
@@ -165,6 +175,8 @@
 /* player-detail styles */
 .chartBox {
     height: 300px;
+    display: flex;
+    justify-content: center;
 }
 .chartBox canvas {
     height: 100% !important;

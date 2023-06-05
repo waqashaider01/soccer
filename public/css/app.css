@@ -452,8 +452,8 @@ h6,
 }
 
 hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    /* margin-top: 1rem; */
+    /* margin-bottom: 1rem; */
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -16280,14 +16280,14 @@ body {
   padding-right: 0px !important;
 } */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     .container-lg,
     .container-md,
     .container-sm,
     .container {
         max-width: 1300px !important;
     }
-}
+} */
 
 .dropdown {
     display: flex;

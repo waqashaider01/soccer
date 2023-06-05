@@ -302,11 +302,11 @@
         <div class="main-heading">
             <h2>Why SoccerWorldLink?</h2>
         </div>
-        <section class="simplicity section">
+        <section class="container simplicity section">
             <div class="container">
                 <div class="row">
                     <!-- offset-1 -->
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 px-5">
                         <div class="content">
                             <h1>Simplicity</h1>
                             <p>
@@ -349,8 +349,8 @@
         </section>{{-- convinience end --}}
         <section class="savings section my-4">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row py-5">
+                    <div class="col-md-6 px-5">
                         <div class="content">
                             <h1>Big Savings</h1>
                             <b>Save Time and Money </b>

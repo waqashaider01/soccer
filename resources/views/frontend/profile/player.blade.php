@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="{{ asset('css/profile/player.css') }}">
     <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">   
+</head>
     <style>
         #main-tag {
             cursor: pointer;
@@ -16,11 +17,11 @@
 
         .players-profile-hero .img-cover img {
             width: 100%;
-            height: 12% !important;
+            /* height: 12% !important; */
             object-fit: cover;
             position: absolute;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            /* background-color: rgba(0, 0, 0, 0.5); */
             opacity: 70%;
             z-index: -1;
         }
@@ -174,7 +175,7 @@
    }
 
    .flage-size-player{
-width:40px
+width:30px
    }
     </style>
 
@@ -211,21 +212,25 @@ width:40px
                 <div class="img img-cover">
                     <img src="{{$player && $player != null && $player->cover_img!=null?asset($player->cover_img):'https://www.shutterstock.com/image-photo/romanian-royal-flag-time-king-ferdinand-2207251177'}}" alt="No image">
                 </div>
+               
             </section>
         </section>
         
-        <div class="container">
+        <div class="container-fluid px-3 px-md-5">
             <div class="players-profile">
                 <div class="profile">
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col-md-6 col-lg-3">
                             
                             <div class="dp">
                                 <div class="img">
                                     <img src="{{$player && $player!=null ? asset($player->profile_img) : 'https://www.shutterstock.com/image-photo/romanian-royal-flag-time-king-ferdinand-2207251177'}}" alt="">
 
+
+                                     <i class="fa-regular fa-bookmark float-end" style="font-size:30px; position:absolute;bottom:5px; right:10px"></i>
                                 </div>
-                                <div class="d-flex meta " >
+                                 
+                                                            <div class="d-flex meta " >
                                     <div class="mx-2">
                                         <span>Views</span><br>
                                         <span>{{ isset($player['reads']) && !empty($player['reads']) ? $player['reads'] : 'N/A' }}</span>
@@ -251,7 +256,7 @@ width:40px
                         </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-2">
+                        <div class="col-md-6 col-lg-2 ">
                             <ul class="data">
 
                                 <li class="firstname">{{ isset($name[0]) ? $name[0] : '' }}</li>
@@ -261,14 +266,14 @@ width:40px
                                     @endif
                                 </li>
 
-                                <li><span class="player-title">Player</span></li>
+                                
                                 <li>
-                                    <div class="row">
-                                        <div class="col-md-8">
+                                    <div class="row p-0 m-0">
+                                        <div class="col-md-8 p-0 m-0">
                                             <span class="heading">Date Of Birth: </span><br>
                                             <span class="text">{{ $player && $player!=null?$player->dob:'' }}</span>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 p-0 m-0">
                                             @php
                                                 $age = null;
                                                 if(isset($player) && !empty($player->dob)) {
@@ -293,24 +298,29 @@ width:40px
                             </ul>
                         </div>
 
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-12 col-lg-3">
+                            <div class="row py-3">
+                                <div class="col-12 d-flex justify-content-center"   >
+                                    <span class="player-title">Player</span>
+                                </div>
+                            </div>
                             <ul class="data">
                                 <li>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                    <div class="row p-0 m-0">
+                                        <div class="col-md-8">
                                             <span class="heading">Place Of Birth: </span><br>
                                             <span class="text">
                                               @if(isset($cities) && $cities != null && isset($player) && isset($player->birth_city))
                                                     @foreach ($cities as $city)
                                                         @if ($player->birth_city == $city->id)
-                                                            <h5>{{ $city->name }}</h5>
+                                                            <span class="player-spans">{{ $city->name }}</span>
                                                         @endif
                                                     @endforeach
                                                 @endif
                                                 @if(isset($countries) && $countries != null && isset($player) && isset($player->birth_country))
                                                     @foreach ($countries as $country)
                                                         @if ($player->birth_country == $country->id)
-                                                            <h5>{{ $country->name }}</h5>
+                                                            <span class="player-spans">{{ $country->name }}</span>
                                                         @endif
                                                     @endforeach
                                                 @endif
@@ -321,10 +331,10 @@ width:40px
 
                                                 </span>
                                             <br>
-                                            <div class="row">
-                                                <div class="col-md-6 height">
+                                            <div class="row p-0 m-0">
+                                                <div class="col-md-6 p-0 m-0 height">
                                                     <span class="heading">Height</span><br>
-                                                    <span class="text">
+                                                    <span class="text  player-spans">
                                                         @if(isset($player) && isset($player->height))
                                                             {{ $player->height}}cm /
                                                             {{ floor($player->height / 12)}}ft
@@ -332,9 +342,9 @@ width:40px
                                                         @endif
                                                     </span>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-6 p-0 m-0">
                                                     <span class="heading">Weight</span><br>
-                                                    <span class="text">
+                                                    <span class="text player-spans">
                                                         @if(isset($player) && isset($player->weight))
                                                             {{ $player->weight}} /
                                                             {{round($player->weight / 0.45359237)}}kg
@@ -345,9 +355,9 @@ width:40px
 
 
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 p-0 m-0">
                                             <span class="heading">Citizenship</span><br>
-                                            <span class="text">
+                                            <span class="text player-spans">
                                                 @if (isset($countries) && is_object($player))
                                                     @foreach ($countries as $country)
                                                         {{ ($player->citizenship_country == $country->id) ? $country->name : '' }}
@@ -360,14 +370,14 @@ width:40px
 
 
                                             <br>
-                                            <div class="row">
-                                                <div class="col-md-12">
+                                            <div class="row p-0 m-0">
+                                                <div class="col-md-12 p-0 m-0">
                                                     <div class="current-market-value">
-                                                        <span class="heading">Market <br> Value</span><br>
+                                                        <span class="heading">Market  Value</span><br>
                                                         @if (isset($player) && isset($player->current_market_value))
-                                                            <span class="description">${{ $player->current_market_value }}</span>
+                                                            <span class="description player-spans">${{ $player->current_market_value }}</span>
                                                         @else
-                                                            <span class="description">N/A</span>
+                                                            <span class="description player-spans">N/A</span>
                                                         @endif
                                                     </div>
 
@@ -398,6 +408,8 @@ width:40px
                                 "></i>
 
                                 </div>
+                                   <span class="title text-center"><strong>Alternative Position:</strong> <br>
+                                Right-Center</span>
 
                             </div>
                         </div>
@@ -406,7 +418,7 @@ width:40px
                           $urlid = request()->route('id');
                         @endphp
                         @if($urlid!=Auth::id())
-                          <div class="col-md-2">
+                          <div class="col-md-6 col-lg-2">
                             <div class="dropdown">
                                 @php
                                     $k = 0;
@@ -516,7 +528,7 @@ width:40px
                                 </div>
                                 <div class="col-md-6">
                                     <div>
-                                        <span class="title"><strong>Alternative Position:</strong> <br></span>
+                                        <!-- <span class="title"><strong>Alternative Position:</strong> <br></span> -->
                                         
                                     </div>
                                 </div>
@@ -539,31 +551,31 @@ width:40px
                     <hr>
                     <div class="about px-3">
                         <div class="d-lg-flex justify-content-between" style=" padding: 10px 0;">
-                            <span class="heading "><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-detail">
+                            <span class="heading "><a class="btn mt-2 mt-lg-0" href="#player-detail" >
                                     Player Details
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#attributes-rating">
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#attributes-rating" style="border-left:2px solid #E6E6E6">
                                     Attributes Rating
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#transfer-history">
+                            <span class="heading"><a class="btn  mt-2 mt-lg-0" href="#transfer-history" style="border-left:2px solid #E6E6E6">
                                     Transfer History
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#career-match-data">
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#career-match-data" style="border-left:2px solid #E6E6E6">
                                     Career Match Data
                                 </a></span>
  
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-achievements">
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#player-achievements" style="border-left:2px solid #E6E6E6">
                                     Player Achievements
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#next-match-schedule">
+                            <span class="heading"><a class="btn mt-2 mt-lg-0" href="#next-match-schedule" style="border-left:2px solid #E6E6E6">
                                     Next Match Schedule
                                 </a></span>
 
-                            <span class="heading"><a class="btn btn-outline-dark mt-2 mt-lg-0" href="#player-media">
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#player-media" style="border-left:2px solid #E6E6E6">
                                     Player Media
                                 </a></span>
                         </div>

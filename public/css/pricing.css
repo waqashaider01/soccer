@@ -154,7 +154,7 @@
     border: 1px solid #ddd;
     padding: 10px 5px;
     font-family: sans-serif;
-    height: 140px;
+    height: 170px;
 }
 .premium-card .plan .content {
     height: 60%;
@@ -163,9 +163,9 @@
     height: 40%;
 }
 .premium-card .plan p {
-    font-size: 12px;
+    font-size: 11px;
     margin-bottom: 5px;
-    color: #555;
+    color:#b4b4b4;
 }
 .premium-card .plan b {
     font-size: 12px;

@@ -77,10 +77,10 @@
                                 <h1>US 25$/Month</h1>
                                 <p><b>or</b></p>
 
-                                <p><b>100$ when billed annually</b></p>
+                                <p><b>$10/month when billed annually</b></p>
                                 <div class="row no-gutters">
                                     @foreach ($pricing as $pricing)
-                                        <div class="col-md-6 col-lg-3 mt-3 mt-lg-0">
+                                        <div class="col-md-6 col-lg-3 mt-3 my-lg-3">
                                             <div class="plan">
                                                 <div class="content" style="margin-bottom:13px;">
                                                     <p>{{ $pricing->duration }} month Subscription</p>
@@ -109,8 +109,8 @@
                     </div>{{-- premium-card end --}}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6" id="fh1"> 
+            <div class="row d-flex justify-content-between mt-3 mt-md-4">
+                <div class="col-md-5"  id="fh1"> 
                     <h5 class="features-heading ps-5 ps-sm-0 text-left text-sm-center">Features</h5>
                     <div class="pricingTable">
                         <ul class="pricing-content">
@@ -126,7 +126,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6" id="fh2">
+                <div class="col-md-5" id="fh2">
                     <h5 class="features-heading ps-5 ps-sm-0 text-left text-sm-center" id="fhh">Features</h5>
                     <div class="pricingTable">
                         <ul class="pricing-content">
@@ -137,7 +137,8 @@
                             <li>&nbsp;Unlimited market applications</li>
                             <li>&nbsp;Unlimited messages</li>
                             <li>&nbsp;Unlimited market posts</li>
-                            <li>&nbsp;Favorites List <i class="fa fa-heart" style="font-size:20px;color:red"></i></li>
+                            <li>&nbsp;Favorites List </li>
+                            <!-- <i class="fa fa-heart" style="font-size:20px;color:red"></i> -->
                             <li>&nbsp;See who viewed your profile</li>
                             <li>&nbsp;Reward points</li>
                             <li>&nbsp;Targeted email promotion</li>
