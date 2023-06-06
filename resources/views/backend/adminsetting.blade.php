@@ -43,7 +43,7 @@
                 </button>
                 <button class="nav-link" id="nav-blocked-users" data-bs-toggle="tab" data-bs-target="#blocked-users"
                     type="button" aria-selected="true">
-                    <i class="far fa-edit"></i> Block Users
+                    <i class="far fa-edit"></i> Blocked Users
                 </button>
                 {{-- <button class="nav-link" id="nav-verification" data-bs-toggle="tab" data-bs-target="#verification"
                     type="button" aria-selected="true">

@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"
         integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+ 
 
 @endpush
 @section('content')
@@ -36,14 +36,16 @@
                     type="button" aria-selected="true">
                     <i class="fas fa-user-plus"></i> Favourites
                 </button>
-                <button class="nav-link" id="nav-following-tab" data-bs-toggle="tab" data-bs-target="#nav-following"
+                <button class="nav-link position-relative" id="nav-following-tab" data-bs-toggle="tab" data-bs-target="#nav-following"
                     type="button" aria-selected="false">
                     <i class="fas fa-user-friends"></i> Following
+                     <span style="position:absolute;top:-5px;left:100px">02</span>
                 </button>
 
-                <button class="nav-link " id="nav-followers-tab" data-bs-toggle="tab" data-bs-target="#nav-followers"
+                <button class="nav-link position-relative" id="nav-followers-tab" data-bs-toggle="tab" data-bs-target="#nav-followers"
                     type="button" aria-selected="true">
                     <i class="fas fa-user-plus"></i> Followers
+                    <span style="position:absolute;top:-5px;left:100px">09</span>
                 </button>
 
             </div>

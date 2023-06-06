@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
 @push('styles')
+
     <link rel="stylesheet" href="{{ asset('css/profile/agent.css') }}">
     <style>
         .players-portfolio .players-card {
@@ -24,7 +25,7 @@
                 {{-- <img src="{{ asset(strtolower($agent->cover_img)) }}" alt="{{ $agent->cover_image }}"> --}}
             </div>
         </section>
-        <div class="container">
+        <div class="container-fluid px-3 px-md-5">
             <div class="agents-profile">
                 <div class="profile">
                     <div class="row">
@@ -32,40 +33,91 @@
                             <div class="dp">
                                 <div class="img">
                                     <img src="{{ asset(strtolower($agent->profile_img)) }}" alt="{{ $agent->user->name }}">
-                                </div>
-                                <div class="row meta">
-                                    <div class="col-md-4">
+                                     <i class="fa-regular fa-bookmark float-end" style="font-size:30px; position:absolute;bottom:5px; right:10px"></i>
+                               
+                                <div class="d-flex justify-content-between meta my-4">
+                                    <div class=" ">
                                         <span>Views</span><br>
-                                        <span>{{ $agent->reads ?? '' }}</span>
+                                       <span>{{ $agent->reads ?? '' }}</span>
                                     </div>
-                                    <div class="col-md-4">
-                                        <span>Follwers</span><br>
+                                    <div class=" ">
+                                       <span>Follwers</span><br>
                                         <span>{{ $count1 = \DB::table('followers')->where('following', '=', $id)->count() }}</span>
                                     </div>
-                                    <div class="col-md-4">
+                                   <div class=" ">
                                         <span>Following</span><br>
                                         <span>{{ $count1 = \DB::table('followers')->where('follower', '=', $id)->count() }}</span>
-                                    </div>
+                                   </div>
                                 </div>
+                                    </div>
+                               
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <ul class="data">
-                                <li class="firstname">{{ $name[0] }}</li>
+                        <div class="col-md-7">
+                          <div class="row">
+                              <div class="col-md-4">
+                                <ul class="data">
+                                <li lass="firstname">{{ $name[0] }}</li>
                                 <li class="lastname">{{ $name[1] }} <span><i
                                             class="fas fa-check-circle"></i>Verified</span>
-                                </li>
-                                <li>Nationality: {{ $agent->nationality }} <img
+                               </li>
+                                <li>Nationality: <br> {{ $agent->nationality }}  <img
                                         src="{{ asset('images/flags/' . $agent->nationality . '.png') }}"
-                                        class="country-flag"></li>
-                                <li>Profile Link: <a href="#">Click Here</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="agent-type">
-                                <h4>Intermediary</h4>
+                                       class="country-flag"></li>
+                             
+                                </ul>
+    
                             </div>
+                                <di class="col-md-8">
+                           <div class="agent-type">
+                                <h4 class="text-center">Intermediary</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 p-0 m-0">
+       <p><strong>Clubs Name</strong></p>
+       <p><strong class="d-flex">Pluz 11 FC,Madrid,Pakistan <img
+                                       src="{{ asset('./images/flags/Pakistan.png') }}"
+                                       class="country-flag pakistan-flags"></strong></p>
+
+
+                                </div>
+
+                                  <div class="col-md-6">
+                             Profile Link: <br> <a href="#" class="text-danger">https://http://127.0.0.1:8000/agent</a> 
+                                 </div>
+
+                            </div>
+
+                          </div>
+                        </di>
+
+                    <div class="col-md-12 p-0 m-0">
+                         <div class="about">
+                            <div class="d-flex flex-column">
+                              
+                                    <div class="">
+                                <strong>    About Me</strong>
+                            
+                            </div>
+                            
+                                <div class="descriptio">
+                                  <p style="font-weight:550">  sdfhsdjgsdhghasdfjas asdfbasjf sdfajfas dfashdfa sdfbasdfasdfhasf asdfasdfas fasdfasfd asdfadf afdasfa fasdfiasdf as,dfiadasdf FkifS Fsfusdf as dfa AAMIR S0HAil.
+
+
+
+                                  {{ $agent->about_me }}
+                                  </p>
+
+                            
+                                </div>
+                        
                         </div>
+                        </div>
+    
+                    </div>
+                        </div>
+                    
 
                         <div class="col-md-2">
                             <div class="dropdown">
@@ -119,24 +171,38 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="about">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <div class="title">
-                                    About Me
-                                </div>
-                            </div>
-                            <div class="col-md-11">
-                                <div class="description">
-                                    {{ $agent->about_me }}
-                                </div>
-                            </div>
+                                <div class="about px-3">
+                        <div class="d-lg-flex justify-content-between" style=" padding: 10px 0;">
+                            
+
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#contryoperation" style="border-left:2px solid #E6E6E6">
+                                Countries of Oprtaion
+                                </a></span>
+
+                            <span class="heading"><a class="btn  mt-2 mt-lg-0" href="#player-protfolio" style="border-left:2px solid #E6E6E6">
+                                    players portfolio
+                                </a></span>
+
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#transfer-history" style="border-left:2px solid #E6E6E6">
+                                Transfer History
+                                </a></span>
+ 
+                            <span class="heading"><a class="btn   mt-2 mt-lg-0" href="#agentAchievements" style="border-left:2px solid #E6E6E6">
+                                    Achievements
+                                </a></span>
+
+                            <span class="heading"><a class="btn mt-2 mt-lg-0" href="#CONTACTINFORMATION" style="border-left:2px solid #E6E6E6">
+                                  Contact Information
+                                </a></span>
+
+                          
                         </div>
                     </div>
+                   
                 </div>
-                <div class="countries-of-operation">
+                <div class="countries-of-operation" id="contryoperation">
                     <div class="gray-heading">
-                        <h3>Countries of Operation</h3>
+                        <h3 class="">Countries of Operation</h3>
                     </div>
                     <div class="content">
                         <div class="row">
@@ -151,7 +217,7 @@
                         </div>
                     </div>
                 </div>{{-- countries-of-operation end --}}
-                <div class="players-portfolio">
+                <div class="players-portfolio" id="player-protfolio">
                     <div class="gray-heading">
                         <h3>players portfolio</h3>
                     </div>
@@ -159,8 +225,8 @@
                         <div class="players-card">
                             <div class="row top">
                                 @foreach ($playersPortfolio as $portfolio)
-                                    <div class="card col-3 py-2">
-                                        <img class="card-img-top w-50 align-self-center" src="{{ asset($portfolio->profile_img) }}"
+                                    <div class="card col-md-4 col-lg-3 py-3">
+                                        <img class="card-img-top w-25 align-self-center" src="{{ asset($portfolio->profile_img) }}"
                                             alt="{{ $portfolio->player->name }}">
                                         <div class="card-body">
 
@@ -200,11 +266,11 @@
                         </div>
                     @endif
                 </div>{{-- palyers-portfolio end --}}
-                <div class="transfer-history">
+                <div class="transfer-history" id="transfer-history">
                     <div class="gray-heading">
                         <h3>Transfer history</h3>
                     </div>
-                    <div class="content">
+                    <div class="content table-responsive">
                         @if (count($transferHistory) > 0)
                             <table class="table">
                                 <thead>
@@ -241,7 +307,7 @@
                     <h4 class="title">
                         Achievements
                     </h4>
-                    <div class="achievements">
+                    <div class="achievements" id="agentAchievements">
                         <h4 class="total">Total <span>({{ count($achievements) }})</span></h4>
                         @if (count($achievements) > 0)
                             @foreach ($achievements as $achievement)
@@ -281,7 +347,7 @@
                 <div class="gray-heading">
                     <h3>Contact Information</h3>
                 </div>
-                <div class="contact-info">
+                <div class="contact-info" id="CONTACTINFORMATION">
                     <div class="content">
                         <div class="row">
                             <div class="col-md-6">

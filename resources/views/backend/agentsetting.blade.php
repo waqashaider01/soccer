@@ -75,7 +75,7 @@
                 </button>
                 <button class="nav-link" id="nav" data-bs-toggle="tab" data-bs-target="#blockedUsers" type="button"
                     aria-selected="true">
-                    <i class="far fa-edit"></i> Block Users
+                    <i class="far fa-edit"></i> Blocked Users
                 </button>
                 <button class="nav-link   myButton" id="nav-compo" data-bs-toggle="tab" data-bs-target="#nav-verification"
                     type="button" aria-selected="true">
