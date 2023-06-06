@@ -146,7 +146,7 @@
                             <div class="row gx-3">
                                 <div class="col-2 mt-3">
                                     <div class="icon favorites-icon">
-                                        <i class="fa-solid fa-dollar-sign" style="color:green;"></i>
+                                        <!-- <i class="fa-solid fa-dollar-sign" style="color:green;"></i> -->
                                     </div>
                                 </div>
 

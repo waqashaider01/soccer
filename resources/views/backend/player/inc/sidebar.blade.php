@@ -50,12 +50,15 @@
                         // dd($views);
                     @endphp
                     {{-- @dd($views->profile_img); --}}
+                    
+                        <img src="{{asset('./images/profile.jpg')}}" class="avatar me-1" alt="Charles Hall">
                     {{-- @if(isset($views))
+                    
                         <img src="{{ asset('') }}{{ $views->profile_img ?? '' }}" />
                     @endif --}}
                     <h4 class="name w_color mt-3">{{ Auth::user()->name }} ({{ Auth::user()->type }})</h4>
                     <p><a href="{{ url('players/' . Auth::user()->id . '/profile') }}"
-                        class="verify-account b_color">View Public Profile</a></p>
+                        class="verify-account w_color">View Public Profile</a></p>
                     <p><a href="{{ route('verify-account', ['id' => Auth::user()->id]) }}"
                             class="verify-account w_color">Verify Your Account</a></p>
                 </div>

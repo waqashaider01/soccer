@@ -42,9 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="/blog">Blog</a>
                 </li>
-                 <li class="nav-item">
+                 <!-- <li class="nav-item">
                     <a class="nav-link {{ Request::is('favorite') ? 'active' : '' }}" href="/favorite">Favorites</a>
-                </li>
+                </li> -->
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
@@ -57,6 +57,10 @@
                         </li>
                     @endif
                 @else
+                 <li class="nav-item">
+                    <a class="nav-link {{ Request::is('favorite') ? 'active' : '' }}" href="/favorite">Favorites</a>
+                
+</li>
                     <li class="nav-item dropdown">
                         <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                             <i class="align-middle" data-feather="settings"></i>
