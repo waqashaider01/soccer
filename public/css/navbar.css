@@ -33,7 +33,7 @@
     top: 0;
     transition: 0.32s;
     background-color: #185abc !important;
-    height: 50px;
+    /* height: 50px; */
     z-index: 99;
 }
 .sticky-nav .navbar-brand img {
@@ -83,9 +83,9 @@ nav a {
     object-fit: cover;
     margin-top: -7px;
 }
-.navbar .container {
+/* .navbar .container {
     height: 100%;
-}
+} */
 .dropdown-item {
     color: #000 !important;
 }
