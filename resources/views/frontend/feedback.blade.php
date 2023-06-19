@@ -10,7 +10,7 @@
 <div class="container-fluid">
 <div class="row">
     <div class="col-10 py-5 mx-auto">
-            <div class="text-center  mb-2" style="border-bottom:1px solid red; font-size:24px">
+            <div class="text-center  mb-2" style="border-bottom:1px solid black; font-size:24px">
                 <h1>FEED BACK</h1>
                 <p>Please leave a comment/suggestion to help us serve you better.</p>
             </div>

@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-10 py-5 mx-auto">
-            <div class="text-center mb-2" style="border-bottom:1px solid red">
+            <div class="text-center mb-2" style="border-bottom:1px solid black">
                 <h1>PRESS</h1>
             </div>
             <div class="row">

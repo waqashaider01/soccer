@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="mb-3 d-flex justify-content-end">
-    <a href="{{url('player/next-match-schedule/create')}} class="btn add-btn">
+    <a href="{{url('player/next-match-schedule/create')}}" class="btn add-btn">
         <i class="fas fa-plus-square"></i>Add Next Match
     </a>
 </div>

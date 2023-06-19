@@ -224,7 +224,7 @@
                         </div>
                     </div>
                     <h6 class="text-center">OR</h6>
-                    <h2 class="text-center">Connect With</h2>
+                    <h3 class="text-center">Connect With</h2>
                     <div class="row mb-3">
                         <div class="col-md-6 ">
                             <!--<a href="{{ route('login.google') }}" class="btn btn-danger btn-block">Login with-->

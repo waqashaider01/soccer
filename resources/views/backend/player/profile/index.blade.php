@@ -145,11 +145,8 @@
         <div class="tab-pane fade" id="nav-attributes" role="tabpanel">
             @include('backend.player.profile.attributes.index')
             </div>
-            
-        </div>
 
-
-        <div class="tab-pane fade" id="nav-next_match_schedule" role="tabpanel">
+             <div class="tab-pane fade" id="nav-next_match_schedule" role="tabpanel">
             @include('backend.player.profile.next-match-schedule.index')
         </div>
 
@@ -160,6 +157,11 @@
         <div class="tab-pane fade" id="nav-cv" role="tabpanel">
             @include('backend.player.profile.cv.index')
         </div>
+            
+        </div>
+
+
+       
     </div>
     @endsection
     @push('scripts')

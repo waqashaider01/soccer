@@ -7,6 +7,9 @@
         body {
             font-family: "Oswald", sans-serif;
         }
+        .common__information p{
+            text-align: justify !important;
+        }
     </style>
 @endpush
 @section('content')
